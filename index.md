@@ -10,4 +10,4 @@ My [CV](https://github.com/ythaworn)
 * [`snpplet`](https://github.com/ythaworn/snpplet): [Nextflow](https://www.nextflow.io/) pipeline for short variant calling (SNPs) from paired-end short-read genome sequencing data
 
 ## Misc
-* [Tensorflow tutorial (2016)](https://www.homepages.ucl.ac.uk/~zcbtfu5/)
+* [TensorFlow tutorial (2016)](https://www.homepages.ucl.ac.uk/~zcbtfu5/)
