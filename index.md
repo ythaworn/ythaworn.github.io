@@ -15,10 +15,12 @@
 
 - 🦟 [Currently working on](#current-projects) studying the phylogeny and evolution of malaria mosquitoes (_Anopheles_) in North America
 - 🪰 Research areas: phylogenetics, computational statistics, evolutionary genomics
+- 🐞 [Publications](#publications), [Google Scholar profile](https://scholar.google.com/citations?user=DjlTi4gAAAAJ), 
+[NCBI Bibliography](https://www.ncbi.nlm.nih.gov/myncbi/yuttapong.thawornwattana.3/bibliography/public/), [ORCID](https://orcid.org/0000-0003-2745-163X), [Web of Science](https://www.webofscience.com/wos/author/record/1865943)
 - 🐝 Currently learning: genome assembly, infectious disease epidemiology
-- 🐛 Looking to collaborate on mosquito phylogeny and evolution, inference of gene flow
-- 🪲 Ask me about phylogenetics and gene flow
-- 🐞 ORCID: [0000-0002-5453-2569](https://orcid.org/0000-0003-2745-163X)
+- 🐛 Looking to collaborate on mosquito phylogeny and evolution, inference of gene flow and introgression
+- 🪲 Ask me about phylogenetics and gene flow!
+- 💬 [Talks](#talks)
 
 ---
 
@@ -60,12 +62,9 @@
 - 2023/09\.&emsp;"Inferring the direction of gene flow from genomic data" at [Boston Evolutionary Genomics Supergroup](https://evogen.hms.harvard.edu) [Annual Retreat 2023](https://evogen.hms.harvard.edu/annual-retreat-2023), the Broad Institute (chalk talk)
 - 2023/06\.&emsp;"Inferring phylogenies using full-likelihood multispecies coalescent with introgression" at [Evolution conference](https://www.evolutionmeetings.org/) (Albuquerque, New Mexico, USA) [[slides](https://drive.google.com/file/d/1oMPWP17bdJN8xcvGi3JSY2WQkWnxycIY/view?usp=sharing), [with builds](https://drive.google.com/file/d/1myaH0pXqBabqxToTtiuwvga1ixW749v4/view?usp=sharing)]
 - 2021/06\.&emsp;"Full-likelihood analysis of divergence and introgression in the erato-sara group of _Heliconius_" at [Heliconius Seminar](https://www.heliconius.org/lockdown-seminars/) (now Lepinars) [[slides](https://drive.google.com/file/d/1SPH6DcDR3AUyQyanLVUbmAEtI4_JaSKz/view?usp=drive_link)]
-- 2020/12\.&emsp;"Whole-genome sequencing for strain typing 
-in practice" at [CENMIG](https://microbiology.sc.mahidol.ac.th/cenmig/) Workshop, Mahidol University [[slides](https://drive.google.com/file/d/1Dgsjs_Q-ZdI_BPvCtiK8zYOQ2d63RDh6/view?usp=sharing)]
-- 2020/11\.&emsp;"Population genomics of
-_Mycobacterium tuberculosis_" at the Department of Microbiology, Faculty of Science, Mahidol University [[slides](https://drive.google.com/file/d/1pCzQJurTjpLYdC0wLQgps2K_gRyT1ivw/view?usp=sharing)]
-- 2020/07\.&emsp;"Population genomics of
-_Mycobacterium tuberculosis_" at [MAEMOD](https://www.tropmedres.ac/units/moru-bangkok/mathematical-and-economic-modelling) journal club [[slides](https://drive.google.com/file/d/14l6LsTVUvFhiMeessBPRvgmNXmN9JgeG/view?usp=sharing)]
+- 2020/12\.&emsp;"Whole-genome sequencing for strain typing in practice" at [CENMIG](https://microbiology.sc.mahidol.ac.th/cenmig/) Workshop, Mahidol University [[slides](https://drive.google.com/file/d/1Dgsjs_Q-ZdI_BPvCtiK8zYOQ2d63RDh6/view?usp=sharing)]
+- 2020/11\.&emsp;"Population genomics of _Mycobacterium tuberculosis_" at the Department of Microbiology, Faculty of Science, Mahidol University [[slides](https://drive.google.com/file/d/1pCzQJurTjpLYdC0wLQgps2K_gRyT1ivw/view?usp=sharing)]
+- 2020/07\.&emsp;"Population genomics of _Mycobacterium tuberculosis_" at [MAEMOD](https://www.tropmedres.ac/units/moru-bangkok/mathematical-and-economic-modelling) journal club [[slides](https://drive.google.com/file/d/14l6LsTVUvFhiMeessBPRvgmNXmN9JgeG/view?usp=sharing)]
 - 2018/11\.&emsp;"Next generation phylogenetics: Building trees from whole genome data" at the Division of Medical Bioinformatics, Faculty of Medicine Siriraj Hospital, Mahidol University [[slides](https://drive.google.com/file/d/1M4aeZWZG1VW_6utC8oRFsXJLYOPYUXOX/view?usp=sharing)]
 - 2018/08\.&emsp;"Resolving the species relationships in the _Anopheles gambiae_ species complex from whole genome data" at the Department of Microbiology, Faculty of Science, Mahidol University [[slides](https://drive.google.com/file/d/111TM768NdjTm1uYrwh6IQmlLD4MDeeW4/view?usp=sharing)]
 
