@@ -2,7 +2,7 @@
 
 ## Yuttapong Thawornwattana
 
-#### PhD student, [Mallet Lab](mallet.oeb.harvard.edu/)
+#### PhD student, [Mallet Lab](https://mallet.oeb.harvard.edu/)
 
 #### [Department of Organismic and Evolutionary Biology](https://oeb.harvard.edu/), Harvard University, USA
 
@@ -92,5 +92,6 @@
 - Bioinformatics pipeline for generating multilocus data from short-read sequencing data
 - Phylogeny and evolution of _Anopheles_ mosquitoes (Diptera: Culicidae: Anophelinae) in North America
 - Introgression histories in _Heliconius_ butterflies (Lepidoptera: Nymphalidae: Heliconiinae: Heliconiini)
+- Taxonomic catalogue of Heliconiinae (Lepidoptera: Nymphalidae)
 
 ---
