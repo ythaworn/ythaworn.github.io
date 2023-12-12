@@ -13,9 +13,9 @@
 
 ## Hi there 👋
 
-- 🦟 [Currently working on](#current-projects) studying the phylogeny and evolution of malaria mosquitoes (_Anopheles_) in North America
+- 🦟 [Currently working on](#current-projects) the phylogeny and evolution of malaria mosquitoes (_Anopheles_) in North America
 - 🪰 Research areas: phylogenetics, computational statistics, evolutionary genomics
-- 🐞 [Publications](#publications), [Google Scholar profile](https://scholar.google.com/citations?user=DjlTi4gAAAAJ), 
+- 🐞 [Publications](#publications), [Google Scholar](https://scholar.google.com/citations?user=DjlTi4gAAAAJ), 
 [NCBI Bibliography](https://www.ncbi.nlm.nih.gov/myncbi/yuttapong.thawornwattana.3/bibliography/public/), [ORCID](https://orcid.org/0000-0003-2745-163X), [Web of Science](https://www.webofscience.com/wos/author/record/1865943)
 - 🐝 Currently learning: genome assembly, infectious disease epidemiology
 - 🐛 Looking to collaborate on mosquito phylogeny and evolution, inference of gene flow and introgression
@@ -41,8 +41,8 @@
 [NCBI Bibliography](https://www.ncbi.nlm.nih.gov/myncbi/yuttapong.thawornwattana.3/bibliography/public/)
 
 - __Thawornwattana, Y__, Seixas FA, Yang Z, Mallet J. (2023) __Major patterns in the introgression history of _Heliconius_ butterflies__. _eLife_. [[doi:10.7554/eLife.90656](https://doi.org/10.7554/eLife.90656)] [[data](https://zenodo.org/records/8415106)]
-- __Thawornwattana, Y__, Huang J, Flouri T, Mallet J, Yang Z. (2023) __Inferring the direction of introgression using genomic sequence data__. _Mol Biol Evol._, 40(8), msad178. [[doi:10.1093/molbev/msad178](https://doi.org/10.1093/molbev/msad178)] [[_Heliconius_ data](https://zenodo.org/records/8243142)]
-- Huang J, __Thawornwattana Y__, Flouri T, Mallet J, Yang Z. (2022) __Inference of gene flow between species under misspecified models__. _Mol Biol Evol._, 39(12), msac237. [[doi:10.1093/molbev/msac237](https://doi.org/10.1093/molbev/msac237)]
+- __Thawornwattana, Y__, Huang J, Flouri T, Mallet J, Yang Z. (2023) __Inferring the direction of introgression using genomic sequence data__. _Mol Biol Evol._, 40(8):msad178. [[doi:10.1093/molbev/msad178](https://doi.org/10.1093/molbev/msad178)] [[_Heliconius_ data](https://zenodo.org/records/8243142)]
+- Huang J, __Thawornwattana Y__, Flouri T, Mallet J, Yang Z. (2022) __Inference of gene flow between species under misspecified models__. _Mol Biol Evol._, 39(12):msac237. [[doi:10.1093/molbev/msac237](https://doi.org/10.1093/molbev/msac237)]
 - __Thawornwattana Y__, Seixas FA, Yang Z, Mallet J. (2022) __Full-likelihood genomic analysis clarifies a complex history of species divergence and introgression: the example of the erato-sara group of _Heliconius_ butterflies.__ _Syst Biol._, 71(5):1159–1177. [[doi:10.1093/sysbio/syac009](https://doi.org/10.1093/sysbio/syac009)] [[data](https://zenodo.org/records/5639716)]
 - Mallet J, Seixas FA, __Thawornwattana Y__ (2022). __Species, Concepts of.__ In _Reference Module in Life Sciences_. Elsevier. [[doi:10.1016/B978-0-12-822562-2.00022-0](https://doi.org/10.1016/B978-0-12-822562-2.00022-0)] [[ResearchGate](https://www.researchgate.net/publication/358303271_Species_Concepts_of)]
 - Aiewsakun P, Ruangchai W, __Thawornwattana Y__, Jaemsai B, Mahasirimongkol S, Homkaew A, Suksomchit P, Dubbs P, Palittapongarnpim P. (2022) __Genomic epidemiology of _Streptococcus agalactiae_ ST283 in Southeast Asia.__ _Sci Rep._, 12(1):4185. [[doi:10.1038/s41598-022-08097-0](https://doi.org/10.1038/s41598-022-08097-0)]
@@ -51,9 +51,9 @@
 - __Thawornwattana Y__, Dong HT, Phiwsaiya K, Sangsuriya P, Senapin S, Aiewsakun P. (2021) __Tilapia lake virus (TiLV): Genomic epidemiology and its early origin.__ _Transbound Emerg Dis._, 68(2):435–444. [[doi:10.1111/tbed.13693](https://doi.org/10.1111/tbed.13693)]
 - __Thawornwattana Y__, Mahasirimongkol S, Yanai H, Maung HMW, Cui Z, Chongsuvivatwong V, Palittapongarnpim P. (2021) __Revised nomenclature and SNP barcode for _Mycobacterium tuberculosis_ lineage 2.__ _Microb Genom._, 7(11):000697. [[doi:10.1099/mgen.0.000697](https://doi.org/10.1099/mgen.0.000697)] [[phylogeny: discovery](https://microreact.org/project/4P2iPeBx1Y66TyJfojNM1o); [phylogeny: discovery+test](https://microreact.org/project/4kJjFVPWe3TbfwFtqY3ED8)]
 - Ajawatanawong P, Yanai H, Smittipat N, Disratthakit A, Yamada N, Miyahara R, Nedsuwan S, Imasanguan W, Kantipong P, Chaiyasirinroje B, Wongyai J, Plitphonganphim S, Tantivitayakul P, Phelan J, Parkhill J, Clark TG, Hibberd ML, Ruangchai W, Palittapongarnpim P, Juthayothin T, __Thawornwattana Y__, Viratyosin W, Tongsima S, Mahasirimongkol S, Tokunaga K, Palittapongarnpim P. (2019) __A novel Ancestral Beijing sublineage of _Mycobacterium tuberculosis_ suggests the transition site to Modern Beijing genotypes.__ _Sci Rep._, 9:13718. [[doi:10.1038/s41598-019-50078-3](https://doi.org/10.1038/s41598-019-50078-3)]
-- __Thawornwattana Y__, Dalquen D, Yang Z. (2018) __Coalescent analysis of phylogenomic data confidently resolves the species relationships in the _Anopheles_ gambiae species complex.__ _Mol Biol Evol._, 35(10):2512–2527. https://doi.org/10.1093/molbev/msy158.
+- __Thawornwattana Y__, Dalquen D, Yang Z. (2018) __Coalescent analysis of phylogenomic data confidently resolves the species relationships in the _Anopheles_ gambiae species complex.__ _Mol Biol Evol._, 35(10):2512–2527. [[doi:10.1093/molbev/msy158](https://doi.org/10.1093/molbev/msy158)]
 - __Thawornwattana Y__, Dalquen D, Yang Z. (2018) __Designing simple and efficient Markov chain Monte Carlo proposal kernels.__ _Bayesian Anal._, 13(4):1037–1063. [[doi:10.1214/17-BA1084](https://doi.org/10.1214/17-BA1084)]
-- dos Reis M, __Thawornwattana Y__, Angelis K, Telford MJ, Donoghue PC, Yang Z. (2015). __Uncertainty in the timing of origin of animals and the limits of precision in molecular timescales.__ _Curr Biol._, 25(22):2939–2950. [[doi:10.1016/j.cub.2015.09.066](https://doi.org/10.1016/j.cub.2015.09.066)]
+- dos Reis M, __Thawornwattana Y__, Angelis K, Telford MJ, Donoghue PC, Yang Z. (2015). __Uncertainty in the timing of origin of animals and the limits of precision in molecular timescales.__ _Curr Biol._, 25(22):2939–2950. [[doi:10.1016/j.cub.2015.09.066](https://doi.org/10.1016/j.cub.2015.09.066)] [[data](https://doi.org/10.6084/m9.figshare.1525089.v1)]
 
 ---
 
