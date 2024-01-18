@@ -26,7 +26,7 @@
 
 ## Training & Research Experience
 
-- 🦋 2020-current (expected 2024)\.&emsp; PhD [Organismic and Evolutionary Biology (OEB)](https://oeb.harvard.edu/), Harvard University, USA (with [James Mallet](https://mallet.oeb.harvard.edu/) and [Ziheng Yang](http://abacus.gene.ucl.ac.uk/))
+- 🦋 2020-2024\.&emsp; PhD [Organismic and Evolutionary Biology (OEB)](https://oeb.harvard.edu/), Harvard University, USA (with [James Mallet](https://mallet.oeb.harvard.edu/) and [Ziheng Yang](http://abacus.gene.ucl.ac.uk/))
 - 🦠 2018-2020\.&emsp;Research assistant, [Center for Microbial Genomics (CENMIG)](https://microbiology.sc.mahidol.ac.th/cenmig/), Department of Microbiology, Faculty of Science, Mahidol University, Thailand
 - 🧬 2014-2018\.&emsp;MPhil Genetics, Evolution and Environment, [UCL Department of Genetics, Evolution and Environment (GEE)](https://www.ucl.ac.uk/biosciences/gee), UK (with [Ziheng Yang](http://abacus.gene.ucl.ac.uk/))
 - 🛠 2012-2013\.&emsp;MSc Computational Statistics and Machine Learning, [UCL Computer Science
@@ -40,11 +40,11 @@
 [Google Scholar profile](https://scholar.google.com/citations?user=DjlTi4gAAAAJ), 
 [NCBI Bibliography](https://www.ncbi.nlm.nih.gov/myncbi/yuttapong.thawornwattana.3/bibliography/public/)
 
+- Mallet J, Seixas FA, __Thawornwattana Y__ (2024). __Species, Concepts of.__ In Scheiner, S. M., editor, _Encyclopedia of Biodiversity (Third Edition)_, 7:531-545. Elsevier. [[doi:10.1016/B978-0-12-822562-2.00022-0](https://doi.org/10.1016/B978-0-12-822562-2.00022-0)] [[RG](https://www.researchgate.net/publication/358303271_Species_Concepts_of)]
 - __Thawornwattana, Y__, Seixas FA, Yang Z, Mallet J. (2023) __Major patterns in the introgression history of _Heliconius_ butterflies__. _eLife_. [[doi:10.7554/eLife.90656](https://doi.org/10.7554/eLife.90656)] [[data](https://zenodo.org/records/8415106)]
 - __Thawornwattana, Y__, Huang J, Flouri T, Mallet J, Yang Z. (2023) __Inferring the direction of introgression using genomic sequence data__. _Mol Biol Evol._, 40(8):msad178. [[doi:10.1093/molbev/msad178](https://doi.org/10.1093/molbev/msad178)] [[_Heliconius_ data](https://zenodo.org/records/8243142)]
 - Huang J, __Thawornwattana Y__, Flouri T, Mallet J, Yang Z. (2022) __Inference of gene flow between species under misspecified models__. _Mol Biol Evol._, 39(12):msac237. [[doi:10.1093/molbev/msac237](https://doi.org/10.1093/molbev/msac237)]
 - __Thawornwattana Y__, Seixas FA, Yang Z, Mallet J. (2022) __Full-likelihood genomic analysis clarifies a complex history of species divergence and introgression: the example of the erato-sara group of _Heliconius_ butterflies.__ _Syst Biol._, 71(5):1159–1177. [[doi:10.1093/sysbio/syac009](https://doi.org/10.1093/sysbio/syac009)] [[data](https://zenodo.org/records/5639716)]
-- Mallet J, Seixas FA, __Thawornwattana Y__ (2022). __Species, Concepts of.__ In _Reference Module in Life Sciences_. Elsevier. [[doi:10.1016/B978-0-12-822562-2.00022-0](https://doi.org/10.1016/B978-0-12-822562-2.00022-0)] [[ResearchGate](https://www.researchgate.net/publication/358303271_Species_Concepts_of)]
 - Aiewsakun P, Ruangchai W, __Thawornwattana Y__, Jaemsai B, Mahasirimongkol S, Homkaew A, Suksomchit P, Dubbs P, Palittapongarnpim P. (2022) __Genomic epidemiology of _Streptococcus agalactiae_ ST283 in Southeast Asia.__ _Sci Rep._, 12(1):4185. [[doi:10.1038/s41598-022-08097-0](https://doi.org/10.1038/s41598-022-08097-0)]
 - Netikul T, __Thawornwattana Y__, Mahasirimongkol S, Yanai H, Maung HMW, Chongsuvivatwong V, Palittapongarnpim P. (2022) __Whole-genome single nucleotide variant phylogenetic analysis of _Mycobacterium tuberculosis_ lineage 1 in endemic regions of Asia and Africa.__ _Sci Rep._, 12(1):1565. [[doi:10.1038/s41598-022-05524-0](https://doi.org/10.1038/s41598-022-05524-0)] [[phylogeny: Asia/Africa/Oceania](https://microreact.org/project/ii9NYi9YWaWFjZkivV2JoC); [phylogeny: global 1](https://microreact.org/project/m8QSwp8XhXBUhLTDhRuGB9); [phylogeny: global 2](https://microreact.org/project/rtJuewY8AXZFZLKVRQXc3H)]
 - Netikul T, Palittapongarnpim P, __Thawornwattana Y__, Plitphonganphim S. (2021) __Estimation of the global burden of _Mycobacterium tuberculosis_ lineage 1.__ _Infect Genet Evol._, 91:104802. [[doi:10.1016/j.meegid.2021.104802](https://doi.org/10.1016/j.meegid.2021.104802)]
