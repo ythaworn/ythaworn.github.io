@@ -90,7 +90,7 @@
 
 - Multispecies coalescent methods for inferring gene flow from genomic data
 - Bioinformatics pipeline for generating multilocus data from short-read sequencing data
-- Phylogeny and evolution of _Anopheles_ mosquitoes (Diptera: Culicidae: Anophelinae) in North America: [specimens](https://htmlpreview.github.io/?https://ythaworn.github.io/public/anopheles/specimens.html)
+- Phylogeny and evolution of _Anopheles_ mosquitoes (Diptera: Culicidae: Anophelinae) in North America: [specimens](https://ythaworn.github.io/public/anopheles/specimens.html)
 - Introgression histories in _Heliconius_ butterflies (Lepidoptera: Nymphalidae: Heliconiinae: Heliconiini)
 - Taxonomic catalogue of Heliconiinae (Lepidoptera: Nymphalidae)
 
