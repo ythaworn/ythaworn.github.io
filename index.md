@@ -25,7 +25,7 @@
 ---
 
 ## Training & Research Experience
-
+- 🔩 2024-2026\.&emsp; Research Fellow, [UCL Department of Genetics, Evolution and Environment (GEE)](https://www.ucl.ac.uk/biosciences/gee), UK (with [Ziheng Yang](http://abacus.gene.ucl.ac.uk/))
 - 🦋 2020-2024\.&emsp; PhD [Organismic and Evolutionary Biology (OEB)](https://oeb.harvard.edu/), Harvard University, USA (with [James Mallet](https://mallet.oeb.harvard.edu/) and [Ziheng Yang](http://abacus.gene.ucl.ac.uk/))
 - 🦠 2018-2020\.&emsp;Research assistant, [Center for Microbial Genomics (CENMIG)](https://microbiology.sc.mahidol.ac.th/cenmig/), Department of Microbiology, Faculty of Science, Mahidol University, Thailand
 - 🧬 2014-2018\.&emsp;MPhil Genetics, Evolution and Environment, [UCL Department of Genetics, Evolution and Environment (GEE)](https://www.ucl.ac.uk/biosciences/gee), UK (with [Ziheng Yang](http://abacus.gene.ucl.ac.uk/))
@@ -88,9 +88,9 @@
 
 ## Current projects
 
+- Phylogeny and evolution of _Anopheles_ mosquitoes (Diptera: Culicidae: Anophelinae) in North America: [specimens](https://ythaworn.github.io/public/anopheles/specimens.html)
 - Multispecies coalescent methods for inferring gene flow from genomic data
 - Bioinformatics pipeline for generating multilocus data from short-read sequencing data
-- Phylogeny and evolution of _Anopheles_ mosquitoes (Diptera: Culicidae: Anophelinae) in North America: [specimens](https://ythaworn.github.io/public/anopheles/specimens.html)
 - Introgression histories in _Heliconius_ butterflies (Lepidoptera: Nymphalidae: Heliconiinae: Heliconiini)
 - Taxonomic catalogue of Heliconiinae (Lepidoptera: Nymphalidae)
 
