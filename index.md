@@ -40,6 +40,7 @@
 [Google Scholar profile](https://scholar.google.com/citations?user=DjlTi4gAAAAJ), 
 [NCBI Bibliography](https://www.ncbi.nlm.nih.gov/myncbi/yuttapong.thawornwattana.3/bibliography/public/)
 
+- __Thawornwattana Y__, Flouri T, Mallet J, Yang Z. (2024) __Inference of continuous gene flow between species under misspecified models__. bioRxiv [[doi:10.1101/2024.05.13.593926](https://doi.org/10.1101/2024.05.13.593926)]
 - Mallet J, Seixas FA, __Thawornwattana Y__ (2024). __Species, Concepts of.__ In Scheiner, S. M., editor, _Encyclopedia of Biodiversity (Third Edition)_, 7:531-545. Elsevier. [[doi:10.1016/B978-0-12-822562-2.00022-0](https://doi.org/10.1016/B978-0-12-822562-2.00022-0)] [[RG](https://www.researchgate.net/publication/358303271_Species_Concepts_of)]
 - __Thawornwattana Y__, Seixas FA, Yang Z, Mallet J. (2023) __Major patterns in the introgression history of _Heliconius_ butterflies__. _eLife_. [[doi:10.7554/eLife.90656](https://doi.org/10.7554/eLife.90656)] [[data](https://zenodo.org/records/8415106)]
 - __Thawornwattana Y__, Huang J, Flouri T, Mallet J, Yang Z. (2023) __Inferring the direction of introgression using genomic sequence data__. _Mol Biol Evol._, 40(8):msad178. [[doi:10.1093/molbev/msad178](https://doi.org/10.1093/molbev/msad178)] [[_Heliconius_ data](https://zenodo.org/records/8243142)]

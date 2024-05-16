@@ -3,6 +3,26 @@
 <head>
 <meta charset="utf-8" />
 <title>leaflet</title>
+<style type="text/css">@layer htmltools {
+.html-fill-container {
+display: flex;
+flex-direction: column;
+
+min-height: 0;
+min-width: 0;
+}
+.html-fill-container > .html-fill-item {
+
+flex: 1 1 auto;
+min-height: 0;
+min-width: 0;
+}
+.html-fill-container > :not(.html-fill-item) {
+
+flex: 0 0 auto;
+}
+}
+</style>
 <script>(function() {
   // If window.HTMLWidgets is already defined, then use it; otherwise create a
   // new object. This allows preceding code to set options that affect the
@@ -3527,7 +3547,7 @@ methods.setGroupOptions = function (group, options) {
   this.showHideGroupsOnZoom();
 };
 
-methods.addRasterImage = function (uri, bounds, opacity, attribution, layerId, group) {
+methods.addRasterImage = function (uri, bounds, layerId, group, options) {
   // uri is a data URI containing an image. We want to paint this image as a
   // layer at (top-left) bounds[0] to (bottom-right) bounds[1].
   // We can't simply use ImageOverlay, as it uses bilinear scaling which looks
@@ -3647,12 +3667,10 @@ methods.addRasterImage = function (uri, bounds, opacity, attribution, layerId, g
 
   img.src = uri;
 
-  var canvasTiles = _leaflet2["default"].gridLayer({
-    opacity: opacity,
-    attribution: attribution,
+  var canvasTiles = _leaflet2["default"].gridLayer(Object.assign({}, options, {
     detectRetina: true,
     async: true
-  }); // NOTE: The done() function MUST NOT be invoked until after the current
+  })); // NOTE: The done() function MUST NOT be invoked until after the current
   // tick; done() looks in Leaflet's tile cache for the current tile, and
   // since it's still being constructed, it won't be found.
 
@@ -4049,13 +4067,1196 @@ function asArray(value) {
 
 },{}]},{},[13]);
 </script>
+<script>(function (root, factory) {
+	if (typeof define === 'function' && define.amd) {
+		// AMD. Register as an anonymous module.
+		define(['leaflet'], factory);
+	} else if (typeof modules === 'object' && module.exports) {
+		// define a Common JS module that relies on 'leaflet'
+		module.exports = factory(require('leaflet'));
+	} else {
+		// Assume Leaflet is loaded into global object L already
+		factory(L);
+	}
+}(this, function (L) {
+	'use strict';
+
+	L.TileLayer.Provider = L.TileLayer.extend({
+		initialize: function (arg, options) {
+			var providers = L.TileLayer.Provider.providers;
+
+			var parts = arg.split('.');
+
+			var providerName = parts[0];
+			var variantName = parts[1];
+
+			if (!providers[providerName]) {
+				throw 'No such provider (' + providerName + ')';
+			}
+
+			var provider = {
+				url: providers[providerName].url,
+				options: providers[providerName].options
+			};
+
+			// overwrite values in provider from variant.
+			if (variantName && 'variants' in providers[providerName]) {
+				if (!(variantName in providers[providerName].variants)) {
+					throw 'No such variant of ' + providerName + ' (' + variantName + ')';
+				}
+				var variant = providers[providerName].variants[variantName];
+				var variantOptions;
+				if (typeof variant === 'string') {
+					variantOptions = {
+						variant: variant
+					};
+				} else {
+					variantOptions = variant.options;
+				}
+				provider = {
+					url: variant.url || provider.url,
+					options: L.Util.extend({}, provider.options, variantOptions)
+				};
+			}
+
+			// replace attribution placeholders with their values from toplevel provider attribution,
+			// recursively
+			var attributionReplacer = function (attr) {
+				if (attr.indexOf('{attribution.') === -1) {
+					return attr;
+				}
+				return attr.replace(/\{attribution.(\w*)\}/g,
+					function (match, attributionName) {
+						return attributionReplacer(providers[attributionName].options.attribution);
+					}
+				);
+			};
+			provider.options.attribution = attributionReplacer(provider.options.attribution);
+
+			// Compute final options combining provider options with any user overrides
+			var layerOpts = L.Util.extend({}, provider.options, options);
+			L.TileLayer.prototype.initialize.call(this, provider.url, layerOpts);
+		}
+	});
+
+	/**
+	 * Definition of providers.
+	 * see http://leafletjs.com/reference.html#tilelayer for options in the options map.
+	 */
+
+	L.TileLayer.Provider.providers = {
+		OpenStreetMap: {
+			url: 'https://tile.openstreetmap.org/{z}/{x}/{y}.png',
+			options: {
+				maxZoom: 19,
+				attribution:
+					'&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+			},
+			variants: {
+				Mapnik: {},
+				DE: {
+					url: 'https://tile.openstreetmap.de/{z}/{x}/{y}.png',
+					options: {
+						maxZoom: 18
+					}
+				},
+				CH: {
+					url: 'https://tile.osm.ch/switzerland/{z}/{x}/{y}.png',
+					options: {
+						maxZoom: 18,
+						bounds: [[45, 5], [48, 11]]
+					}
+				},
+				France: {
+					url: 'https://{s}.tile.openstreetmap.fr/osmfr/{z}/{x}/{y}.png',
+					options: {
+						maxZoom: 20,
+						attribution: '&copy; OpenStreetMap France | {attribution.OpenStreetMap}'
+					}
+				},
+				HOT: {
+					url: 'https://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png',
+					options: {
+						attribution:
+							'{attribution.OpenStreetMap}, ' +
+							'Tiles style by <a href="https://www.hotosm.org/" target="_blank">Humanitarian OpenStreetMap Team</a> ' +
+							'hosted by <a href="https://openstreetmap.fr/" target="_blank">OpenStreetMap France</a>'
+					}
+				},
+				BZH: {
+					url: 'https://tile.openstreetmap.bzh/br/{z}/{x}/{y}.png',
+					options: {
+						attribution: '{attribution.OpenStreetMap}, Tiles courtesy of <a href="http://www.openstreetmap.bzh/" target="_blank">Breton OpenStreetMap Team</a>',
+						bounds: [[46.2, -5.5], [50, 0.7]]
+					}
+				}
+			}
+		},
+		MapTilesAPI: {
+			url: 'https://maptiles.p.rapidapi.com/{variant}/{z}/{x}/{y}.png?rapidapi-key={apikey}',
+			options: {
+				attribution:
+					'&copy; <a href="http://www.maptilesapi.com/">MapTiles API</a>, {attribution.OpenStreetMap}',
+				variant: 'en/map/v1',
+				// Get your own MapTiles API access token here : https://www.maptilesapi.com/
+				// NB : this is a demonstration key that comes with no guarantee and not to be used in production
+				apikey: '<insert your api key here>',
+				maxZoom: 19
+			},
+			variants: {
+				OSMEnglish: {
+					options: {
+						variant: 'en/map/v1'
+					}
+				},
+				OSMFrancais: {
+					options: {
+						variant: 'fr/map/v1'
+					}
+				},
+				OSMEspagnol: {
+					options: {
+						variant: 'es/map/v1'
+					}
+				}
+			}
+		},
+		OpenSeaMap: {
+			url: 'https://tiles.openseamap.org/seamark/{z}/{x}/{y}.png',
+			options: {
+				attribution: 'Map data: &copy; <a href="http://www.openseamap.org">OpenSeaMap</a> contributors'
+			}
+		},
+		OPNVKarte: {
+			url: 'https://tileserver.memomaps.de/tilegen/{z}/{x}/{y}.png',
+			options: {
+				maxZoom: 18,
+				attribution: 'Map <a href="https://memomaps.de/">memomaps.de</a> <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, map data {attribution.OpenStreetMap}'
+			}
+		},
+		OpenTopoMap: {
+			url: 'https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png',
+			options: {
+				maxZoom: 17,
+				attribution: 'Map data: {attribution.OpenStreetMap}, <a href="http://viewfinderpanoramas.org">SRTM</a> | Map style: &copy; <a href="https://opentopomap.org">OpenTopoMap</a> (<a href="https://creativecommons.org/licenses/by-sa/3.0/">CC-BY-SA</a>)'
+			}
+		},
+		OpenRailwayMap: {
+			url: 'https://{s}.tiles.openrailwaymap.org/standard/{z}/{x}/{y}.png',
+			options: {
+				maxZoom: 19,
+				attribution: 'Map data: {attribution.OpenStreetMap} | Map style: &copy; <a href="https://www.OpenRailwayMap.org">OpenRailwayMap</a> (<a href="https://creativecommons.org/licenses/by-sa/3.0/">CC-BY-SA</a>)'
+			}
+		},
+		OpenFireMap: {
+			url: 'http://openfiremap.org/hytiles/{z}/{x}/{y}.png',
+			options: {
+				maxZoom: 19,
+				attribution: 'Map data: {attribution.OpenStreetMap} | Map style: &copy; <a href="http://www.openfiremap.org">OpenFireMap</a> (<a href="https://creativecommons.org/licenses/by-sa/3.0/">CC-BY-SA</a>)'
+			}
+		},
+		SafeCast: {
+			url: 'https://s3.amazonaws.com/te512.safecast.org/{z}/{x}/{y}.png',
+			options: {
+				maxZoom: 16,
+				attribution: 'Map data: {attribution.OpenStreetMap} | Map style: &copy; <a href="https://blog.safecast.org/about/">SafeCast</a> (<a href="https://creativecommons.org/licenses/by-sa/3.0/">CC-BY-SA</a>)'
+			}
+		},
+		Stadia: {
+			url: 'https://tiles.stadiamaps.com/tiles/{variant}/{z}/{x}/{y}{r}.{ext}',
+			options: {
+				minZoom: 0,
+				maxZoom: 20,
+				attribution:
+					'&copy; <a href="https://www.stadiamaps.com/" target="_blank">Stadia Maps</a> ' +
+					'&copy; <a href="https://openmaptiles.org/" target="_blank">OpenMapTiles</a> ' +
+					'{attribution.OpenStreetMap}',
+				variant: 'alidade_smooth',
+				ext: 'png'
+			},
+			variants: {
+				AlidadeSmooth: 'alidade_smooth',
+				AlidadeSmoothDark: 'alidade_smooth_dark',
+				OSMBright: 'osm_bright',
+				Outdoors: 'outdoors',
+				StamenToner: {
+					options: {
+						attribution:
+							'&copy; <a href="https://www.stadiamaps.com/" target="_blank">Stadia Maps</a> ' +
+							'&copy; <a href="https://www.stamen.com/" target="_blank">Stamen Design</a> ' +
+							'&copy; <a href="https://openmaptiles.org/" target="_blank">OpenMapTiles</a> ' +
+							'{attribution.OpenStreetMap}',
+						variant: 'stamen_toner'
+					}
+				},
+				StamenTonerBackground: {
+					options: {
+						attribution:
+							'&copy; <a href="https://www.stadiamaps.com/" target="_blank">Stadia Maps</a> ' +
+							'&copy; <a href="https://www.stamen.com/" target="_blank">Stamen Design</a> ' +
+							'&copy; <a href="https://openmaptiles.org/" target="_blank">OpenMapTiles</a> ' +
+							'{attribution.OpenStreetMap}',
+						variant: 'stamen_toner_background'
+					}
+				},
+				StamenTonerLines: {
+					options: {
+						attribution:
+							'&copy; <a href="https://www.stadiamaps.com/" target="_blank">Stadia Maps</a> ' +
+							'&copy; <a href="https://www.stamen.com/" target="_blank">Stamen Design</a> ' +
+							'&copy; <a href="https://openmaptiles.org/" target="_blank">OpenMapTiles</a> ' +
+							'{attribution.OpenStreetMap}',
+						variant: 'stamen_toner_lines'
+					}
+				},
+				StamenTonerLabels: {
+					options: {
+						attribution:
+							'&copy; <a href="https://www.stadiamaps.com/" target="_blank">Stadia Maps</a> ' +
+							'&copy; <a href="https://www.stamen.com/" target="_blank">Stamen Design</a> ' +
+							'&copy; <a href="https://openmaptiles.org/" target="_blank">OpenMapTiles</a> ' +
+							'{attribution.OpenStreetMap}',
+						variant: 'stamen_toner_labels'
+					}
+				},
+				StamenTonerLite: {
+					options: {
+						attribution:
+							'&copy; <a href="https://www.stadiamaps.com/" target="_blank">Stadia Maps</a> ' +
+							'&copy; <a href="https://www.stamen.com/" target="_blank">Stamen Design</a> ' +
+							'&copy; <a href="https://openmaptiles.org/" target="_blank">OpenMapTiles</a> ' +
+							'{attribution.OpenStreetMap}',
+						variant: 'stamen_toner_lite'
+					}
+				},
+				StamenWatercolor: {
+					url: 'https://tiles.stadiamaps.com/tiles/{variant}/{z}/{x}/{y}.{ext}',
+					options: {
+						attribution:
+							'&copy; <a href="https://www.stadiamaps.com/" target="_blank">Stadia Maps</a> ' +
+							'&copy; <a href="https://www.stamen.com/" target="_blank">Stamen Design</a> ' +
+							'&copy; <a href="https://openmaptiles.org/" target="_blank">OpenMapTiles</a> ' +
+							'{attribution.OpenStreetMap}',
+						variant: 'stamen_watercolor',
+						ext: 'jpg',
+						minZoom: 1,
+						maxZoom: 16
+					}
+				},
+				StamenTerrain: {
+					options: {
+						attribution:
+							'&copy; <a href="https://www.stadiamaps.com/" target="_blank">Stadia Maps</a> ' +
+							'&copy; <a href="https://www.stamen.com/" target="_blank">Stamen Design</a> ' +
+							'&copy; <a href="https://openmaptiles.org/" target="_blank">OpenMapTiles</a> ' +
+							'{attribution.OpenStreetMap}',
+						variant: 'stamen_terrain',
+						minZoom: 0,
+						maxZoom: 18
+					}
+				},
+				StamenTerrainBackground: {
+					options: {
+						attribution:
+							'&copy; <a href="https://www.stadiamaps.com/" target="_blank">Stadia Maps</a> ' +
+							'&copy; <a href="https://www.stamen.com/" target="_blank">Stamen Design</a> ' +
+							'&copy; <a href="https://openmaptiles.org/" target="_blank">OpenMapTiles</a> ' +
+							'{attribution.OpenStreetMap}',
+						variant: 'stamen_terrain_background',
+						minZoom: 0,
+						maxZoom: 18
+					}
+				},
+				StamenTerrainLabels: {
+					options: {
+						attribution:
+							'&copy; <a href="https://www.stadiamaps.com/" target="_blank">Stadia Maps</a> ' +
+							'&copy; <a href="https://www.stamen.com/" target="_blank">Stamen Design</a> ' +
+							'&copy; <a href="https://openmaptiles.org/" target="_blank">OpenMapTiles</a> ' +
+							'{attribution.OpenStreetMap}',
+						variant: 'stamen_terrain_labels',
+						minZoom: 0,
+						maxZoom: 18
+					}
+				},
+				StamenTerrainLines: {
+					options: {
+						attribution:
+							'&copy; <a href="https://www.stadiamaps.com/" target="_blank">Stadia Maps</a> ' +
+							'&copy; <a href="https://www.stamen.com/" target="_blank">Stamen Design</a> ' +
+							'&copy; <a href="https://openmaptiles.org/" target="_blank">OpenMapTiles</a> ' +
+							'{attribution.OpenStreetMap}',
+						variant: 'stamen_terrain_lines',
+						minZoom: 0,
+						maxZoom: 18
+					}
+				}
+			}
+		},
+		Thunderforest: {
+			url: 'https://{s}.tile.thunderforest.com/{variant}/{z}/{x}/{y}.png?apikey={apikey}',
+			options: {
+				attribution:
+					'&copy; <a href="http://www.thunderforest.com/">Thunderforest</a>, {attribution.OpenStreetMap}',
+				variant: 'cycle',
+				apikey: '<insert your api key here>',
+				maxZoom: 22
+			},
+			variants: {
+				OpenCycleMap: 'cycle',
+				Transport: {
+					options: {
+						variant: 'transport'
+					}
+				},
+				TransportDark: {
+					options: {
+						variant: 'transport-dark'
+					}
+				},
+				SpinalMap: {
+					options: {
+						variant: 'spinal-map'
+					}
+				},
+				Landscape: 'landscape',
+				Outdoors: 'outdoors',
+				Pioneer: 'pioneer',
+				MobileAtlas: 'mobile-atlas',
+				Neighbourhood: 'neighbourhood'
+			}
+		},
+		CyclOSM: {
+			url: 'https://{s}.tile-cyclosm.openstreetmap.fr/cyclosm/{z}/{x}/{y}.png',
+			options: {
+				maxZoom: 20,
+				attribution: '<a href="https://github.com/cyclosm/cyclosm-cartocss-style/releases" title="CyclOSM - Open Bicycle render">CyclOSM</a> | Map data: {attribution.OpenStreetMap}'
+			}
+		},
+		Jawg: {
+			url: 'https://{s}.tile.jawg.io/{variant}/{z}/{x}/{y}{r}.png?access-token={accessToken}',
+			options: {
+				attribution:
+					'<a href="http://jawg.io" title="Tiles Courtesy of Jawg Maps" target="_blank">&copy; <b>Jawg</b>Maps</a> ' +
+					'{attribution.OpenStreetMap}',
+				minZoom: 0,
+				maxZoom: 22,
+				subdomains: 'abcd',
+				variant: 'jawg-terrain',
+				// Get your own Jawg access token here : https://www.jawg.io/lab/
+				// NB : this is a demonstration key that comes with no guarantee
+				accessToken: '<insert your access token here>',
+			},
+			variants: {
+				Streets: 'jawg-streets',
+				Terrain: 'jawg-terrain',
+				Sunny: 'jawg-sunny',
+				Dark: 'jawg-dark',
+				Light: 'jawg-light',
+				Matrix: 'jawg-matrix'
+			}
+		},
+		MapBox: {
+			url: 'https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}{r}?access_token={accessToken}',
+			options: {
+				attribution:
+					'&copy; <a href="https://www.mapbox.com/about/maps/" target="_blank">Mapbox</a> ' +
+					'{attribution.OpenStreetMap} ' +
+					'<a href="https://www.mapbox.com/map-feedback/" target="_blank">Improve this map</a>',
+				tileSize: 512,
+				maxZoom: 18,
+				zoomOffset: -1,
+				id: 'mapbox/streets-v11',
+				accessToken: '<insert your access token here>',
+			}
+		},
+		MapTiler: {
+			url: 'https://api.maptiler.com/maps/{variant}/{z}/{x}/{y}{r}.{ext}?key={key}',
+			options: {
+				attribution:
+					'<a href="https://www.maptiler.com/copyright/" target="_blank">&copy; MapTiler</a> <a href="https://www.openstreetmap.org/copyright" target="_blank">&copy; OpenStreetMap contributors</a>',
+				variant: 'streets',
+				ext: 'png',
+				key: '<insert your MapTiler Cloud API key here>',
+				tileSize: 512,
+				zoomOffset: -1,
+				minZoom: 0,
+				maxZoom: 21
+			},
+			variants: {
+				Streets: 'streets',
+				Basic: 'basic',
+				Bright: 'bright',
+				Pastel: 'pastel',
+				Positron: 'positron',
+				Hybrid: {
+					options: {
+						variant: 'hybrid',
+						ext: 'jpg'
+					}
+				},
+				Toner: 'toner',
+				Topo: 'topo',
+				Voyager: 'voyager'
+			}
+		},
+		TomTom: {
+			url: 'https://{s}.api.tomtom.com/map/1/tile/{variant}/{style}/{z}/{x}/{y}.{ext}?key={apikey}',
+			options: {
+				variant: 'basic',
+				maxZoom: 22,
+				attribution:
+					'<a href="https://tomtom.com" target="_blank">&copy;  1992 - ' + new Date().getFullYear() + ' TomTom.</a> ',
+				subdomains: 'abcd',
+				style: 'main',
+				ext: 'png',
+				apikey: '<insert your API key here>',
+			},
+			variants: {
+				Basic: 'basic',
+				Hybrid: 'hybrid',
+				Labels: 'labels'
+			}
+		},
+		Esri: {
+			url: 'https://server.arcgisonline.com/ArcGIS/rest/services/{variant}/MapServer/tile/{z}/{y}/{x}',
+			options: {
+				variant: 'World_Street_Map',
+				attribution: 'Tiles &copy; Esri'
+			},
+			variants: {
+				WorldStreetMap: {
+					options: {
+						attribution:
+							'{attribution.Esri} &mdash; ' +
+							'Source: Esri, DeLorme, NAVTEQ, USGS, Intermap, iPC, NRCAN, Esri Japan, METI, Esri China (Hong Kong), Esri (Thailand), TomTom, 2012'
+					}
+				},
+				DeLorme: {
+					options: {
+						variant: 'Specialty/DeLorme_World_Base_Map',
+						minZoom: 1,
+						maxZoom: 11,
+						attribution: '{attribution.Esri} &mdash; Copyright: &copy;2012 DeLorme'
+					}
+				},
+				WorldTopoMap: {
+					options: {
+						variant: 'World_Topo_Map',
+						attribution:
+							'{attribution.Esri} &mdash; ' +
+							'Esri, DeLorme, NAVTEQ, TomTom, Intermap, iPC, USGS, FAO, NPS, NRCAN, GeoBase, Kadaster NL, Ordnance Survey, Esri Japan, METI, Esri China (Hong Kong), and the GIS User Community'
+					}
+				},
+				WorldImagery: {
+					options: {
+						variant: 'World_Imagery',
+						attribution:
+							'{attribution.Esri} &mdash; ' +
+							'Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community'
+					}
+				},
+				WorldTerrain: {
+					options: {
+						variant: 'World_Terrain_Base',
+						maxZoom: 13,
+						attribution:
+							'{attribution.Esri} &mdash; ' +
+							'Source: USGS, Esri, TANA, DeLorme, and NPS'
+					}
+				},
+				WorldShadedRelief: {
+					options: {
+						variant: 'World_Shaded_Relief',
+						maxZoom: 13,
+						attribution: '{attribution.Esri} &mdash; Source: Esri'
+					}
+				},
+				WorldPhysical: {
+					options: {
+						variant: 'World_Physical_Map',
+						maxZoom: 8,
+						attribution: '{attribution.Esri} &mdash; Source: US National Park Service'
+					}
+				},
+				OceanBasemap: {
+					options: {
+						variant: 'Ocean/World_Ocean_Base',
+						maxZoom: 13,
+						attribution: '{attribution.Esri} &mdash; Sources: GEBCO, NOAA, CHS, OSU, UNH, CSUMB, National Geographic, DeLorme, NAVTEQ, and Esri'
+					}
+				},
+				NatGeoWorldMap: {
+					options: {
+						variant: 'NatGeo_World_Map',
+						maxZoom: 16,
+						attribution: '{attribution.Esri} &mdash; National Geographic, Esri, DeLorme, NAVTEQ, UNEP-WCMC, USGS, NASA, ESA, METI, NRCAN, GEBCO, NOAA, iPC'
+					}
+				},
+				WorldGrayCanvas: {
+					options: {
+						variant: 'Canvas/World_Light_Gray_Base',
+						maxZoom: 16,
+						attribution: '{attribution.Esri} &mdash; Esri, DeLorme, NAVTEQ'
+					}
+				}
+			}
+		},
+		OpenWeatherMap: {
+			url: 'http://{s}.tile.openweathermap.org/map/{variant}/{z}/{x}/{y}.png?appid={apiKey}',
+			options: {
+				maxZoom: 19,
+				attribution: 'Map data &copy; <a href="http://openweathermap.org">OpenWeatherMap</a>',
+				apiKey: '<insert your api key here>',
+				opacity: 0.5
+			},
+			variants: {
+				Clouds: 'clouds',
+				CloudsClassic: 'clouds_cls',
+				Precipitation: 'precipitation',
+				PrecipitationClassic: 'precipitation_cls',
+				Rain: 'rain',
+				RainClassic: 'rain_cls',
+				Pressure: 'pressure',
+				PressureContour: 'pressure_cntr',
+				Wind: 'wind',
+				Temperature: 'temp',
+				Snow: 'snow'
+			}
+		},
+		HERE: {
+			/*
+			 * HERE maps, formerly Nokia maps.
+			 * These basemaps are free, but you need an api id and app key. Please sign up at
+			 * https://developer.here.com/plans
+			 */
+			url:
+				'https://{s}.{base}.maps.api.here.com/maptile/2.1/' +
+				'{type}/{mapID}/{variant}/{z}/{x}/{y}/{size}/{format}?' +
+				'app_id={app_id}&app_code={app_code}&lg={language}',
+			options: {
+				attribution:
+					'Map &copy; 1987-' + new Date().getFullYear() + ' <a href="http://developer.here.com">HERE</a>',
+				subdomains: '1234',
+				mapID: 'newest',
+				'app_id': '<insert your app_id here>',
+				'app_code': '<insert your app_code here>',
+				base: 'base',
+				variant: 'normal.day',
+				maxZoom: 20,
+				type: 'maptile',
+				language: 'eng',
+				format: 'png8',
+				size: '256'
+			},
+			variants: {
+				normalDay: 'normal.day',
+				normalDayCustom: 'normal.day.custom',
+				normalDayGrey: 'normal.day.grey',
+				normalDayMobile: 'normal.day.mobile',
+				normalDayGreyMobile: 'normal.day.grey.mobile',
+				normalDayTransit: 'normal.day.transit',
+				normalDayTransitMobile: 'normal.day.transit.mobile',
+				normalDayTraffic: {
+					options: {
+						variant: 'normal.traffic.day',
+						base: 'traffic',
+						type: 'traffictile'
+					}
+				},
+				normalNight: 'normal.night',
+				normalNightMobile: 'normal.night.mobile',
+				normalNightGrey: 'normal.night.grey',
+				normalNightGreyMobile: 'normal.night.grey.mobile',
+				normalNightTransit: 'normal.night.transit',
+				normalNightTransitMobile: 'normal.night.transit.mobile',
+				reducedDay: 'reduced.day',
+				reducedNight: 'reduced.night',
+				basicMap: {
+					options: {
+						type: 'basetile'
+					}
+				},
+				mapLabels: {
+					options: {
+						type: 'labeltile',
+						format: 'png'
+					}
+				},
+				trafficFlow: {
+					options: {
+						base: 'traffic',
+						type: 'flowtile'
+					}
+				},
+				carnavDayGrey: 'carnav.day.grey',
+				hybridDay: {
+					options: {
+						base: 'aerial',
+						variant: 'hybrid.day'
+					}
+				},
+				hybridDayMobile: {
+					options: {
+						base: 'aerial',
+						variant: 'hybrid.day.mobile'
+					}
+				},
+				hybridDayTransit: {
+					options: {
+						base: 'aerial',
+						variant: 'hybrid.day.transit'
+					}
+				},
+				hybridDayGrey: {
+					options: {
+						base: 'aerial',
+						variant: 'hybrid.grey.day'
+					}
+				},
+				hybridDayTraffic: {
+					options: {
+						variant: 'hybrid.traffic.day',
+						base: 'traffic',
+						type: 'traffictile'
+					}
+				},
+				pedestrianDay: 'pedestrian.day',
+				pedestrianNight: 'pedestrian.night',
+				satelliteDay: {
+					options: {
+						base: 'aerial',
+						variant: 'satellite.day'
+					}
+				},
+				terrainDay: {
+					options: {
+						base: 'aerial',
+						variant: 'terrain.day'
+					}
+				},
+				terrainDayMobile: {
+					options: {
+						base: 'aerial',
+						variant: 'terrain.day.mobile'
+					}
+				}
+			}
+		},
+		HEREv3: {
+			/*
+			 * HERE maps API Version 3.
+			 * These basemaps are free, but you need an API key. Please sign up at
+			 * https://developer.here.com/plans
+			 * Version 3 deprecates the app_id and app_code access in favor of apiKey
+			 *
+			 * Supported access methods as of 2019/12/21:
+			 * @see https://developer.here.com/faqs#access-control-1--how-do-you-control-access-to-here-location-services
+			 */
+			url:
+				'https://{s}.{base}.maps.ls.hereapi.com/maptile/2.1/' +
+				'{type}/{mapID}/{variant}/{z}/{x}/{y}/{size}/{format}?' +
+				'apiKey={apiKey}&lg={language}',
+			options: {
+				attribution:
+					'Map &copy; 1987-' + new Date().getFullYear() + ' <a href="http://developer.here.com">HERE</a>',
+				subdomains: '1234',
+				mapID: 'newest',
+				apiKey: '<insert your apiKey here>',
+				base: 'base',
+				variant: 'normal.day',
+				maxZoom: 20,
+				type: 'maptile',
+				language: 'eng',
+				format: 'png8',
+				size: '256'
+			},
+			variants: {
+				normalDay: 'normal.day',
+				normalDayCustom: 'normal.day.custom',
+				normalDayGrey: 'normal.day.grey',
+				normalDayMobile: 'normal.day.mobile',
+				normalDayGreyMobile: 'normal.day.grey.mobile',
+				normalDayTransit: 'normal.day.transit',
+				normalDayTransitMobile: 'normal.day.transit.mobile',
+				normalNight: 'normal.night',
+				normalNightMobile: 'normal.night.mobile',
+				normalNightGrey: 'normal.night.grey',
+				normalNightGreyMobile: 'normal.night.grey.mobile',
+				normalNightTransit: 'normal.night.transit',
+				normalNightTransitMobile: 'normal.night.transit.mobile',
+				reducedDay: 'reduced.day',
+				reducedNight: 'reduced.night',
+				basicMap: {
+					options: {
+						type: 'basetile'
+					}
+				},
+				mapLabels: {
+					options: {
+						type: 'labeltile',
+						format: 'png'
+					}
+				},
+				trafficFlow: {
+					options: {
+						base: 'traffic',
+						type: 'flowtile'
+					}
+				},
+				carnavDayGrey: 'carnav.day.grey',
+				hybridDay: {
+					options: {
+						base: 'aerial',
+						variant: 'hybrid.day'
+					}
+				},
+				hybridDayMobile: {
+					options: {
+						base: 'aerial',
+						variant: 'hybrid.day.mobile'
+					}
+				},
+				hybridDayTransit: {
+					options: {
+						base: 'aerial',
+						variant: 'hybrid.day.transit'
+					}
+				},
+				hybridDayGrey: {
+					options: {
+						base: 'aerial',
+						variant: 'hybrid.grey.day'
+					}
+				},
+				pedestrianDay: 'pedestrian.day',
+				pedestrianNight: 'pedestrian.night',
+				satelliteDay: {
+					options: {
+						base: 'aerial',
+						variant: 'satellite.day'
+					}
+				},
+				terrainDay: {
+					options: {
+						base: 'aerial',
+						variant: 'terrain.day'
+					}
+				},
+				terrainDayMobile: {
+					options: {
+						base: 'aerial',
+						variant: 'terrain.day.mobile'
+					}
+				}
+			}
+		},
+		FreeMapSK: {
+			url: 'https://{s}.freemap.sk/T/{z}/{x}/{y}.jpeg',
+			options: {
+				minZoom: 8,
+				maxZoom: 16,
+				subdomains: 'abcd',
+				bounds: [[47.204642, 15.996093], [49.830896, 22.576904]],
+				attribution:
+					'{attribution.OpenStreetMap}, visualization CC-By-SA 2.0 <a href="http://freemap.sk">Freemap.sk</a>'
+			}
+		},
+		MtbMap: {
+			url: 'http://tile.mtbmap.cz/mtbmap_tiles/{z}/{x}/{y}.png',
+			options: {
+				attribution:
+					'{attribution.OpenStreetMap} &amp; USGS'
+			}
+		},
+		CartoDB: {
+			url: 'https://{s}.basemaps.cartocdn.com/{variant}/{z}/{x}/{y}{r}.png',
+			options: {
+				attribution: '{attribution.OpenStreetMap} &copy; <a href="https://carto.com/attributions">CARTO</a>',
+				subdomains: 'abcd',
+				maxZoom: 20,
+				variant: 'light_all'
+			},
+			variants: {
+				Positron: 'light_all',
+				PositronNoLabels: 'light_nolabels',
+				PositronOnlyLabels: 'light_only_labels',
+				DarkMatter: 'dark_all',
+				DarkMatterNoLabels: 'dark_nolabels',
+				DarkMatterOnlyLabels: 'dark_only_labels',
+				Voyager: 'rastertiles/voyager',
+				VoyagerNoLabels: 'rastertiles/voyager_nolabels',
+				VoyagerOnlyLabels: 'rastertiles/voyager_only_labels',
+				VoyagerLabelsUnder: 'rastertiles/voyager_labels_under'
+			}
+		},
+		HikeBike: {
+			url: 'https://tiles.wmflabs.org/{variant}/{z}/{x}/{y}.png',
+			options: {
+				maxZoom: 19,
+				attribution: '{attribution.OpenStreetMap}',
+				variant: 'hikebike'
+			},
+			variants: {
+				HikeBike: {},
+				HillShading: {
+					options: {
+						maxZoom: 15,
+						variant: 'hillshading'
+					}
+				}
+			}
+		},
+		BasemapAT: {
+			url: 'https://mapsneu.wien.gv.at/basemap/{variant}/{type}/google3857/{z}/{y}/{x}.{format}',
+			options: {
+				maxZoom: 19,
+				attribution: 'Datenquelle: <a href="https://www.basemap.at">basemap.at</a>',
+				type: 'normal',
+				format: 'png',
+				bounds: [[46.358770, 8.782379], [49.037872, 17.189532]],
+				variant: 'geolandbasemap'
+			},
+			variants: {
+				basemap: {
+					options: {
+						maxZoom: 20, // currently only in Vienna
+						variant: 'geolandbasemap'
+					}
+				},
+				grau: 'bmapgrau',
+				overlay: 'bmapoverlay',
+				terrain: {
+					options: {
+						variant: 'bmapgelaende',
+						type: 'grau',
+						format: 'jpeg'
+					}
+				},
+				surface: {
+					options: {
+						variant: 'bmapoberflaeche',
+						type: 'grau',
+						format: 'jpeg'
+					}
+				},
+				highdpi: {
+					options: {
+						variant: 'bmaphidpi',
+						format: 'jpeg'
+					}
+				},
+				orthofoto: {
+					options: {
+						maxZoom: 20, // currently only in Vienna
+						variant: 'bmaporthofoto30cm',
+						format: 'jpeg'
+					}
+				}
+			}
+		},
+		nlmaps: {
+			url: 'https://service.pdok.nl/brt/achtergrondkaart/wmts/v2_0/{variant}/EPSG:3857/{z}/{x}/{y}.png',
+			options: {
+				minZoom: 6,
+				maxZoom: 19,
+				bounds: [[50.5, 3.25], [54, 7.6]],
+				attribution: 'Kaartgegevens &copy; <a href="https://www.kadaster.nl">Kadaster</a>'
+			},
+			variants: {
+				'standaard': 'standaard',
+				'pastel': 'pastel',
+				'grijs': 'grijs',
+				'water': 'water',
+				'luchtfoto': {
+					'url': 'https://service.pdok.nl/hwh/luchtfotorgb/wmts/v1_0/Actueel_ortho25/EPSG:3857/{z}/{x}/{y}.jpeg',
+				}
+			}
+		},
+		NASAGIBS: {
+			url: 'https://map1.vis.earthdata.nasa.gov/wmts-webmerc/{variant}/default/{time}/{tilematrixset}{maxZoom}/{z}/{y}/{x}.{format}',
+			options: {
+				attribution:
+					'Imagery provided by services from the Global Imagery Browse Services (GIBS), operated by the NASA/GSFC/Earth Science Data and Information System ' +
+					'(<a href="https://earthdata.nasa.gov">ESDIS</a>) with funding provided by NASA/HQ.',
+				bounds: [[-85.0511287776, -179.999999975], [85.0511287776, 179.999999975]],
+				minZoom: 1,
+				maxZoom: 9,
+				format: 'jpg',
+				time: '',
+				tilematrixset: 'GoogleMapsCompatible_Level'
+			},
+			variants: {
+				ModisTerraTrueColorCR: 'MODIS_Terra_CorrectedReflectance_TrueColor',
+				ModisTerraBands367CR: 'MODIS_Terra_CorrectedReflectance_Bands367',
+				ViirsEarthAtNight2012: {
+					options: {
+						variant: 'VIIRS_CityLights_2012',
+						maxZoom: 8
+					}
+				},
+				ModisTerraLSTDay: {
+					options: {
+						variant: 'MODIS_Terra_Land_Surface_Temp_Day',
+						format: 'png',
+						maxZoom: 7,
+						opacity: 0.75
+					}
+				},
+				ModisTerraSnowCover: {
+					options: {
+						variant: 'MODIS_Terra_NDSI_Snow_Cover',
+						format: 'png',
+						maxZoom: 8,
+						opacity: 0.75
+					}
+				},
+				ModisTerraAOD: {
+					options: {
+						variant: 'MODIS_Terra_Aerosol',
+						format: 'png',
+						maxZoom: 6,
+						opacity: 0.75
+					}
+				},
+				ModisTerraChlorophyll: {
+					options: {
+						variant: 'MODIS_Terra_Chlorophyll_A',
+						format: 'png',
+						maxZoom: 7,
+						opacity: 0.75
+					}
+				}
+			}
+		},
+		NLS: {
+			// NLS maps are copyright National library of Scotland.
+			// http://maps.nls.uk/projects/api/index.html
+			// Please contact NLS for anything other than non-commercial low volume usage
+			//
+			// Map sources: Ordnance Survey 1:1m to 1:63K, 1920s-1940s
+			//   z0-9  - 1:1m
+			//  z10-11 - quarter inch (1:253440)
+			//  z12-18 - one inch (1:63360)
+			url: 'https://nls-{s}.tileserver.com/nls/{z}/{x}/{y}.jpg',
+			options: {
+				attribution: '<a href="http://geo.nls.uk/maps/">National Library of Scotland Historic Maps</a>',
+				bounds: [[49.6, -12], [61.7, 3]],
+				minZoom: 1,
+				maxZoom: 18,
+				subdomains: '0123',
+			}
+		},
+		JusticeMap: {
+			// Justice Map (http://www.justicemap.org/)
+			// Visualize race and income data for your community, county and country.
+			// Includes tools for data journalists, bloggers and community activists.
+			url: 'https://www.justicemap.org/tile/{size}/{variant}/{z}/{x}/{y}.png',
+			options: {
+				attribution: '<a href="http://www.justicemap.org/terms.php">Justice Map</a>',
+				// one of 'county', 'tract', 'block'
+				size: 'county',
+				// Bounds for USA, including Alaska and Hawaii
+				bounds: [[14, -180], [72, -56]]
+			},
+			variants: {
+				income: 'income',
+				americanIndian: 'indian',
+				asian: 'asian',
+				black: 'black',
+				hispanic: 'hispanic',
+				multi: 'multi',
+				nonWhite: 'nonwhite',
+				white: 'white',
+				plurality: 'plural'
+			}
+		},
+		GeoportailFrance: {
+			url: 'https://wxs.ign.fr/{apikey}/geoportail/wmts?REQUEST=GetTile&SERVICE=WMTS&VERSION=1.0.0&STYLE={style}&TILEMATRIXSET=PM&FORMAT={format}&LAYER={variant}&TILEMATRIX={z}&TILEROW={y}&TILECOL={x}',
+			options: {
+				attribution: '<a target="_blank" href="https://www.geoportail.gouv.fr/">Geoportail France</a>',
+				bounds: [[-75, -180], [81, 180]],
+				minZoom: 2,
+				maxZoom: 18,
+				// Get your own geoportail apikey here : http://professionnels.ign.fr/ign/contrats/
+				// NB : 'choisirgeoportail' is a demonstration key that comes with no guarantee
+				apikey: 'choisirgeoportail',
+				format: 'image/png',
+				style: 'normal',
+				variant: 'GEOGRAPHICALGRIDSYSTEMS.PLANIGNV2'
+			},
+			variants: {
+				plan: 'GEOGRAPHICALGRIDSYSTEMS.PLANIGNV2',
+				parcels: {
+					options: {
+						variant: 'CADASTRALPARCELS.PARCELLAIRE_EXPRESS',
+						style: 'PCI vecteur',
+						maxZoom: 20
+					}
+				},
+				orthos: {
+					options: {
+						maxZoom: 19,
+						format: 'image/jpeg',
+						variant: 'ORTHOIMAGERY.ORTHOPHOTOS'
+					}
+				}
+			}
+		},
+		OneMapSG: {
+			url: 'https://maps-{s}.onemap.sg/v3/{variant}/{z}/{x}/{y}.png',
+			options: {
+				variant: 'Default',
+				minZoom: 11,
+				maxZoom: 18,
+				bounds: [[1.56073, 104.11475], [1.16, 103.502]],
+				attribution: '<img src="https://docs.onemap.sg/maps/images/oneMap64-01.png" style="height:20px;width:20px;"/> New OneMap | Map data &copy; contributors, <a href="http://SLA.gov.sg">Singapore Land Authority</a>'
+			},
+			variants: {
+				Default: 'Default',
+				Night: 'Night',
+				Original: 'Original',
+				Grey: 'Grey',
+				LandLot: 'LandLot'
+			}
+		},
+		USGS: {
+			url: 'https://basemap.nationalmap.gov/arcgis/rest/services/USGSTopo/MapServer/tile/{z}/{y}/{x}',
+			options: {
+				maxZoom: 20,
+				attribution: 'Tiles courtesy of the <a href="https://usgs.gov/">U.S. Geological Survey</a>'
+			},
+			variants: {
+				USTopo: {},
+				USImagery: {
+					url: 'https://basemap.nationalmap.gov/arcgis/rest/services/USGSImageryOnly/MapServer/tile/{z}/{y}/{x}'
+				},
+				USImageryTopo: {
+					url: 'https://basemap.nationalmap.gov/arcgis/rest/services/USGSImageryTopo/MapServer/tile/{z}/{y}/{x}'
+				}
+			}
+		},
+		WaymarkedTrails: {
+			url: 'https://tile.waymarkedtrails.org/{variant}/{z}/{x}/{y}.png',
+			options: {
+				maxZoom: 18,
+				attribution: 'Map data: {attribution.OpenStreetMap} | Map style: &copy; <a href="https://waymarkedtrails.org">waymarkedtrails.org</a> (<a href="https://creativecommons.org/licenses/by-sa/3.0/">CC-BY-SA</a>)'
+			},
+			variants: {
+				hiking: 'hiking',
+				cycling: 'cycling',
+				mtb: 'mtb',
+				slopes: 'slopes',
+				riding: 'riding',
+				skating: 'skating'
+			}
+		},
+		OpenAIP: {
+			url: 'https://{s}.tile.maps.openaip.net/geowebcache/service/tms/1.0.0/openaip_basemap@EPSG%3A900913@png/{z}/{x}/{y}.{ext}',
+			options: {
+				attribution: '<a href="https://www.openaip.net/">openAIP Data</a> (<a href="https://creativecommons.org/licenses/by-sa/3.0/">CC-BY-NC-SA</a>)',
+				ext: 'png',
+				minZoom: 4,
+				maxZoom: 14,
+				tms: true,
+				detectRetina: true,
+				subdomains: '12'
+			}
+		},
+		OpenSnowMap: {
+			url: 'https://tiles.opensnowmap.org/{variant}/{z}/{x}/{y}.png',
+			options: {
+				minZoom: 9,
+				maxZoom: 18,
+				attribution: 'Map data: {attribution.OpenStreetMap} & ODbL, &copy; <a href="https://www.opensnowmap.org/iframes/data.html">www.opensnowmap.org</a> <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>'
+			},
+			variants: {
+				pistes: 'pistes',
+			}
+		},
+		AzureMaps: {
+			url: 
+				'https://atlas.microsoft.com/map/tile?api-version={apiVersion}'+
+				'&tilesetId={variant}&x={x}&y={y}&zoom={z}&language={language}'+
+				'&subscription-key={subscriptionKey}',
+			options: {
+				attribution: 'See https://docs.microsoft.com/en-us/rest/api/maps/render-v2/get-map-tile for details.',
+				apiVersion: '2.0',
+				variant: 'microsoft.imagery',
+				subscriptionKey: '<insert your subscription key here>',
+				language: 'en-US',
+			},
+			variants: {
+				MicrosoftImagery: 'microsoft.imagery',
+				MicrosoftBaseDarkGrey: 'microsoft.base.darkgrey',
+				MicrosoftBaseRoad: 'microsoft.base.road',
+				MicrosoftBaseHybridRoad: 'microsoft.base.hybrid.road',
+				MicrosoftTerraMain: 'microsoft.terra.main',
+				MicrosoftWeatherInfraredMain: {
+					url: 
+					'https://atlas.microsoft.com/map/tile?api-version={apiVersion}'+
+					'&tilesetId={variant}&x={x}&y={y}&zoom={z}'+
+					'&timeStamp={timeStamp}&language={language}' +
+					'&subscription-key={subscriptionKey}',
+					options: {
+						timeStamp: '2021-05-08T09:03:00Z',
+						attribution: 'See https://docs.microsoft.com/en-us/rest/api/maps/render-v2/get-map-tile#uri-parameters for details.',
+						variant: 'microsoft.weather.infrared.main',
+					},
+				},
+				MicrosoftWeatherRadarMain: {
+					url: 
+					'https://atlas.microsoft.com/map/tile?api-version={apiVersion}'+
+					'&tilesetId={variant}&x={x}&y={y}&zoom={z}'+
+					'&timeStamp={timeStamp}&language={language}' +
+					'&subscription-key={subscriptionKey}',
+					options: {
+						timeStamp: '2021-05-08T09:03:00Z',
+						attribution: 'See https://docs.microsoft.com/en-us/rest/api/maps/render-v2/get-map-tile#uri-parameters for details.',
+						variant: 'microsoft.weather.radar.main',
+					},
+				}
+			},
+		},
+		SwissFederalGeoportal: {
+			url: 'https://wmts.geo.admin.ch/1.0.0/{variant}/default/current/3857/{z}/{x}/{y}.jpeg',
+			options: {
+				attribution: '&copy; <a href="https://www.swisstopo.admin.ch/">swisstopo</a>',
+				minZoom: 2,
+				maxZoom: 18,
+				bounds: [[45.398181, 5.140242], [48.230651, 11.47757]]
+			},
+			variants: {
+				NationalMapColor: 'ch.swisstopo.pixelkarte-farbe',
+				NationalMapGrey: 'ch.swisstopo.pixelkarte-grau',
+				SWISSIMAGE: {
+					options: {
+						variant: 'ch.swisstopo.swissimage',
+						maxZoom: 19
+					}
+				}
+			}
+		}
+	};
+
+	L.tileLayer.provider = function (provider, options) {
+		return new L.TileLayer.Provider(provider, options);
+	};
+
+	return L;
+}));
+</script>
+<script>LeafletWidget.methods.addProviderTiles = function(provider, layerId, group, options) {
+  this.layerManager.addLayer(L.tileLayer.provider(provider, options), "tile", layerId, group);
+};
+</script>
 
 </head>
 <body style="background-color: white;">
 <div id="htmlwidget_container">
-  <div class="leaflet html-widget html-fill-item" id="htmlwidget-aedef18d6de4d1a7057b" style="width:100%;height:400px;"></div>
+  <div class="leaflet html-widget html-fill-item" id="htmlwidget-51f9572436457ba86ccf" style="width:100%;height:400px;"></div>
 </div>
-<script type="application/json" data-for="htmlwidget-aedef18d6de4d1a7057b">{"x":{"options":{"crs":{"crsClass":"L.CRS.EPSG3857","code":null,"proj4def":null,"projectedBounds":null,"options":{}}},"calls":[{"method":"addTiles","args":["https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",null,null,{"minZoom":0,"maxZoom":18,"tileSize":256,"subdomains":"abc","errorTileUrl":"","tms":false,"noWrap":false,"zoomOffset":0,"zoomReverse":false,"opacity":1,"zIndex":1,"detectRetina":false,"attribution":"&copy; <a href=\"https://openstreetmap.org/copyright/\">OpenStreetMap<\/a>,  <a href=\"https://opendatacommons.org/licenses/odbl/\">ODbL<\/a>"}]},{"method":"addLegend","args":[{"colors":["#473C8B","#DBC951","#A94D88","#62DD53","#CDD652","#8FB43C","#437527","#608A3E","#023A78","#702B81","#A43357","#795DD2","#D02090","#4EB0DF","#E6B9CD","#E73B69","#E6B9CD","#E6B9CD","#3F7CDE","#4C95B5","#7D26CD","#C89E51","#945033"],"labels":["An. albimanus","An. atropos","An. barberi","An. crucians A","An. crucians B","An. crucians C","An. crucians D","An. crucians E","An. diluvialis","An. earlei","An. franciscanus","An. freeborni","An. judithae","An. maverlius","An. perplexens","An. pseudopunctipennis","An. punctipennis","An. punctipennis/An. perplexens","An. quadrimaculatus","An. smaragdinus","An. vestitipennis","An. walkeri A","An. walkeri B"],"na_color":null,"na_label":"NA","opacity":0.5,"position":"bottomleft","type":"factor","title":"species","extra":null,"layerId":null,"className":"info legend","group":null}]},{"method":"addCircleMarkers","args":[[31.818782,32.881294,29.081124,27.657472,28.083785,25.403628,27.585909,29.288861,29.495846,29.516796,29.769623,42.4743750246229,42.4743750246229,42.4743750246229,33.270811326103,33.2651854674135,33.2745183385597,33.2901966618432,29.370654,29.370654,29.516796,29.354489,43.904906,43.904906,47.800725,47.800725,null,33.277873971103,33.2651854674135,33.2745183385597,33.2901966618432,32.8302341267636,32.8302341267636,33.277873971103,33.2780464464736,33.2901966618432,33.2901966618432,33.2901966618432,29.370654,29.370654,29.288861,29.354489,29.354489,32.896817,32.896817,32.89975,29.354489,33.2745183385597,33.2782283363521,25.403628,27.585909,29.370654,29.354489,31.175208,31.182724,38.872876,38.872876,38.872876,38.875234,31.175208,31.182724,33.399233,33.399233,27.657472,27.657472,27.657472,29.354489,29.354489,31.175208,38.875234,65.165769,47.840738,47.800725,31.788209,31.788209,38.230243,null,42.4743750246229,46.249945,47.800725,35.396179,31.813052,35.396179,45.729719,31.813052,29.370654,31.794002,33.389372,33.389372,31.443937,31.788209,31.788209,31.772897,37.101331,37.082013,42.482279,42.482279,46.243091,47.139342,24.58157,27.757785,27.757785,31.443937,18.025667,18.024505,18.024505,42.42152],[-88.18640600000001,-87.438992,-81.565881,-80.8925,-81.386763,-80.498735,-80.373997,-83.053563,-82.25678000000001,-82.22214,-82.46447000000001,-71.3297471630342,-71.3297471630342,-71.3297471630342,-88.7792773736182,-88.7810013218277,-88.7945715251296,-88.77580636514099,-81.89811400000001,-81.89811400000001,-82.22214,-82.734824,-93.41548,-93.41548,-90.844509,-90.844509,null,-88.7936128670304,-88.7810013218277,-88.7945715251296,-88.77580636514099,-80.6299203239374,-80.6299203239374,-88.7936128670304,-88.79393203258959,-88.77580636514099,-88.77580636514099,-88.77580636514099,-81.89811400000001,-81.89811400000001,-83.053563,-82.734824,-82.734824,-87.412758,-87.412758,-87.42591400000001,-82.734824,-88.7945715251296,-88.7987916719859,-80.498735,-80.373997,-81.89811400000001,-82.734824,-84.470371,-84.482202,-76.53712400000001,-76.53712400000001,-76.53712400000001,-76.542491,-84.470371,-84.482202,-97.60799,-97.60799,-80.8925,-80.8925,-80.8925,-82.734824,-82.734824,-84.470371,-76.542491,-147.494593,-90.763519,-90.844509,-110.637409,-110.637409,-109.39148,null,-71.3297471630342,-89.540863,-90.844509,-99.073429,-88.188829,-99.073429,-122.363716,-88.188829,-81.89811400000001,-110.883327,-97.572997,-97.572997,-111.238786,-110.637409,-110.637409,-110.857362,-119.721285,-119.7411,-72.272148,-72.272148,-89.50940900000001,-99.24649599999999,-81.65185099999999,-80.421834,-80.421834,-111.238786,-67.082493,-67.074566,-67.074566,-72.220399],10,null,"All",{"interactive":true,"className":"","stroke":true,"color":["#3F7CDE","#3F7CDE","#3F7CDE","#3F7CDE","#3F7CDE","#3F7CDE","#3F7CDE","#3F7CDE","#3F7CDE","#3F7CDE","#3F7CDE","#3F7CDE","#3F7CDE","#3F7CDE","#3F7CDE","#3F7CDE","#3F7CDE","#3F7CDE","#4C95B5","#4C95B5","#4C95B5","#4C95B5","#4C95B5","#4C95B5","#4C95B5","#4C95B5","#4C95B5","#4C95B5","#4C95B5","#4C95B5","#4C95B5","#4C95B5","#4C95B5","#4EB0DF","#4EB0DF","#4EB0DF","#4EB0DF","#4EB0DF","#023A78","#023A78","#023A78","#023A78","#023A78","#62DD53","#62DD53","#62DD53","#62DD53","#62DD53","#62DD53","#CDD652","#CDD652","#CDD652","#CDD652","#CDD652","#CDD652","#CDD652","#CDD652","#CDD652","#CDD652","#8FB43C","#8FB43C","#8FB43C","#8FB43C","#437527","#437527","#437527","#437527","#608A3E","#608A3E","#608A3E","#702B81","#702B81","#702B81","#795DD2","#795DD2","#795DD2","#E6B9CD","#E6B9CD","#E6B9CD","#E6B9CD","#E6B9CD","#E6B9CD","#E6B9CD","#E6B9CD","#E6B9CD","#E6B9CD","#E73B69","#E73B69","#E73B69","#A43357","#A43357","#A43357","#A43357","#A43357","#A43357","#C89E51","#C89E51","#945033","#945033","#DBC951","#DBC951","#DBC951","#D02090","#473C8B","#7D26CD","#7D26CD","#A94D88"],"weight":5,"opacity":0.5,"fill":true,"fillColor":["#3F7CDE","#3F7CDE","#3F7CDE","#3F7CDE","#3F7CDE","#3F7CDE","#3F7CDE","#3F7CDE","#3F7CDE","#3F7CDE","#3F7CDE","#3F7CDE","#3F7CDE","#3F7CDE","#3F7CDE","#3F7CDE","#3F7CDE","#3F7CDE","#4C95B5","#4C95B5","#4C95B5","#4C95B5","#4C95B5","#4C95B5","#4C95B5","#4C95B5","#4C95B5","#4C95B5","#4C95B5","#4C95B5","#4C95B5","#4C95B5","#4C95B5","#4EB0DF","#4EB0DF","#4EB0DF","#4EB0DF","#4EB0DF","#023A78","#023A78","#023A78","#023A78","#023A78","#62DD53","#62DD53","#62DD53","#62DD53","#62DD53","#62DD53","#CDD652","#CDD652","#CDD652","#CDD652","#CDD652","#CDD652","#CDD652","#CDD652","#CDD652","#CDD652","#8FB43C","#8FB43C","#8FB43C","#8FB43C","#437527","#437527","#437527","#437527","#608A3E","#608A3E","#608A3E","#702B81","#702B81","#702B81","#795DD2","#795DD2","#795DD2","#E6B9CD","#E6B9CD","#E6B9CD","#E6B9CD","#E6B9CD","#E6B9CD","#E6B9CD","#E6B9CD","#E6B9CD","#E6B9CD","#E73B69","#E73B69","#E73B69","#A43357","#A43357","#A43357","#A43357","#A43357","#A43357","#C89E51","#C89E51","#945033","#945033","#DBC951","#DBC951","#DBC951","#D02090","#473C8B","#7D26CD","#7D26CD","#A94D88"],"fillOpacity":1},null,null,["<b>An. quadrimaculatus<\/b><br/>AL: LENO_032","<b>An. quadrimaculatus<\/b><br/>AL: TALL_041","<b>An. quadrimaculatus<\/b><br/>FL: Alexander Springs; Ocala National Forest","<b>An. quadrimaculatus<\/b><br/>FL: DeLuca Preserve","<b>An. quadrimaculatus<\/b><br/>FL: DSNY_078","<b>An. quadrimaculatus<\/b><br/>FL: Florida City","<b>An. quadrimaculatus<\/b><br/>FL: FMEL; Vero Beach","<b>An. quadrimaculatus<\/b><br/>FL: Lower Suwannee","<b>An. quadrimaculatus<\/b><br/>FL: Micanopy Pet Cemetary","<b>An. quadrimaculatus<\/b><br/>FL: River Styx","<b>An. quadrimaculatus<\/b><br/>FL: San Felasco Hammock","<b>An. quadrimaculatus<\/b><br/>MA: GMC.03","<b>An. quadrimaculatus<\/b><br/>MA: GMC.03","<b>An. quadrimaculatus<\/b><br/>MA: GMC.03","<b>An. quadrimaculatus<\/b><br/>MS: NXB001","<b>An. quadrimaculatus<\/b><br/>MS: NXB005","<b>An. quadrimaculatus<\/b><br/>MS: NXB008","<b>An. quadrimaculatus<\/b><br/>MS: NXB011","<b>An. smaragdinus<\/b><br/>FL: Hog Valley, Ocklawaha River","<b>An. smaragdinus<\/b><br/>FL: Hog Valley, Ocklawaha River","<b>An. smaragdinus<\/b><br/>FL: River Styx","<b>An. smaragdinus<\/b><br/>FL: Waccasassa River / State Road 24","<b>An. smaragdinus<\/b><br/>MN: St. Olaf Lake","<b>An. smaragdinus<\/b><br/>MN: St. Olaf Lake","<b>An. smaragdinus<\/b><br/>MN: Temperence River, Superior National Forest","<b>An. smaragdinus<\/b><br/>MN: Temperence River, Superior National Forest","<b>An. smaragdinus<\/b><br/>MS: brood","<b>An. smaragdinus<\/b><br/>MS: NXB001","<b>An. smaragdinus<\/b><br/>MS: NXB005","<b>An. smaragdinus<\/b><br/>MS: NXB008","<b>An. smaragdinus<\/b><br/>MS: NXB011","<b>An. smaragdinus<\/b><br/>SC: Green Pond","<b>An. smaragdinus<\/b><br/>SC: Green Pond","<b>An. maverlius<\/b><br/>MS: NXB001","<b>An. maverlius<\/b><br/>MS: NXB002","<b>An. maverlius<\/b><br/>MS: NXB011","<b>An. maverlius<\/b><br/>MS: NXB011","<b>An. maverlius<\/b><br/>MS: NXB011","<b>An. diluvialis<\/b><br/>FL: Hog Valley, Ocklawaha River","<b>An. diluvialis<\/b><br/>FL: Hog Valley, Ocklawaha River","<b>An. diluvialis<\/b><br/>FL: Lower Suwannee","<b>An. diluvialis<\/b><br/>FL: Waccasassa River / State Road 24","<b>An. diluvialis<\/b><br/>FL: Waccasassa River / State Road 24","<b>An. crucians A<\/b><br/>AL: TALL_035","<b>An. crucians A<\/b><br/>AL: TALL_035","<b>An. crucians A<\/b><br/>AL: TALL_040","<b>An. crucians A<\/b><br/>FL: Waccasassa River / State Road 24","<b>An. crucians A<\/b><br/>MS: NXB008","<b>An. crucians A<\/b><br/>MS: NXB009","<b>An. crucians B<\/b><br/>FL: Florida City","<b>An. crucians B<\/b><br/>FL: FMEL; Vero Beach","<b>An. crucians B<\/b><br/>FL: Hog Valley, Ocklawaha River","<b>An. crucians B<\/b><br/>FL: Waccasassa River / State Road 24","<b>An. crucians B<\/b><br/>GA: JERC_069","<b>An. crucians B<\/b><br/>GA: JERC_074","<b>An. crucians B<\/b><br/>MD: SERC_033","<b>An. crucians B<\/b><br/>MD: SERC_033","<b>An. crucians B<\/b><br/>MD: SERC_033","<b>An. crucians B<\/b><br/>MD: SERC_036","<b>An. crucians C<\/b><br/>GA: JERC_069","<b>An. crucians C<\/b><br/>GA: JERC_074","<b>An. crucians C<\/b><br/>TX: CLBJ_074","<b>An. crucians C<\/b><br/>TX: CLBJ_074","<b>An. crucians D<\/b><br/>FL: DeLuca Preserve","<b>An. crucians D<\/b><br/>FL: DeLuca Preserve","<b>An. crucians D<\/b><br/>FL: DeLuca Preserve","<b>An. crucians D<\/b><br/>FL: Waccasassa River / State Road 24","<b>An. crucians E<\/b><br/>FL: Waccasassa River / State Road 24","<b>An. crucians E<\/b><br/>GA: JERC_069","<b>An. crucians E<\/b><br/>MD: SERC_036","<b>An. earlei<\/b><br/>AK: BONA_040","<b>An. earlei<\/b><br/>MN: Crescent Lake, Superior National Forest","<b>An. earlei<\/b><br/>MN: Temperence River, Superior National Forest","<b>An. freeborni<\/b><br/>AZ: Empire Ranch, Cienegas NCA","<b>An. freeborni<\/b><br/>AZ: Empire Ranch, Cienegas NCA","<b>An. freeborni<\/b><br/>UT: MOAB_037","<b>An. punctipennis<\/b><br/>MA: brood","<b>An. punctipennis<\/b><br/>MA: GMC.03","<b>An. punctipennis<\/b><br/>MI: UNDE_066","<b>An. punctipennis<\/b><br/>MN: Temperence River, Superior National Forest","<b>An. punctipennis<\/b><br/>OK: OAES_039","<b>An. punctipennis/An. perplexens<\/b><br/>AL: LENO_039","<b>An. punctipennis/An. perplexens<\/b><br/>OK: OAES_039","<b>An. punctipennis/An. perplexens<\/b><br/>WA: ABBY_039","<b>An. perplexens<\/b><br/>AL: LENO_039","<b>An. perplexens<\/b><br/>FL: Hog Valley, Ocklawaha River","<b>An. pseudopunctipennis<\/b><br/>AZ: SRER_032","<b>An. pseudopunctipennis<\/b><br/>TX: CLBJ_067","<b>An. pseudopunctipennis<\/b><br/>TX: CLBJ_067","<b>An. franciscanus<\/b><br/>AZ: California Gulch, Coronado National Forest","<b>An. franciscanus<\/b><br/>AZ: Empire Ranch, Cienegas NCA","<b>An. franciscanus<\/b><br/>AZ: Empire Ranch, Cienegas NCA","<b>An. franciscanus<\/b><br/>AZ: SRER_033","<b>An. franciscanus<\/b><br/>CA: SJER_036","<b>An. franciscanus<\/b><br/>CA: SJER_040","<b>An. walkeri A<\/b><br/>MA: HARV_082","<b>An. walkeri A<\/b><br/>MA: HARV_082","<b>An. walkeri B<\/b><br/>MI: UNDE_070","<b>An. walkeri B<\/b><br/>ND: WOOD_033","<b>An. atropos<\/b><br/>FL: Geiger Key","<b>An. atropos<\/b><br/>FL: Wabasso Bridge","<b>An. atropos<\/b><br/>FL: Wabasso Bridge","<b>An. judithae<\/b><br/>AZ: Canelo Cienega","<b>An. albimanus<\/b><br/>NA: LAJA_031","<b>An. vestitipennis<\/b><br/>NA: LAJA_039","<b>An. vestitipennis<\/b><br/>NA: LAJA_039","<b>An. barberi<\/b><br/>MA: HARV_079"],null,["An. quadrimaculatus (AL: LENO_032; n = 1)","An. quadrimaculatus (AL: TALL_041; n = 1)","An. quadrimaculatus (FL: Alexander Springs; Ocala National Forest; n = 1)","An. quadrimaculatus (FL: DeLuca Preserve; n = 1)","An. quadrimaculatus (FL: DSNY_078; n = 1)","An. quadrimaculatus (FL: Florida City; n = 1)","An. quadrimaculatus (FL: FMEL; Vero Beach; n = 1)","An. quadrimaculatus (FL: Lower Suwannee; n = 1)","An. quadrimaculatus (FL: Micanopy Pet Cemetary; n = 1)","An. quadrimaculatus (FL: River Styx; n = 1)","An. quadrimaculatus (FL: San Felasco Hammock; n = 1)","An. quadrimaculatus (MA: GMC.03; n = 3)","An. quadrimaculatus (MA: GMC.03; n = 3)","An. quadrimaculatus (MA: GMC.03; n = 3)","An. quadrimaculatus (MS: NXB001; n = 1)","An. quadrimaculatus (MS: NXB005; n = 1)","An. quadrimaculatus (MS: NXB008; n = 1)","An. quadrimaculatus (MS: NXB011; n = 1)","An. smaragdinus (FL: Hog Valley, Ocklawaha River; n = 2)","An. smaragdinus (FL: Hog Valley, Ocklawaha River; n = 2)","An. smaragdinus (FL: River Styx; n = 1)","An. smaragdinus (FL: Waccasassa River / State Road 24; n = 1)","An. smaragdinus (MN: St. Olaf Lake; n = 2)","An. smaragdinus (MN: St. Olaf Lake; n = 2)","An. smaragdinus (MN: Temperence River, Superior National Forest; n = 2)","An. smaragdinus (MN: Temperence River, Superior National Forest; n = 2)","An. smaragdinus (MS: brood; n = 1)","An. smaragdinus (MS: NXB001; n = 1)","An. smaragdinus (MS: NXB005; n = 1)","An. smaragdinus (MS: NXB008; n = 1)","An. smaragdinus (MS: NXB011; n = 1)","An. smaragdinus (SC: Green Pond; n = 2)","An. smaragdinus (SC: Green Pond; n = 2)","An. maverlius (MS: NXB001; n = 1)","An. maverlius (MS: NXB002; n = 1)","An. maverlius (MS: NXB011; n = 3)","An. maverlius (MS: NXB011; n = 3)","An. maverlius (MS: NXB011; n = 3)","An. diluvialis (FL: Hog Valley, Ocklawaha River; n = 2)","An. diluvialis (FL: Hog Valley, Ocklawaha River; n = 2)","An. diluvialis (FL: Lower Suwannee; n = 1)","An. diluvialis (FL: Waccasassa River / State Road 24; n = 2)","An. diluvialis (FL: Waccasassa River / State Road 24; n = 2)","An. crucians A (AL: TALL_035; n = 2)","An. crucians A (AL: TALL_035; n = 2)","An. crucians A (AL: TALL_040; n = 1)","An. crucians A (FL: Waccasassa River / State Road 24; n = 1)","An. crucians A (MS: NXB008; n = 1)","An. crucians A (MS: NXB009; n = 1)","An. crucians B (FL: Florida City; n = 1)","An. crucians B (FL: FMEL; Vero Beach; n = 1)","An. crucians B (FL: Hog Valley, Ocklawaha River; n = 1)","An. crucians B (FL: Waccasassa River / State Road 24; n = 1)","An. crucians B (GA: JERC_069; n = 1)","An. crucians B (GA: JERC_074; n = 1)","An. crucians B (MD: SERC_033; n = 3)","An. crucians B (MD: SERC_033; n = 3)","An. crucians B (MD: SERC_033; n = 3)","An. crucians B (MD: SERC_036; n = 1)","An. crucians C (GA: JERC_069; n = 1)","An. crucians C (GA: JERC_074; n = 1)","An. crucians C (TX: CLBJ_074; n = 2)","An. crucians C (TX: CLBJ_074; n = 2)","An. crucians D (FL: DeLuca Preserve; n = 3)","An. crucians D (FL: DeLuca Preserve; n = 3)","An. crucians D (FL: DeLuca Preserve; n = 3)","An. crucians D (FL: Waccasassa River / State Road 24; n = 1)","An. crucians E (FL: Waccasassa River / State Road 24; n = 1)","An. crucians E (GA: JERC_069; n = 1)","An. crucians E (MD: SERC_036; n = 1)","An. earlei (AK: BONA_040; n = 1)","An. earlei (MN: Crescent Lake, Superior National Forest; n = 1)","An. earlei (MN: Temperence River, Superior National Forest; n = 1)","An. freeborni (AZ: Empire Ranch, Cienegas NCA; n = 2)","An. freeborni (AZ: Empire Ranch, Cienegas NCA; n = 2)","An. freeborni (UT: MOAB_037; n = 1)","An. punctipennis (MA: brood; n = 1)","An. punctipennis (MA: GMC.03; n = 1)","An. punctipennis (MI: UNDE_066; n = 1)","An. punctipennis (MN: Temperence River, Superior National Forest; n = 1)","An. punctipennis (OK: OAES_039; n = 1)","An. punctipennis/An. perplexens (AL: LENO_039; n = 1)","An. punctipennis/An. perplexens (OK: OAES_039; n = 1)","An. punctipennis/An. perplexens (WA: ABBY_039; n = 1)","An. perplexens (AL: LENO_039; n = 1)","An. perplexens (FL: Hog Valley, Ocklawaha River; n = 1)","An. pseudopunctipennis (AZ: SRER_032; n = 1)","An. pseudopunctipennis (TX: CLBJ_067; n = 2)","An. pseudopunctipennis (TX: CLBJ_067; n = 2)","An. franciscanus (AZ: California Gulch, Coronado National Forest; n = 1)","An. franciscanus (AZ: Empire Ranch, Cienegas NCA; n = 2)","An. franciscanus (AZ: Empire Ranch, Cienegas NCA; n = 2)","An. franciscanus (AZ: SRER_033; n = 1)","An. franciscanus (CA: SJER_036; n = 1)","An. franciscanus (CA: SJER_040; n = 1)","An. walkeri A (MA: HARV_082; n = 2)","An. walkeri A (MA: HARV_082; n = 2)","An. walkeri B (MI: UNDE_070; n = 1)","An. walkeri B (ND: WOOD_033; n = 1)","An. atropos (FL: Geiger Key; n = 1)","An. atropos (FL: Wabasso Bridge; n = 2)","An. atropos (FL: Wabasso Bridge; n = 2)","An. judithae (AZ: Canelo Cienega; n = 1)","An. albimanus (NA: LAJA_031; n = 1)","An. vestitipennis (NA: LAJA_039; n = 2)","An. vestitipennis (NA: LAJA_039; n = 2)","An. barberi (MA: HARV_079; n = 1)"],{"interactive":false,"permanent":false,"direction":"auto","opacity":1,"offset":[0,0],"textsize":"10px","textOnly":false,"className":"","sticky":true},null]},{"method":"addCircleMarkers","args":[[31.818782,32.881294,29.081124,27.657472,28.083785,25.403628,27.585909,29.288861,29.495846,29.516796,29.769623,42.4743750246229,42.4743750246229,42.4743750246229,33.270811326103,33.2651854674135,33.2745183385597,33.2901966618432],[-88.18640600000001,-87.438992,-81.565881,-80.8925,-81.386763,-80.498735,-80.373997,-83.053563,-82.25678000000001,-82.22214,-82.46447000000001,-71.3297471630342,-71.3297471630342,-71.3297471630342,-88.7792773736182,-88.7810013218277,-88.7945715251296,-88.77580636514099],10,null,"An. quadrimaculatus",{"interactive":true,"className":"","stroke":true,"color":["#3F7CDE","#3F7CDE","#3F7CDE","#3F7CDE","#3F7CDE","#3F7CDE","#3F7CDE","#3F7CDE","#3F7CDE","#3F7CDE","#3F7CDE","#3F7CDE","#3F7CDE","#3F7CDE","#3F7CDE","#3F7CDE","#3F7CDE","#3F7CDE"],"weight":5,"opacity":0.5,"fill":true,"fillColor":["#3F7CDE","#3F7CDE","#3F7CDE","#3F7CDE","#3F7CDE","#3F7CDE","#3F7CDE","#3F7CDE","#3F7CDE","#3F7CDE","#3F7CDE","#3F7CDE","#3F7CDE","#3F7CDE","#3F7CDE","#3F7CDE","#3F7CDE","#3F7CDE"],"fillOpacity":1},null,null,["<b>An. quadrimaculatus<\/b><br/>AL: LENO_032","<b>An. quadrimaculatus<\/b><br/>AL: TALL_041","<b>An. quadrimaculatus<\/b><br/>FL: Alexander Springs; Ocala National Forest","<b>An. quadrimaculatus<\/b><br/>FL: DeLuca Preserve","<b>An. quadrimaculatus<\/b><br/>FL: DSNY_078","<b>An. quadrimaculatus<\/b><br/>FL: Florida City","<b>An. quadrimaculatus<\/b><br/>FL: FMEL; Vero Beach","<b>An. quadrimaculatus<\/b><br/>FL: Lower Suwannee","<b>An. quadrimaculatus<\/b><br/>FL: Micanopy Pet Cemetary","<b>An. quadrimaculatus<\/b><br/>FL: River Styx","<b>An. quadrimaculatus<\/b><br/>FL: San Felasco Hammock","<b>An. quadrimaculatus<\/b><br/>MA: GMC.03","<b>An. quadrimaculatus<\/b><br/>MA: GMC.03","<b>An. quadrimaculatus<\/b><br/>MA: GMC.03","<b>An. quadrimaculatus<\/b><br/>MS: NXB001","<b>An. quadrimaculatus<\/b><br/>MS: NXB005","<b>An. quadrimaculatus<\/b><br/>MS: NXB008","<b>An. quadrimaculatus<\/b><br/>MS: NXB011"],null,["An. quadrimaculatus (AL: LENO_032; n = 1)","An. quadrimaculatus (AL: TALL_041; n = 1)","An. quadrimaculatus (FL: Alexander Springs; Ocala National Forest; n = 1)","An. quadrimaculatus (FL: DeLuca Preserve; n = 1)","An. quadrimaculatus (FL: DSNY_078; n = 1)","An. quadrimaculatus (FL: Florida City; n = 1)","An. quadrimaculatus (FL: FMEL; Vero Beach; n = 1)","An. quadrimaculatus (FL: Lower Suwannee; n = 1)","An. quadrimaculatus (FL: Micanopy Pet Cemetary; n = 1)","An. quadrimaculatus (FL: River Styx; n = 1)","An. quadrimaculatus (FL: San Felasco Hammock; n = 1)","An. quadrimaculatus (MA: GMC.03; n = 3)","An. quadrimaculatus (MA: GMC.03; n = 3)","An. quadrimaculatus (MA: GMC.03; n = 3)","An. quadrimaculatus (MS: NXB001; n = 1)","An. quadrimaculatus (MS: NXB005; n = 1)","An. quadrimaculatus (MS: NXB008; n = 1)","An. quadrimaculatus (MS: NXB011; n = 1)"],{"interactive":false,"permanent":false,"direction":"auto","opacity":1,"offset":[0,0],"textsize":"10px","textOnly":false,"className":"","sticky":true},null]},{"method":"addCircleMarkers","args":[[29.370654,29.370654,29.516796,29.354489,43.904906,43.904906,47.800725,47.800725,null,33.277873971103,33.2651854674135,33.2745183385597,33.2901966618432,32.8302341267636,32.8302341267636],[-81.89811400000001,-81.89811400000001,-82.22214,-82.734824,-93.41548,-93.41548,-90.844509,-90.844509,null,-88.7936128670304,-88.7810013218277,-88.7945715251296,-88.77580636514099,-80.6299203239374,-80.6299203239374],10,null,"An. smaragdinus",{"interactive":true,"className":"","stroke":true,"color":["#4C95B5","#4C95B5","#4C95B5","#4C95B5","#4C95B5","#4C95B5","#4C95B5","#4C95B5","#4C95B5","#4C95B5","#4C95B5","#4C95B5","#4C95B5","#4C95B5","#4C95B5"],"weight":5,"opacity":0.5,"fill":true,"fillColor":["#4C95B5","#4C95B5","#4C95B5","#4C95B5","#4C95B5","#4C95B5","#4C95B5","#4C95B5","#4C95B5","#4C95B5","#4C95B5","#4C95B5","#4C95B5","#4C95B5","#4C95B5"],"fillOpacity":1},null,null,["<b>An. smaragdinus<\/b><br/>FL: Hog Valley, Ocklawaha River","<b>An. smaragdinus<\/b><br/>FL: Hog Valley, Ocklawaha River","<b>An. smaragdinus<\/b><br/>FL: River Styx","<b>An. smaragdinus<\/b><br/>FL: Waccasassa River / State Road 24","<b>An. smaragdinus<\/b><br/>MN: St. Olaf Lake","<b>An. smaragdinus<\/b><br/>MN: St. Olaf Lake","<b>An. smaragdinus<\/b><br/>MN: Temperence River, Superior National Forest","<b>An. smaragdinus<\/b><br/>MN: Temperence River, Superior National Forest","<b>An. smaragdinus<\/b><br/>MS: brood","<b>An. smaragdinus<\/b><br/>MS: NXB001","<b>An. smaragdinus<\/b><br/>MS: NXB005","<b>An. smaragdinus<\/b><br/>MS: NXB008","<b>An. smaragdinus<\/b><br/>MS: NXB011","<b>An. smaragdinus<\/b><br/>SC: Green Pond","<b>An. smaragdinus<\/b><br/>SC: Green Pond"],null,["An. smaragdinus (FL: Hog Valley, Ocklawaha River; n = 2)","An. smaragdinus (FL: Hog Valley, Ocklawaha River; n = 2)","An. smaragdinus (FL: River Styx; n = 1)","An. smaragdinus (FL: Waccasassa River / State Road 24; n = 1)","An. smaragdinus (MN: St. Olaf Lake; n = 2)","An. smaragdinus (MN: St. Olaf Lake; n = 2)","An. smaragdinus (MN: Temperence River, Superior National Forest; n = 2)","An. smaragdinus (MN: Temperence River, Superior National Forest; n = 2)","An. smaragdinus (MS: brood; n = 1)","An. smaragdinus (MS: NXB001; n = 1)","An. smaragdinus (MS: NXB005; n = 1)","An. smaragdinus (MS: NXB008; n = 1)","An. smaragdinus (MS: NXB011; n = 1)","An. smaragdinus (SC: Green Pond; n = 2)","An. smaragdinus (SC: Green Pond; n = 2)"],{"interactive":false,"permanent":false,"direction":"auto","opacity":1,"offset":[0,0],"textsize":"10px","textOnly":false,"className":"","sticky":true},null]},{"method":"addCircleMarkers","args":[[33.277873971103,33.2780464464736,33.2901966618432,33.2901966618432,33.2901966618432],[-88.7936128670304,-88.79393203258959,-88.77580636514099,-88.77580636514099,-88.77580636514099],10,null,"An. maverlius",{"interactive":true,"className":"","stroke":true,"color":["#4EB0DF","#4EB0DF","#4EB0DF","#4EB0DF","#4EB0DF"],"weight":5,"opacity":0.5,"fill":true,"fillColor":["#4EB0DF","#4EB0DF","#4EB0DF","#4EB0DF","#4EB0DF"],"fillOpacity":1},null,null,["<b>An. maverlius<\/b><br/>MS: NXB001","<b>An. maverlius<\/b><br/>MS: NXB002","<b>An. maverlius<\/b><br/>MS: NXB011","<b>An. maverlius<\/b><br/>MS: NXB011","<b>An. maverlius<\/b><br/>MS: NXB011"],null,["An. maverlius (MS: NXB001; n = 1)","An. maverlius (MS: NXB002; n = 1)","An. maverlius (MS: NXB011; n = 3)","An. maverlius (MS: NXB011; n = 3)","An. maverlius (MS: NXB011; n = 3)"],{"interactive":false,"permanent":false,"direction":"auto","opacity":1,"offset":[0,0],"textsize":"10px","textOnly":false,"className":"","sticky":true},null]},{"method":"addCircleMarkers","args":[[29.370654,29.370654,29.288861,29.354489,29.354489],[-81.89811400000001,-81.89811400000001,-83.053563,-82.734824,-82.734824],10,null,"An. diluvialis",{"interactive":true,"className":"","stroke":true,"color":["#023A78","#023A78","#023A78","#023A78","#023A78"],"weight":5,"opacity":0.5,"fill":true,"fillColor":["#023A78","#023A78","#023A78","#023A78","#023A78"],"fillOpacity":1},null,null,["<b>An. diluvialis<\/b><br/>FL: Hog Valley, Ocklawaha River","<b>An. diluvialis<\/b><br/>FL: Hog Valley, Ocklawaha River","<b>An. diluvialis<\/b><br/>FL: Lower Suwannee","<b>An. diluvialis<\/b><br/>FL: Waccasassa River / State Road 24","<b>An. diluvialis<\/b><br/>FL: Waccasassa River / State Road 24"],null,["An. diluvialis (FL: Hog Valley, Ocklawaha River; n = 2)","An. diluvialis (FL: Hog Valley, Ocklawaha River; n = 2)","An. diluvialis (FL: Lower Suwannee; n = 1)","An. diluvialis (FL: Waccasassa River / State Road 24; n = 2)","An. diluvialis (FL: Waccasassa River / State Road 24; n = 2)"],{"interactive":false,"permanent":false,"direction":"auto","opacity":1,"offset":[0,0],"textsize":"10px","textOnly":false,"className":"","sticky":true},null]},{"method":"addCircleMarkers","args":[[32.896817,32.896817,32.89975,29.354489,33.2745183385597,33.2782283363521],[-87.412758,-87.412758,-87.42591400000001,-82.734824,-88.7945715251296,-88.7987916719859],10,null,"An. crucians A",{"interactive":true,"className":"","stroke":true,"color":["#62DD53","#62DD53","#62DD53","#62DD53","#62DD53","#62DD53"],"weight":5,"opacity":0.5,"fill":true,"fillColor":["#62DD53","#62DD53","#62DD53","#62DD53","#62DD53","#62DD53"],"fillOpacity":1},null,null,["<b>An. crucians A<\/b><br/>AL: TALL_035","<b>An. crucians A<\/b><br/>AL: TALL_035","<b>An. crucians A<\/b><br/>AL: TALL_040","<b>An. crucians A<\/b><br/>FL: Waccasassa River / State Road 24","<b>An. crucians A<\/b><br/>MS: NXB008","<b>An. crucians A<\/b><br/>MS: NXB009"],null,["An. crucians A (AL: TALL_035; n = 2)","An. crucians A (AL: TALL_035; n = 2)","An. crucians A (AL: TALL_040; n = 1)","An. crucians A (FL: Waccasassa River / State Road 24; n = 1)","An. crucians A (MS: NXB008; n = 1)","An. crucians A (MS: NXB009; n = 1)"],{"interactive":false,"permanent":false,"direction":"auto","opacity":1,"offset":[0,0],"textsize":"10px","textOnly":false,"className":"","sticky":true},null]},{"method":"addCircleMarkers","args":[[25.403628,27.585909,29.370654,29.354489,31.175208,31.182724,38.872876,38.872876,38.872876,38.875234],[-80.498735,-80.373997,-81.89811400000001,-82.734824,-84.470371,-84.482202,-76.53712400000001,-76.53712400000001,-76.53712400000001,-76.542491],10,null,"An. crucians B",{"interactive":true,"className":"","stroke":true,"color":["#CDD652","#CDD652","#CDD652","#CDD652","#CDD652","#CDD652","#CDD652","#CDD652","#CDD652","#CDD652"],"weight":5,"opacity":0.5,"fill":true,"fillColor":["#CDD652","#CDD652","#CDD652","#CDD652","#CDD652","#CDD652","#CDD652","#CDD652","#CDD652","#CDD652"],"fillOpacity":1},null,null,["<b>An. crucians B<\/b><br/>FL: Florida City","<b>An. crucians B<\/b><br/>FL: FMEL; Vero Beach","<b>An. crucians B<\/b><br/>FL: Hog Valley, Ocklawaha River","<b>An. crucians B<\/b><br/>FL: Waccasassa River / State Road 24","<b>An. crucians B<\/b><br/>GA: JERC_069","<b>An. crucians B<\/b><br/>GA: JERC_074","<b>An. crucians B<\/b><br/>MD: SERC_033","<b>An. crucians B<\/b><br/>MD: SERC_033","<b>An. crucians B<\/b><br/>MD: SERC_033","<b>An. crucians B<\/b><br/>MD: SERC_036"],null,["An. crucians B (FL: Florida City; n = 1)","An. crucians B (FL: FMEL; Vero Beach; n = 1)","An. crucians B (FL: Hog Valley, Ocklawaha River; n = 1)","An. crucians B (FL: Waccasassa River / State Road 24; n = 1)","An. crucians B (GA: JERC_069; n = 1)","An. crucians B (GA: JERC_074; n = 1)","An. crucians B (MD: SERC_033; n = 3)","An. crucians B (MD: SERC_033; n = 3)","An. crucians B (MD: SERC_033; n = 3)","An. crucians B (MD: SERC_036; n = 1)"],{"interactive":false,"permanent":false,"direction":"auto","opacity":1,"offset":[0,0],"textsize":"10px","textOnly":false,"className":"","sticky":true},null]},{"method":"addCircleMarkers","args":[[31.175208,31.182724,33.399233,33.399233],[-84.470371,-84.482202,-97.60799,-97.60799],10,null,"An. crucians C",{"interactive":true,"className":"","stroke":true,"color":["#8FB43C","#8FB43C","#8FB43C","#8FB43C"],"weight":5,"opacity":0.5,"fill":true,"fillColor":["#8FB43C","#8FB43C","#8FB43C","#8FB43C"],"fillOpacity":1},null,null,["<b>An. crucians C<\/b><br/>GA: JERC_069","<b>An. crucians C<\/b><br/>GA: JERC_074","<b>An. crucians C<\/b><br/>TX: CLBJ_074","<b>An. crucians C<\/b><br/>TX: CLBJ_074"],null,["An. crucians C (GA: JERC_069; n = 1)","An. crucians C (GA: JERC_074; n = 1)","An. crucians C (TX: CLBJ_074; n = 2)","An. crucians C (TX: CLBJ_074; n = 2)"],{"interactive":false,"permanent":false,"direction":"auto","opacity":1,"offset":[0,0],"textsize":"10px","textOnly":false,"className":"","sticky":true},null]},{"method":"addCircleMarkers","args":[[27.657472,27.657472,27.657472,29.354489],[-80.8925,-80.8925,-80.8925,-82.734824],10,null,"An. crucians D",{"interactive":true,"className":"","stroke":true,"color":["#437527","#437527","#437527","#437527"],"weight":5,"opacity":0.5,"fill":true,"fillColor":["#437527","#437527","#437527","#437527"],"fillOpacity":1},null,null,["<b>An. crucians D<\/b><br/>FL: DeLuca Preserve","<b>An. crucians D<\/b><br/>FL: DeLuca Preserve","<b>An. crucians D<\/b><br/>FL: DeLuca Preserve","<b>An. crucians D<\/b><br/>FL: Waccasassa River / State Road 24"],null,["An. crucians D (FL: DeLuca Preserve; n = 3)","An. crucians D (FL: DeLuca Preserve; n = 3)","An. crucians D (FL: DeLuca Preserve; n = 3)","An. crucians D (FL: Waccasassa River / State Road 24; n = 1)"],{"interactive":false,"permanent":false,"direction":"auto","opacity":1,"offset":[0,0],"textsize":"10px","textOnly":false,"className":"","sticky":true},null]},{"method":"addCircleMarkers","args":[[29.354489,31.175208,38.875234],[-82.734824,-84.470371,-76.542491],10,null,"An. crucians E",{"interactive":true,"className":"","stroke":true,"color":["#608A3E","#608A3E","#608A3E"],"weight":5,"opacity":0.5,"fill":true,"fillColor":["#608A3E","#608A3E","#608A3E"],"fillOpacity":1},null,null,["<b>An. crucians E<\/b><br/>FL: Waccasassa River / State Road 24","<b>An. crucians E<\/b><br/>GA: JERC_069","<b>An. crucians E<\/b><br/>MD: SERC_036"],null,["An. crucians E (FL: Waccasassa River / State Road 24; n = 1)","An. crucians E (GA: JERC_069; n = 1)","An. crucians E (MD: SERC_036; n = 1)"],{"interactive":false,"permanent":false,"direction":"auto","opacity":1,"offset":[0,0],"textsize":"10px","textOnly":false,"className":"","sticky":true},null]},{"method":"addCircleMarkers","args":[[65.165769,47.840738,47.800725],[-147.494593,-90.763519,-90.844509],10,null,"An. earlei",{"interactive":true,"className":"","stroke":true,"color":["#702B81","#702B81","#702B81"],"weight":5,"opacity":0.5,"fill":true,"fillColor":["#702B81","#702B81","#702B81"],"fillOpacity":1},null,null,["<b>An. earlei<\/b><br/>AK: BONA_040","<b>An. earlei<\/b><br/>MN: Crescent Lake, Superior National Forest","<b>An. earlei<\/b><br/>MN: Temperence River, Superior National Forest"],null,["An. earlei (AK: BONA_040; n = 1)","An. earlei (MN: Crescent Lake, Superior National Forest; n = 1)","An. earlei (MN: Temperence River, Superior National Forest; n = 1)"],{"interactive":false,"permanent":false,"direction":"auto","opacity":1,"offset":[0,0],"textsize":"10px","textOnly":false,"className":"","sticky":true},null]},{"method":"addCircleMarkers","args":[[31.788209,31.788209,38.230243],[-110.637409,-110.637409,-109.39148],10,null,"An. freeborni",{"interactive":true,"className":"","stroke":true,"color":["#795DD2","#795DD2","#795DD2"],"weight":5,"opacity":0.5,"fill":true,"fillColor":["#795DD2","#795DD2","#795DD2"],"fillOpacity":1},null,null,["<b>An. freeborni<\/b><br/>AZ: Empire Ranch, Cienegas NCA","<b>An. freeborni<\/b><br/>AZ: Empire Ranch, Cienegas NCA","<b>An. freeborni<\/b><br/>UT: MOAB_037"],null,["An. freeborni (AZ: Empire Ranch, Cienegas NCA; n = 2)","An. freeborni (AZ: Empire Ranch, Cienegas NCA; n = 2)","An. freeborni (UT: MOAB_037; n = 1)"],{"interactive":false,"permanent":false,"direction":"auto","opacity":1,"offset":[0,0],"textsize":"10px","textOnly":false,"className":"","sticky":true},null]},{"method":"addCircleMarkers","args":[[null,42.4743750246229,46.249945,47.800725,35.396179],[null,-71.3297471630342,-89.540863,-90.844509,-99.073429],10,null,"An. punctipennis",{"interactive":true,"className":"","stroke":true,"color":["#E6B9CD","#E6B9CD","#E6B9CD","#E6B9CD","#E6B9CD"],"weight":5,"opacity":0.5,"fill":true,"fillColor":["#E6B9CD","#E6B9CD","#E6B9CD","#E6B9CD","#E6B9CD"],"fillOpacity":1},null,null,["<b>An. punctipennis<\/b><br/>MA: brood","<b>An. punctipennis<\/b><br/>MA: GMC.03","<b>An. punctipennis<\/b><br/>MI: UNDE_066","<b>An. punctipennis<\/b><br/>MN: Temperence River, Superior National Forest","<b>An. punctipennis<\/b><br/>OK: OAES_039"],null,["An. punctipennis (MA: brood; n = 1)","An. punctipennis (MA: GMC.03; n = 1)","An. punctipennis (MI: UNDE_066; n = 1)","An. punctipennis (MN: Temperence River, Superior National Forest; n = 1)","An. punctipennis (OK: OAES_039; n = 1)"],{"interactive":false,"permanent":false,"direction":"auto","opacity":1,"offset":[0,0],"textsize":"10px","textOnly":false,"className":"","sticky":true},null]},{"method":"addCircleMarkers","args":[[31.813052,35.396179,45.729719],[-88.188829,-99.073429,-122.363716],10,null,"An. punctipennis/An. perplexens",{"interactive":true,"className":"","stroke":true,"color":["#E6B9CD","#E6B9CD","#E6B9CD"],"weight":5,"opacity":0.5,"fill":true,"fillColor":["#E6B9CD","#E6B9CD","#E6B9CD"],"fillOpacity":1},null,null,["<b>An. punctipennis/An. perplexens<\/b><br/>AL: LENO_039","<b>An. punctipennis/An. perplexens<\/b><br/>OK: OAES_039","<b>An. punctipennis/An. perplexens<\/b><br/>WA: ABBY_039"],null,["An. punctipennis/An. perplexens (AL: LENO_039; n = 1)","An. punctipennis/An. perplexens (OK: OAES_039; n = 1)","An. punctipennis/An. perplexens (WA: ABBY_039; n = 1)"],{"interactive":false,"permanent":false,"direction":"auto","opacity":1,"offset":[0,0],"textsize":"10px","textOnly":false,"className":"","sticky":true},null]},{"method":"addCircleMarkers","args":[[31.813052,29.370654],[-88.188829,-81.89811400000001],10,null,"An. perplexens",{"interactive":true,"className":"","stroke":true,"color":["#E6B9CD","#E6B9CD"],"weight":5,"opacity":0.5,"fill":true,"fillColor":["#E6B9CD","#E6B9CD"],"fillOpacity":1},null,null,["<b>An. perplexens<\/b><br/>AL: LENO_039","<b>An. perplexens<\/b><br/>FL: Hog Valley, Ocklawaha River"],null,["An. perplexens (AL: LENO_039; n = 1)","An. perplexens (FL: Hog Valley, Ocklawaha River; n = 1)"],{"interactive":false,"permanent":false,"direction":"auto","opacity":1,"offset":[0,0],"textsize":"10px","textOnly":false,"className":"","sticky":true},null]},{"method":"addCircleMarkers","args":[[31.794002,33.389372,33.389372],[-110.883327,-97.572997,-97.572997],10,null,"An. pseudopunctipennis",{"interactive":true,"className":"","stroke":true,"color":["#E73B69","#E73B69","#E73B69"],"weight":5,"opacity":0.5,"fill":true,"fillColor":["#E73B69","#E73B69","#E73B69"],"fillOpacity":1},null,null,["<b>An. pseudopunctipennis<\/b><br/>AZ: SRER_032","<b>An. pseudopunctipennis<\/b><br/>TX: CLBJ_067","<b>An. pseudopunctipennis<\/b><br/>TX: CLBJ_067"],null,["An. pseudopunctipennis (AZ: SRER_032; n = 1)","An. pseudopunctipennis (TX: CLBJ_067; n = 2)","An. pseudopunctipennis (TX: CLBJ_067; n = 2)"],{"interactive":false,"permanent":false,"direction":"auto","opacity":1,"offset":[0,0],"textsize":"10px","textOnly":false,"className":"","sticky":true},null]},{"method":"addCircleMarkers","args":[[31.443937,31.788209,31.788209,31.772897,37.101331,37.082013],[-111.238786,-110.637409,-110.637409,-110.857362,-119.721285,-119.7411],10,null,"An. franciscanus",{"interactive":true,"className":"","stroke":true,"color":["#A43357","#A43357","#A43357","#A43357","#A43357","#A43357"],"weight":5,"opacity":0.5,"fill":true,"fillColor":["#A43357","#A43357","#A43357","#A43357","#A43357","#A43357"],"fillOpacity":1},null,null,["<b>An. franciscanus<\/b><br/>AZ: California Gulch, Coronado National Forest","<b>An. franciscanus<\/b><br/>AZ: Empire Ranch, Cienegas NCA","<b>An. franciscanus<\/b><br/>AZ: Empire Ranch, Cienegas NCA","<b>An. franciscanus<\/b><br/>AZ: SRER_033","<b>An. franciscanus<\/b><br/>CA: SJER_036","<b>An. franciscanus<\/b><br/>CA: SJER_040"],null,["An. franciscanus (AZ: California Gulch, Coronado National Forest; n = 1)","An. franciscanus (AZ: Empire Ranch, Cienegas NCA; n = 2)","An. franciscanus (AZ: Empire Ranch, Cienegas NCA; n = 2)","An. franciscanus (AZ: SRER_033; n = 1)","An. franciscanus (CA: SJER_036; n = 1)","An. franciscanus (CA: SJER_040; n = 1)"],{"interactive":false,"permanent":false,"direction":"auto","opacity":1,"offset":[0,0],"textsize":"10px","textOnly":false,"className":"","sticky":true},null]},{"method":"addCircleMarkers","args":[[42.482279,42.482279],[-72.272148,-72.272148],10,null,"An. walkeri A",{"interactive":true,"className":"","stroke":true,"color":["#C89E51","#C89E51"],"weight":5,"opacity":0.5,"fill":true,"fillColor":["#C89E51","#C89E51"],"fillOpacity":1},null,null,["<b>An. walkeri A<\/b><br/>MA: HARV_082","<b>An. walkeri A<\/b><br/>MA: HARV_082"],null,["An. walkeri A (MA: HARV_082; n = 2)","An. walkeri A (MA: HARV_082; n = 2)"],{"interactive":false,"permanent":false,"direction":"auto","opacity":1,"offset":[0,0],"textsize":"10px","textOnly":false,"className":"","sticky":true},null]},{"method":"addCircleMarkers","args":[[46.243091,47.139342],[-89.50940900000001,-99.24649599999999],10,null,"An. walkeri B",{"interactive":true,"className":"","stroke":true,"color":["#945033","#945033"],"weight":5,"opacity":0.5,"fill":true,"fillColor":["#945033","#945033"],"fillOpacity":1},null,null,["<b>An. walkeri B<\/b><br/>MI: UNDE_070","<b>An. walkeri B<\/b><br/>ND: WOOD_033"],null,["An. walkeri B (MI: UNDE_070; n = 1)","An. walkeri B (ND: WOOD_033; n = 1)"],{"interactive":false,"permanent":false,"direction":"auto","opacity":1,"offset":[0,0],"textsize":"10px","textOnly":false,"className":"","sticky":true},null]},{"method":"addCircleMarkers","args":[[24.58157,27.757785,27.757785],[-81.65185099999999,-80.421834,-80.421834],10,null,"An. atropos",{"interactive":true,"className":"","stroke":true,"color":["#DBC951","#DBC951","#DBC951"],"weight":5,"opacity":0.5,"fill":true,"fillColor":["#DBC951","#DBC951","#DBC951"],"fillOpacity":1},null,null,["<b>An. atropos<\/b><br/>FL: Geiger Key","<b>An. atropos<\/b><br/>FL: Wabasso Bridge","<b>An. atropos<\/b><br/>FL: Wabasso Bridge"],null,["An. atropos (FL: Geiger Key; n = 1)","An. atropos (FL: Wabasso Bridge; n = 2)","An. atropos (FL: Wabasso Bridge; n = 2)"],{"interactive":false,"permanent":false,"direction":"auto","opacity":1,"offset":[0,0],"textsize":"10px","textOnly":false,"className":"","sticky":true},null]},{"method":"addCircleMarkers","args":[31.443937,-111.238786,10,null,"An. judithae",{"interactive":true,"className":"","stroke":true,"color":"#D02090","weight":5,"opacity":0.5,"fill":true,"fillColor":"#D02090","fillOpacity":1},null,null,"<b>An. judithae<\/b><br/>AZ: Canelo Cienega",null,"An. judithae (AZ: Canelo Cienega; n = 1)",{"interactive":false,"permanent":false,"direction":"auto","opacity":1,"offset":[0,0],"textsize":"10px","textOnly":false,"className":"","sticky":true},null]},{"method":"addCircleMarkers","args":[18.025667,-67.082493,10,null,"An. albimanus",{"interactive":true,"className":"","stroke":true,"color":"#473C8B","weight":5,"opacity":0.5,"fill":true,"fillColor":"#473C8B","fillOpacity":1},null,null,"<b>An. albimanus<\/b><br/>NA: LAJA_031",null,"An. albimanus (NA: LAJA_031; n = 1)",{"interactive":false,"permanent":false,"direction":"auto","opacity":1,"offset":[0,0],"textsize":"10px","textOnly":false,"className":"","sticky":true},null]},{"method":"addCircleMarkers","args":[[18.024505,18.024505],[-67.074566,-67.074566],10,null,"An. vestitipennis",{"interactive":true,"className":"","stroke":true,"color":["#7D26CD","#7D26CD"],"weight":5,"opacity":0.5,"fill":true,"fillColor":["#7D26CD","#7D26CD"],"fillOpacity":1},null,null,["<b>An. vestitipennis<\/b><br/>NA: LAJA_039","<b>An. vestitipennis<\/b><br/>NA: LAJA_039"],null,["An. vestitipennis (NA: LAJA_039; n = 2)","An. vestitipennis (NA: LAJA_039; n = 2)"],{"interactive":false,"permanent":false,"direction":"auto","opacity":1,"offset":[0,0],"textsize":"10px","textOnly":false,"className":"","sticky":true},null]},{"method":"addCircleMarkers","args":[42.42152,-72.220399,10,null,"An. barberi",{"interactive":true,"className":"","stroke":true,"color":"#A94D88","weight":5,"opacity":0.5,"fill":true,"fillColor":"#A94D88","fillOpacity":1},null,null,"<b>An. barberi<\/b><br/>MA: HARV_079",null,"An. barberi (MA: HARV_079; n = 1)",{"interactive":false,"permanent":false,"direction":"auto","opacity":1,"offset":[0,0],"textsize":"10px","textOnly":false,"className":"","sticky":true},null]},{"method":"addLayersControl","args":[[],["All","An. quadrimaculatus","An. smaragdinus","An. maverlius","An. diluvialis","An. crucians A","An. crucians B","An. crucians C","An. crucians D","An. crucians E","An. earlei","An. freeborni","An. punctipennis","An. punctipennis/An. perplexens","An. perplexens","An. pseudopunctipennis","An. franciscanus","An. walkeri A","An. walkeri B","An. atropos","An. judithae","An. albimanus","An. vestitipennis","An. barberi"],{"collapsed":false,"autoZIndex":true,"position":"bottomright"}]},{"method":"hideGroup","args":["An. quadrimaculatus"]},{"method":"hideGroup","args":["An. smaragdinus"]},{"method":"hideGroup","args":["An. maverlius"]},{"method":"hideGroup","args":["An. diluvialis"]},{"method":"hideGroup","args":["An. crucians A"]},{"method":"hideGroup","args":["An. crucians B"]},{"method":"hideGroup","args":["An. crucians C"]},{"method":"hideGroup","args":["An. crucians D"]},{"method":"hideGroup","args":["An. crucians E"]},{"method":"hideGroup","args":["An. earlei"]},{"method":"hideGroup","args":["An. freeborni"]},{"method":"hideGroup","args":["An. punctipennis"]},{"method":"hideGroup","args":["An. punctipennis/An. perplexens"]},{"method":"hideGroup","args":["An. perplexens"]},{"method":"hideGroup","args":["An. pseudopunctipennis"]},{"method":"hideGroup","args":["An. franciscanus"]},{"method":"hideGroup","args":["An. walkeri A"]},{"method":"hideGroup","args":["An. walkeri B"]},{"method":"hideGroup","args":["An. atropos"]},{"method":"hideGroup","args":["An. judithae"]},{"method":"hideGroup","args":["An. albimanus"]},{"method":"hideGroup","args":["An. vestitipennis"]},{"method":"hideGroup","args":["An. barberi"]}],"limits":{"lat":[18.024505,65.165769],"lng":[-147.494593,-67.074566]}},"evals":[],"jsHooks":[]}</script>
-<script type="application/htmlwidget-sizing" data-for="htmlwidget-aedef18d6de4d1a7057b">{"viewer":{"width":"100%","height":400,"padding":0,"fill":true},"browser":{"width":"100%","height":400,"padding":0,"fill":true}}</script>
+<script type="application/json" data-for="htmlwidget-51f9572436457ba86ccf">{"x":{"options":{"crs":{"crsClass":"L.CRS.EPSG3857","code":null,"proj4def":null,"projectedBounds":null,"options":{}}},"calls":[{"method":"addTiles","args":["https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",null,null,{"minZoom":0,"maxZoom":18,"tileSize":256,"subdomains":"abc","errorTileUrl":"","tms":false,"noWrap":false,"zoomOffset":0,"zoomReverse":false,"opacity":1,"zIndex":1,"detectRetina":false,"attribution":"&copy; <a href=\"https://openstreetmap.org/copyright/\">OpenStreetMap<\/a>,  <a href=\"https://opendatacommons.org/licenses/odbl/\">ODbL<\/a>"}]},{"method":"addProviderTiles","args":["Esri.WorldPhysical",null,null,{"errorTileUrl":"","noWrap":false,"detectRetina":false}]},{"method":"addCircleMarkers","args":[[31.818782,32.881294,29.081124,27.657472,28.083785,25.403628,27.585909,29.288861,29.516796,29.769623,42.4743750246229,42.4743750246229,42.4743750246229,33.270811326103,33.2651854674135,33.2745183385597,33.2901966618432,29.370654,29.370654,29.516796,29.354489,43.904906,43.904906,47.800725,47.800725,null,33.277873971103,33.2651854674135,33.2745183385597,32.8302341267636,32.8302341267636,33.277873971103,33.2780464464736,33.2901966618432,33.2901966618432,29.370654,29.370654,29.288861,29.354489,29.354489,32.896817,32.89975,29.354489,33.2745183385597,33.2782283363521,25.403628,27.585909,29.370654,29.354489,31.175208,31.182724,38.872876,38.872876,31.175208,31.182724,33.399233,33.399233,27.657472,27.657472,27.657472,29.354489,29.354489,31.175208,38.875234,65.165769,47.840738,31.788209,31.788209,38.230243,null,46.249945,47.800725,35.396179,31.813052,45.729719,29.370654,33.389372,33.389372,31.443937,31.788209,31.788209,31.772897,37.101331,37.082013,42.482279,42.482279,46.243091,47.139342,24.58157,27.757785,27.757785,31.443937,18.025667,18.024505,18.024505,42.42152],[-88.18640600000001,-87.438992,-81.565881,-80.8925,-81.386763,-80.498735,-80.373997,-83.053563,-82.22214,-82.46447000000001,-71.3297471630342,-71.3297471630342,-71.3297471630342,-88.7792773736182,-88.7810013218277,-88.7945715251296,-88.77580636514099,-81.89811400000001,-81.89811400000001,-82.22214,-82.734824,-93.41548,-93.41548,-90.844509,-90.844509,null,-88.7936128670304,-88.7810013218277,-88.7945715251296,-80.6299203239374,-80.6299203239374,-88.7936128670304,-88.79393203258959,-88.77580636514099,-88.77580636514099,-81.89811400000001,-81.89811400000001,-83.053563,-82.734824,-82.734824,-87.412758,-87.42591400000001,-82.734824,-88.7945715251296,-88.7987916719859,-80.498735,-80.373997,-81.89811400000001,-82.734824,-84.470371,-84.482202,-76.53712400000001,-76.53712400000001,-84.470371,-84.482202,-97.60799,-97.60799,-80.8925,-80.8925,-80.8925,-82.734824,-82.734824,-84.470371,-76.542491,-147.494593,-90.763519,-110.637409,-110.637409,-109.39148,null,-89.540863,-90.844509,-99.073429,-88.188829,-122.363716,-81.89811400000001,-97.572997,-97.572997,-111.238786,-110.637409,-110.637409,-110.857362,-119.721285,-119.7411,-72.272148,-72.272148,-89.50940900000001,-99.24649599999999,-81.65185099999999,-80.421834,-80.421834,-111.238786,-67.082493,-67.074566,-67.074566,-72.220399],10,null,"All",{"interactive":true,"className":"","stroke":true,"color":["#3F7CDE","#3F7CDE","#3F7CDE","#3F7CDE","#3F7CDE","#3F7CDE","#3F7CDE","#3F7CDE","#3F7CDE","#3F7CDE","#3F7CDE","#3F7CDE","#3F7CDE","#4C95B5","#3F7CDE","#3F7CDE","#3F7CDE","#4C95B5","#4C95B5","#4C95B5","#4C95B5","#3F7CDE","#E6B9CD","#E6B9CD","#702B81","#4C95B5","#3F7CDE","#4C95B5","#4C95B5","#4C95B5","#4C95B5","#4EB0DF","#4EB0DF","#4EB0DF","#4EB0DF","#023A78","#023A78","#023A78","#023A78","#023A78","#62DD53","#62DD53","#62DD53","#62DD53","#62DD53","#CDD652","#CDD652","#CDD652","#CDD652","#CDD652","#CDD652","#CDD652","#CDD652","#8FB43C","#8FB43C","#8FB43C","#8FB43C","#437527","#437527","#437527","#437527","#608A3E","#608A3E","#608A3E","#702B81","#702B81","#795DD2","#795DD2","#795DD2","#E6B9CD","#E6B9CD","#E6B9CD","#E6B9CD","#E6B9CD","#E6B9CD","#E6B9CD","#E73B69","#E73B69","#A43357","#A43357","#A43357","#A43357","#A43357","#A43357","#C89E51","#C89E51","#945033","#945033","#DBC951","#DBC951","#DBC951","#D02090","#473C8B","#7D26CD","#7D26CD","#3F7CDE"],"weight":5,"opacity":0.5,"fill":true,"fillColor":["#3F7CDE","#3F7CDE","#3F7CDE","#3F7CDE","#3F7CDE","#3F7CDE","#3F7CDE","#3F7CDE","#3F7CDE","#3F7CDE","#3F7CDE","#3F7CDE","#3F7CDE","#4C95B5","#3F7CDE","#3F7CDE","#3F7CDE","#4C95B5","#4C95B5","#4C95B5","#4C95B5","#3F7CDE","#E6B9CD","#E6B9CD","#702B81","#4C95B5","#3F7CDE","#4C95B5","#4C95B5","#4C95B5","#4C95B5","#4EB0DF","#4EB0DF","#4EB0DF","#4EB0DF","#023A78","#023A78","#023A78","#023A78","#023A78","#62DD53","#62DD53","#62DD53","#62DD53","#62DD53","#CDD652","#CDD652","#CDD652","#CDD652","#CDD652","#CDD652","#CDD652","#CDD652","#8FB43C","#8FB43C","#8FB43C","#8FB43C","#437527","#437527","#437527","#437527","#608A3E","#608A3E","#608A3E","#702B81","#702B81","#795DD2","#795DD2","#795DD2","#E6B9CD","#E6B9CD","#E6B9CD","#E6B9CD","#E6B9CD","#E6B9CD","#E6B9CD","#E73B69","#E73B69","#A43357","#A43357","#A43357","#A43357","#A43357","#A43357","#C89E51","#C89E51","#945033","#945033","#DBC951","#DBC951","#DBC951","#D02090","#473C8B","#7D26CD","#7D26CD","#3F7CDE"],"fillOpacity":1},null,null,["<b>An. quadrimaculatus<\/b><br/>AL: LENO_032","<b>An. quadrimaculatus<\/b><br/>AL: TALL_041","<b>An. quadrimaculatus<\/b><br/>FL: Alexander Springs; Ocala National Forest","<b>An. quadrimaculatus<\/b><br/>FL: DeLuca Preserve","<b>An. quadrimaculatus<\/b><br/>FL: DSNY_078","<b>An. quadrimaculatus<\/b><br/>FL: Florida City","<b>An. quadrimaculatus<\/b><br/>FL: FMEL; Vero Beach","<b>An. quadrimaculatus<\/b><br/>FL: Lower Suwannee","<b>An. quadrimaculatus<\/b><br/>FL: River Styx","<b>An. quadrimaculatus<\/b><br/>FL: San Felasco Hammock","<b>An. quadrimaculatus<\/b><br/>MA: GMC.03","<b>An. quadrimaculatus<\/b><br/>MA: GMC.03","<b>An. quadrimaculatus<\/b><br/>MA: GMC.03","<b>An. smaragdinus<\/b><br/>MS: NXB001","<b>An. quadrimaculatus<\/b><br/>MS: NXB005","<b>An. quadrimaculatus<\/b><br/>MS: NXB008","<b>An. quadrimaculatus<\/b><br/>MS: NXB011","<b>An. smaragdinus<\/b><br/>FL: Hog Valley, Ocklawaha River","<b>An. smaragdinus<\/b><br/>FL: Hog Valley, Ocklawaha River","<b>An. smaragdinus<\/b><br/>FL: River Styx","<b>An. smaragdinus<\/b><br/>FL: Waccasassa River / State Road 24","<b>An. quadrimaculatus<\/b><br/>MN: St. Olaf Lake","<b>An. punctipennis<\/b><br/>MN: St. Olaf Lake","<b>An. punctipennis<\/b><br/>MN: Temperence River, Superior National Forest","<b>An. earlei<\/b><br/>MN: Temperence River, Superior National Forest","<b>An. smaragdinus<\/b><br/>MS: brood","<b>An. quadrimaculatus<\/b><br/>MS: NXB001","<b>An. smaragdinus<\/b><br/>MS: NXB005","<b>An. smaragdinus<\/b><br/>MS: NXB008","<b>An. smaragdinus<\/b><br/>SC: Green Pond","<b>An. smaragdinus<\/b><br/>SC: Green Pond","<b>An. maverlius<\/b><br/>MS: NXB001","<b>An. maverlius<\/b><br/>MS: NXB002","<b>An. maverlius<\/b><br/>MS: NXB011","<b>An. maverlius<\/b><br/>MS: NXB011","<b>An. diluvialis<\/b><br/>FL: Hog Valley, Ocklawaha River","<b>An. diluvialis<\/b><br/>FL: Hog Valley, Ocklawaha River","<b>An. diluvialis<\/b><br/>FL: Lower Suwannee","<b>An. diluvialis<\/b><br/>FL: Waccasassa River / State Road 24","<b>An. diluvialis<\/b><br/>FL: Waccasassa River / State Road 24","<b>An. crucians A<\/b><br/>AL: TALL_035","<b>An. crucians A<\/b><br/>AL: TALL_040","<b>An. crucians A<\/b><br/>FL: Waccasassa River / State Road 24","<b>An. crucians A<\/b><br/>MS: NXB008","<b>An. crucians A<\/b><br/>MS: NXB009","<b>An. crucians B<\/b><br/>FL: Florida City","<b>An. crucians B<\/b><br/>FL: FMEL; Vero Beach","<b>An. crucians B<\/b><br/>FL: Hog Valley, Ocklawaha River","<b>An. crucians B<\/b><br/>FL: Waccasassa River / State Road 24","<b>An. crucians B<\/b><br/>GA: JERC_069","<b>An. crucians B<\/b><br/>GA: JERC_074","<b>An. crucians B<\/b><br/>MD: SERC_033","<b>An. crucians B<\/b><br/>MD: SERC_033","<b>An. crucians C<\/b><br/>GA: JERC_069","<b>An. crucians C<\/b><br/>GA: JERC_074","<b>An. crucians C<\/b><br/>TX: CLBJ_074","<b>An. crucians C<\/b><br/>TX: CLBJ_074","<b>An. crucians D<\/b><br/>FL: DeLuca Preserve","<b>An. crucians D<\/b><br/>FL: DeLuca Preserve","<b>An. crucians D<\/b><br/>FL: DeLuca Preserve","<b>An. crucians D<\/b><br/>FL: Waccasassa River / State Road 24","<b>An. crucians E<\/b><br/>FL: Waccasassa River / State Road 24","<b>An. crucians E<\/b><br/>GA: JERC_069","<b>An. crucians E<\/b><br/>MD: SERC_036","<b>An. earlei<\/b><br/>AK: BONA_040","<b>An. earlei<\/b><br/>MN: Crescent Lake, Superior National Forest","<b>An. freeborni<\/b><br/>AZ: Empire Ranch, Cienegas NCA","<b>An. freeborni<\/b><br/>AZ: Empire Ranch, Cienegas NCA","<b>An. freeborni<\/b><br/>UT: MOAB_037","<b>An. punctipennis<\/b><br/>MA: brood","<b>An. punctipennis<\/b><br/>MI: UNDE_066","<b>An. punctipennis<\/b><br/>MN: Temperence River, Superior National Forest","<b>An. punctipennis<\/b><br/>OK: OAES_039","<b>An. punctipennis<\/b><br/>AL: LENO_039","<b>An. punctipennis<\/b><br/>WA: ABBY_039","<b>An. perplexens<\/b><br/>FL: Hog Valley, Ocklawaha River","<b>An. pseudopunctipennis<\/b><br/>TX: CLBJ_067","<b>An. pseudopunctipennis<\/b><br/>TX: CLBJ_067","<b>An. franciscanus<\/b><br/>AZ: California Gulch, Coronado National Forest","<b>An. franciscanus<\/b><br/>AZ: Empire Ranch, Cienegas NCA","<b>An. franciscanus<\/b><br/>AZ: Empire Ranch, Cienegas NCA","<b>An. franciscanus<\/b><br/>AZ: SRER_033","<b>An. franciscanus<\/b><br/>CA: SJER_036","<b>An. franciscanus<\/b><br/>CA: SJER_040","<b>An. walkeri A<\/b><br/>MA: HARV_082","<b>An. walkeri A<\/b><br/>MA: HARV_082","<b>An. walkeri B<\/b><br/>MI: UNDE_070","<b>An. walkeri B<\/b><br/>ND: WOOD_033","<b>An. atropos<\/b><br/>FL: Geiger Key","<b>An. atropos<\/b><br/>FL: Wabasso Bridge","<b>An. atropos<\/b><br/>FL: Wabasso Bridge","<b>An. judithae<\/b><br/>AZ: Canelo Cienega","<b>An. albimanus<\/b><br/>NA: LAJA_031","<b>An. vestitipennis<\/b><br/>NA: LAJA_039","<b>An. vestitipennis<\/b><br/>NA: LAJA_039","<b>An. quadrimaculatus<\/b><br/>MA: HARV_079"],null,["An. quadrimaculatus (AL: LENO_032; n = 1)","An. quadrimaculatus (AL: TALL_041; n = 1)","An. quadrimaculatus (FL: Alexander Springs; Ocala National Forest; n = 1)","An. quadrimaculatus (FL: DeLuca Preserve; n = 1)","An. quadrimaculatus (FL: DSNY_078; n = 1)","An. quadrimaculatus (FL: Florida City; n = 1)","An. quadrimaculatus (FL: FMEL; Vero Beach; n = 1)","An. quadrimaculatus (FL: Lower Suwannee; n = 1)","An. quadrimaculatus (FL: River Styx; n = 1)","An. quadrimaculatus (FL: San Felasco Hammock; n = 1)","An. quadrimaculatus (MA: GMC.03; n = 3)","An. quadrimaculatus (MA: GMC.03; n = 3)","An. quadrimaculatus (MA: GMC.03; n = 3)","An. smaragdinus (MS: NXB001; n = 1)","An. quadrimaculatus (MS: NXB005; n = 1)","An. quadrimaculatus (MS: NXB008; n = 1)","An. quadrimaculatus (MS: NXB011; n = 1)","An. smaragdinus (FL: Hog Valley, Ocklawaha River; n = 2)","An. smaragdinus (FL: Hog Valley, Ocklawaha River; n = 2)","An. smaragdinus (FL: River Styx; n = 1)","An. smaragdinus (FL: Waccasassa River / State Road 24; n = 1)","An. quadrimaculatus (MN: St. Olaf Lake; n = 1)","An. punctipennis (MN: St. Olaf Lake; n = 1)","An. punctipennis (MN: Temperence River, Superior National Forest; n = 2)","An. earlei (MN: Temperence River, Superior National Forest; n = 2)","An. smaragdinus (MS: brood; n = 1)","An. quadrimaculatus (MS: NXB001; n = 1)","An. smaragdinus (MS: NXB005; n = 1)","An. smaragdinus (MS: NXB008; n = 1)","An. smaragdinus (SC: Green Pond; n = 2)","An. smaragdinus (SC: Green Pond; n = 2)","An. maverlius (MS: NXB001; n = 1)","An. maverlius (MS: NXB002; n = 1)","An. maverlius (MS: NXB011; n = 3)","An. maverlius (MS: NXB011; n = 3)","An. diluvialis (FL: Hog Valley, Ocklawaha River; n = 2)","An. diluvialis (FL: Hog Valley, Ocklawaha River; n = 2)","An. diluvialis (FL: Lower Suwannee; n = 1)","An. diluvialis (FL: Waccasassa River / State Road 24; n = 2)","An. diluvialis (FL: Waccasassa River / State Road 24; n = 2)","An. crucians A (AL: TALL_035; n = 2)","An. crucians A (AL: TALL_040; n = 1)","An. crucians A (FL: Waccasassa River / State Road 24; n = 1)","An. crucians A (MS: NXB008; n = 1)","An. crucians A (MS: NXB009; n = 1)","An. crucians B (FL: Florida City; n = 1)","An. crucians B (FL: FMEL; Vero Beach; n = 1)","An. crucians B (FL: Hog Valley, Ocklawaha River; n = 1)","An. crucians B (FL: Waccasassa River / State Road 24; n = 1)","An. crucians B (GA: JERC_069; n = 1)","An. crucians B (GA: JERC_074; n = 1)","An. crucians B (MD: SERC_033; n = 3)","An. crucians B (MD: SERC_033; n = 3)","An. crucians C (GA: JERC_069; n = 1)","An. crucians C (GA: JERC_074; n = 1)","An. crucians C (TX: CLBJ_074; n = 2)","An. crucians C (TX: CLBJ_074; n = 2)","An. crucians D (FL: DeLuca Preserve; n = 3)","An. crucians D (FL: DeLuca Preserve; n = 3)","An. crucians D (FL: DeLuca Preserve; n = 3)","An. crucians D (FL: Waccasassa River / State Road 24; n = 1)","An. crucians E (FL: Waccasassa River / State Road 24; n = 1)","An. crucians E (GA: JERC_069; n = 1)","An. crucians E (MD: SERC_036; n = 1)","An. earlei (AK: BONA_040; n = 1)","An. earlei (MN: Crescent Lake, Superior National Forest; n = 1)","An. freeborni (AZ: Empire Ranch, Cienegas NCA; n = 2)","An. freeborni (AZ: Empire Ranch, Cienegas NCA; n = 2)","An. freeborni (UT: MOAB_037; n = 1)","An. punctipennis (MA: brood; n = 1)","An. punctipennis (MI: UNDE_066; n = 1)","An. punctipennis (MN: Temperence River, Superior National Forest; n = 2)","An. punctipennis (OK: OAES_039; n = 1)","An. punctipennis (AL: LENO_039; n = 1)","An. punctipennis (WA: ABBY_039; n = 1)","An. perplexens (FL: Hog Valley, Ocklawaha River; n = 1)","An. pseudopunctipennis (TX: CLBJ_067; n = 2)","An. pseudopunctipennis (TX: CLBJ_067; n = 2)","An. franciscanus (AZ: California Gulch, Coronado National Forest; n = 1)","An. franciscanus (AZ: Empire Ranch, Cienegas NCA; n = 2)","An. franciscanus (AZ: Empire Ranch, Cienegas NCA; n = 2)","An. franciscanus (AZ: SRER_033; n = 1)","An. franciscanus (CA: SJER_036; n = 1)","An. franciscanus (CA: SJER_040; n = 1)","An. walkeri A (MA: HARV_082; n = 2)","An. walkeri A (MA: HARV_082; n = 2)","An. walkeri B (MI: UNDE_070; n = 1)","An. walkeri B (ND: WOOD_033; n = 1)","An. atropos (FL: Geiger Key; n = 1)","An. atropos (FL: Wabasso Bridge; n = 2)","An. atropos (FL: Wabasso Bridge; n = 2)","An. judithae (AZ: Canelo Cienega; n = 1)","An. albimanus (NA: LAJA_031; n = 1)","An. vestitipennis (NA: LAJA_039; n = 2)","An. vestitipennis (NA: LAJA_039; n = 2)","An. quadrimaculatus (MA: HARV_079; n = 1)"],{"interactive":false,"permanent":false,"direction":"auto","opacity":1,"offset":[0,0],"textsize":"10px","textOnly":false,"className":"","sticky":true},null]},{"method":"addCircleMarkers","args":[[31.818782,32.881294,29.081124,27.657472,28.083785,25.403628,27.585909,29.288861,29.516796,29.769623,42.4743750246229,42.4743750246229,42.4743750246229,33.2651854674135,33.2745183385597,33.2901966618432,43.904906,33.277873971103,42.42152],[-88.18640600000001,-87.438992,-81.565881,-80.8925,-81.386763,-80.498735,-80.373997,-83.053563,-82.22214,-82.46447000000001,-71.3297471630342,-71.3297471630342,-71.3297471630342,-88.7810013218277,-88.7945715251296,-88.77580636514099,-93.41548,-88.7936128670304,-72.220399],10,null,"An. quadrimaculatus",{"interactive":true,"className":"","stroke":true,"color":["#3F7CDE","#3F7CDE","#3F7CDE","#3F7CDE","#3F7CDE","#3F7CDE","#3F7CDE","#3F7CDE","#3F7CDE","#3F7CDE","#3F7CDE","#3F7CDE","#3F7CDE","#3F7CDE","#3F7CDE","#3F7CDE","#3F7CDE","#3F7CDE","#3F7CDE"],"weight":5,"opacity":0.5,"fill":true,"fillColor":["#3F7CDE","#3F7CDE","#3F7CDE","#3F7CDE","#3F7CDE","#3F7CDE","#3F7CDE","#3F7CDE","#3F7CDE","#3F7CDE","#3F7CDE","#3F7CDE","#3F7CDE","#3F7CDE","#3F7CDE","#3F7CDE","#3F7CDE","#3F7CDE","#3F7CDE"],"fillOpacity":1},null,null,["<b>An. quadrimaculatus<\/b><br/>AL: LENO_032","<b>An. quadrimaculatus<\/b><br/>AL: TALL_041","<b>An. quadrimaculatus<\/b><br/>FL: Alexander Springs; Ocala National Forest","<b>An. quadrimaculatus<\/b><br/>FL: DeLuca Preserve","<b>An. quadrimaculatus<\/b><br/>FL: DSNY_078","<b>An. quadrimaculatus<\/b><br/>FL: Florida City","<b>An. quadrimaculatus<\/b><br/>FL: FMEL; Vero Beach","<b>An. quadrimaculatus<\/b><br/>FL: Lower Suwannee","<b>An. quadrimaculatus<\/b><br/>FL: River Styx","<b>An. quadrimaculatus<\/b><br/>FL: San Felasco Hammock","<b>An. quadrimaculatus<\/b><br/>MA: GMC.03","<b>An. quadrimaculatus<\/b><br/>MA: GMC.03","<b>An. quadrimaculatus<\/b><br/>MA: GMC.03","<b>An. quadrimaculatus<\/b><br/>MS: NXB005","<b>An. quadrimaculatus<\/b><br/>MS: NXB008","<b>An. quadrimaculatus<\/b><br/>MS: NXB011","<b>An. quadrimaculatus<\/b><br/>MN: St. Olaf Lake","<b>An. quadrimaculatus<\/b><br/>MS: NXB001","<b>An. quadrimaculatus<\/b><br/>MA: HARV_079"],null,["An. quadrimaculatus (AL: LENO_032; n = 1)","An. quadrimaculatus (AL: TALL_041; n = 1)","An. quadrimaculatus (FL: Alexander Springs; Ocala National Forest; n = 1)","An. quadrimaculatus (FL: DeLuca Preserve; n = 1)","An. quadrimaculatus (FL: DSNY_078; n = 1)","An. quadrimaculatus (FL: Florida City; n = 1)","An. quadrimaculatus (FL: FMEL; Vero Beach; n = 1)","An. quadrimaculatus (FL: Lower Suwannee; n = 1)","An. quadrimaculatus (FL: River Styx; n = 1)","An. quadrimaculatus (FL: San Felasco Hammock; n = 1)","An. quadrimaculatus (MA: GMC.03; n = 3)","An. quadrimaculatus (MA: GMC.03; n = 3)","An. quadrimaculatus (MA: GMC.03; n = 3)","An. quadrimaculatus (MS: NXB005; n = 1)","An. quadrimaculatus (MS: NXB008; n = 1)","An. quadrimaculatus (MS: NXB011; n = 1)","An. quadrimaculatus (MN: St. Olaf Lake; n = 1)","An. quadrimaculatus (MS: NXB001; n = 1)","An. quadrimaculatus (MA: HARV_079; n = 1)"],{"interactive":false,"permanent":false,"direction":"auto","opacity":1,"offset":[0,0],"textsize":"10px","textOnly":false,"className":"","sticky":true},null]},{"method":"addCircleMarkers","args":[[33.270811326103,29.370654,29.370654,29.516796,29.354489,null,33.2651854674135,33.2745183385597,32.8302341267636,32.8302341267636],[-88.7792773736182,-81.89811400000001,-81.89811400000001,-82.22214,-82.734824,null,-88.7810013218277,-88.7945715251296,-80.6299203239374,-80.6299203239374],10,null,"An. smaragdinus",{"interactive":true,"className":"","stroke":true,"color":["#4C95B5","#4C95B5","#4C95B5","#4C95B5","#4C95B5","#4C95B5","#4C95B5","#4C95B5","#4C95B5","#4C95B5"],"weight":5,"opacity":0.5,"fill":true,"fillColor":["#4C95B5","#4C95B5","#4C95B5","#4C95B5","#4C95B5","#4C95B5","#4C95B5","#4C95B5","#4C95B5","#4C95B5"],"fillOpacity":1},null,null,["<b>An. smaragdinus<\/b><br/>MS: NXB001","<b>An. smaragdinus<\/b><br/>FL: Hog Valley, Ocklawaha River","<b>An. smaragdinus<\/b><br/>FL: Hog Valley, Ocklawaha River","<b>An. smaragdinus<\/b><br/>FL: River Styx","<b>An. smaragdinus<\/b><br/>FL: Waccasassa River / State Road 24","<b>An. smaragdinus<\/b><br/>MS: brood","<b>An. smaragdinus<\/b><br/>MS: NXB005","<b>An. smaragdinus<\/b><br/>MS: NXB008","<b>An. smaragdinus<\/b><br/>SC: Green Pond","<b>An. smaragdinus<\/b><br/>SC: Green Pond"],null,["An. smaragdinus (MS: NXB001; n = 1)","An. smaragdinus (FL: Hog Valley, Ocklawaha River; n = 2)","An. smaragdinus (FL: Hog Valley, Ocklawaha River; n = 2)","An. smaragdinus (FL: River Styx; n = 1)","An. smaragdinus (FL: Waccasassa River / State Road 24; n = 1)","An. smaragdinus (MS: brood; n = 1)","An. smaragdinus (MS: NXB005; n = 1)","An. smaragdinus (MS: NXB008; n = 1)","An. smaragdinus (SC: Green Pond; n = 2)","An. smaragdinus (SC: Green Pond; n = 2)"],{"interactive":false,"permanent":false,"direction":"auto","opacity":1,"offset":[0,0],"textsize":"10px","textOnly":false,"className":"","sticky":true},null]},{"method":"addCircleMarkers","args":[[43.904906,47.800725,null,46.249945,47.800725,35.396179,31.813052,45.729719],[-93.41548,-90.844509,null,-89.540863,-90.844509,-99.073429,-88.188829,-122.363716],10,null,"An. punctipennis",{"interactive":true,"className":"","stroke":true,"color":["#E6B9CD","#E6B9CD","#E6B9CD","#E6B9CD","#E6B9CD","#E6B9CD","#E6B9CD","#E6B9CD"],"weight":5,"opacity":0.5,"fill":true,"fillColor":["#E6B9CD","#E6B9CD","#E6B9CD","#E6B9CD","#E6B9CD","#E6B9CD","#E6B9CD","#E6B9CD"],"fillOpacity":1},null,null,["<b>An. punctipennis<\/b><br/>MN: St. Olaf Lake","<b>An. punctipennis<\/b><br/>MN: Temperence River, Superior National Forest","<b>An. punctipennis<\/b><br/>MA: brood","<b>An. punctipennis<\/b><br/>MI: UNDE_066","<b>An. punctipennis<\/b><br/>MN: Temperence River, Superior National Forest","<b>An. punctipennis<\/b><br/>OK: OAES_039","<b>An. punctipennis<\/b><br/>AL: LENO_039","<b>An. punctipennis<\/b><br/>WA: ABBY_039"],null,["An. punctipennis (MN: St. Olaf Lake; n = 1)","An. punctipennis (MN: Temperence River, Superior National Forest; n = 2)","An. punctipennis (MA: brood; n = 1)","An. punctipennis (MI: UNDE_066; n = 1)","An. punctipennis (MN: Temperence River, Superior National Forest; n = 2)","An. punctipennis (OK: OAES_039; n = 1)","An. punctipennis (AL: LENO_039; n = 1)","An. punctipennis (WA: ABBY_039; n = 1)"],{"interactive":false,"permanent":false,"direction":"auto","opacity":1,"offset":[0,0],"textsize":"10px","textOnly":false,"className":"","sticky":true},null]},{"method":"addCircleMarkers","args":[[47.800725,65.165769,47.840738],[-90.844509,-147.494593,-90.763519],10,null,"An. earlei",{"interactive":true,"className":"","stroke":true,"color":["#702B81","#702B81","#702B81"],"weight":5,"opacity":0.5,"fill":true,"fillColor":["#702B81","#702B81","#702B81"],"fillOpacity":1},null,null,["<b>An. earlei<\/b><br/>MN: Temperence River, Superior National Forest","<b>An. earlei<\/b><br/>AK: BONA_040","<b>An. earlei<\/b><br/>MN: Crescent Lake, Superior National Forest"],null,["An. earlei (MN: Temperence River, Superior National Forest; n = 2)","An. earlei (AK: BONA_040; n = 1)","An. earlei (MN: Crescent Lake, Superior National Forest; n = 1)"],{"interactive":false,"permanent":false,"direction":"auto","opacity":1,"offset":[0,0],"textsize":"10px","textOnly":false,"className":"","sticky":true},null]},{"method":"addCircleMarkers","args":[[33.277873971103,33.2780464464736,33.2901966618432,33.2901966618432],[-88.7936128670304,-88.79393203258959,-88.77580636514099,-88.77580636514099],10,null,"An. maverlius",{"interactive":true,"className":"","stroke":true,"color":["#4EB0DF","#4EB0DF","#4EB0DF","#4EB0DF"],"weight":5,"opacity":0.5,"fill":true,"fillColor":["#4EB0DF","#4EB0DF","#4EB0DF","#4EB0DF"],"fillOpacity":1},null,null,["<b>An. maverlius<\/b><br/>MS: NXB001","<b>An. maverlius<\/b><br/>MS: NXB002","<b>An. maverlius<\/b><br/>MS: NXB011","<b>An. maverlius<\/b><br/>MS: NXB011"],null,["An. maverlius (MS: NXB001; n = 1)","An. maverlius (MS: NXB002; n = 1)","An. maverlius (MS: NXB011; n = 3)","An. maverlius (MS: NXB011; n = 3)"],{"interactive":false,"permanent":false,"direction":"auto","opacity":1,"offset":[0,0],"textsize":"10px","textOnly":false,"className":"","sticky":true},null]},{"method":"addCircleMarkers","args":[[29.370654,29.370654,29.288861,29.354489,29.354489],[-81.89811400000001,-81.89811400000001,-83.053563,-82.734824,-82.734824],10,null,"An. diluvialis",{"interactive":true,"className":"","stroke":true,"color":["#023A78","#023A78","#023A78","#023A78","#023A78"],"weight":5,"opacity":0.5,"fill":true,"fillColor":["#023A78","#023A78","#023A78","#023A78","#023A78"],"fillOpacity":1},null,null,["<b>An. diluvialis<\/b><br/>FL: Hog Valley, Ocklawaha River","<b>An. diluvialis<\/b><br/>FL: Hog Valley, Ocklawaha River","<b>An. diluvialis<\/b><br/>FL: Lower Suwannee","<b>An. diluvialis<\/b><br/>FL: Waccasassa River / State Road 24","<b>An. diluvialis<\/b><br/>FL: Waccasassa River / State Road 24"],null,["An. diluvialis (FL: Hog Valley, Ocklawaha River; n = 2)","An. diluvialis (FL: Hog Valley, Ocklawaha River; n = 2)","An. diluvialis (FL: Lower Suwannee; n = 1)","An. diluvialis (FL: Waccasassa River / State Road 24; n = 2)","An. diluvialis (FL: Waccasassa River / State Road 24; n = 2)"],{"interactive":false,"permanent":false,"direction":"auto","opacity":1,"offset":[0,0],"textsize":"10px","textOnly":false,"className":"","sticky":true},null]},{"method":"addCircleMarkers","args":[[32.896817,32.89975,29.354489,33.2745183385597,33.2782283363521],[-87.412758,-87.42591400000001,-82.734824,-88.7945715251296,-88.7987916719859],10,null,"An. crucians A",{"interactive":true,"className":"","stroke":true,"color":["#62DD53","#62DD53","#62DD53","#62DD53","#62DD53"],"weight":5,"opacity":0.5,"fill":true,"fillColor":["#62DD53","#62DD53","#62DD53","#62DD53","#62DD53"],"fillOpacity":1},null,null,["<b>An. crucians A<\/b><br/>AL: TALL_035","<b>An. crucians A<\/b><br/>AL: TALL_040","<b>An. crucians A<\/b><br/>FL: Waccasassa River / State Road 24","<b>An. crucians A<\/b><br/>MS: NXB008","<b>An. crucians A<\/b><br/>MS: NXB009"],null,["An. crucians A (AL: TALL_035; n = 2)","An. crucians A (AL: TALL_040; n = 1)","An. crucians A (FL: Waccasassa River / State Road 24; n = 1)","An. crucians A (MS: NXB008; n = 1)","An. crucians A (MS: NXB009; n = 1)"],{"interactive":false,"permanent":false,"direction":"auto","opacity":1,"offset":[0,0],"textsize":"10px","textOnly":false,"className":"","sticky":true},null]},{"method":"addCircleMarkers","args":[[25.403628,27.585909,29.370654,29.354489,31.175208,31.182724,38.872876,38.872876],[-80.498735,-80.373997,-81.89811400000001,-82.734824,-84.470371,-84.482202,-76.53712400000001,-76.53712400000001],10,null,"An. crucians B",{"interactive":true,"className":"","stroke":true,"color":["#CDD652","#CDD652","#CDD652","#CDD652","#CDD652","#CDD652","#CDD652","#CDD652"],"weight":5,"opacity":0.5,"fill":true,"fillColor":["#CDD652","#CDD652","#CDD652","#CDD652","#CDD652","#CDD652","#CDD652","#CDD652"],"fillOpacity":1},null,null,["<b>An. crucians B<\/b><br/>FL: Florida City","<b>An. crucians B<\/b><br/>FL: FMEL; Vero Beach","<b>An. crucians B<\/b><br/>FL: Hog Valley, Ocklawaha River","<b>An. crucians B<\/b><br/>FL: Waccasassa River / State Road 24","<b>An. crucians B<\/b><br/>GA: JERC_069","<b>An. crucians B<\/b><br/>GA: JERC_074","<b>An. crucians B<\/b><br/>MD: SERC_033","<b>An. crucians B<\/b><br/>MD: SERC_033"],null,["An. crucians B (FL: Florida City; n = 1)","An. crucians B (FL: FMEL; Vero Beach; n = 1)","An. crucians B (FL: Hog Valley, Ocklawaha River; n = 1)","An. crucians B (FL: Waccasassa River / State Road 24; n = 1)","An. crucians B (GA: JERC_069; n = 1)","An. crucians B (GA: JERC_074; n = 1)","An. crucians B (MD: SERC_033; n = 3)","An. crucians B (MD: SERC_033; n = 3)"],{"interactive":false,"permanent":false,"direction":"auto","opacity":1,"offset":[0,0],"textsize":"10px","textOnly":false,"className":"","sticky":true},null]},{"method":"addCircleMarkers","args":[[31.175208,31.182724,33.399233,33.399233],[-84.470371,-84.482202,-97.60799,-97.60799],10,null,"An. crucians C",{"interactive":true,"className":"","stroke":true,"color":["#8FB43C","#8FB43C","#8FB43C","#8FB43C"],"weight":5,"opacity":0.5,"fill":true,"fillColor":["#8FB43C","#8FB43C","#8FB43C","#8FB43C"],"fillOpacity":1},null,null,["<b>An. crucians C<\/b><br/>GA: JERC_069","<b>An. crucians C<\/b><br/>GA: JERC_074","<b>An. crucians C<\/b><br/>TX: CLBJ_074","<b>An. crucians C<\/b><br/>TX: CLBJ_074"],null,["An. crucians C (GA: JERC_069; n = 1)","An. crucians C (GA: JERC_074; n = 1)","An. crucians C (TX: CLBJ_074; n = 2)","An. crucians C (TX: CLBJ_074; n = 2)"],{"interactive":false,"permanent":false,"direction":"auto","opacity":1,"offset":[0,0],"textsize":"10px","textOnly":false,"className":"","sticky":true},null]},{"method":"addCircleMarkers","args":[[27.657472,27.657472,27.657472,29.354489],[-80.8925,-80.8925,-80.8925,-82.734824],10,null,"An. crucians D",{"interactive":true,"className":"","stroke":true,"color":["#437527","#437527","#437527","#437527"],"weight":5,"opacity":0.5,"fill":true,"fillColor":["#437527","#437527","#437527","#437527"],"fillOpacity":1},null,null,["<b>An. crucians D<\/b><br/>FL: DeLuca Preserve","<b>An. crucians D<\/b><br/>FL: DeLuca Preserve","<b>An. crucians D<\/b><br/>FL: DeLuca Preserve","<b>An. crucians D<\/b><br/>FL: Waccasassa River / State Road 24"],null,["An. crucians D (FL: DeLuca Preserve; n = 3)","An. crucians D (FL: DeLuca Preserve; n = 3)","An. crucians D (FL: DeLuca Preserve; n = 3)","An. crucians D (FL: Waccasassa River / State Road 24; n = 1)"],{"interactive":false,"permanent":false,"direction":"auto","opacity":1,"offset":[0,0],"textsize":"10px","textOnly":false,"className":"","sticky":true},null]},{"method":"addCircleMarkers","args":[[29.354489,31.175208,38.875234],[-82.734824,-84.470371,-76.542491],10,null,"An. crucians E",{"interactive":true,"className":"","stroke":true,"color":["#608A3E","#608A3E","#608A3E"],"weight":5,"opacity":0.5,"fill":true,"fillColor":["#608A3E","#608A3E","#608A3E"],"fillOpacity":1},null,null,["<b>An. crucians E<\/b><br/>FL: Waccasassa River / State Road 24","<b>An. crucians E<\/b><br/>GA: JERC_069","<b>An. crucians E<\/b><br/>MD: SERC_036"],null,["An. crucians E (FL: Waccasassa River / State Road 24; n = 1)","An. crucians E (GA: JERC_069; n = 1)","An. crucians E (MD: SERC_036; n = 1)"],{"interactive":false,"permanent":false,"direction":"auto","opacity":1,"offset":[0,0],"textsize":"10px","textOnly":false,"className":"","sticky":true},null]},{"method":"addCircleMarkers","args":[[31.788209,31.788209,38.230243],[-110.637409,-110.637409,-109.39148],10,null,"An. freeborni",{"interactive":true,"className":"","stroke":true,"color":["#795DD2","#795DD2","#795DD2"],"weight":5,"opacity":0.5,"fill":true,"fillColor":["#795DD2","#795DD2","#795DD2"],"fillOpacity":1},null,null,["<b>An. freeborni<\/b><br/>AZ: Empire Ranch, Cienegas NCA","<b>An. freeborni<\/b><br/>AZ: Empire Ranch, Cienegas NCA","<b>An. freeborni<\/b><br/>UT: MOAB_037"],null,["An. freeborni (AZ: Empire Ranch, Cienegas NCA; n = 2)","An. freeborni (AZ: Empire Ranch, Cienegas NCA; n = 2)","An. freeborni (UT: MOAB_037; n = 1)"],{"interactive":false,"permanent":false,"direction":"auto","opacity":1,"offset":[0,0],"textsize":"10px","textOnly":false,"className":"","sticky":true},null]},{"method":"addCircleMarkers","args":[29.370654,-81.89811400000001,10,null,"An. perplexens",{"interactive":true,"className":"","stroke":true,"color":"#E6B9CD","weight":5,"opacity":0.5,"fill":true,"fillColor":"#E6B9CD","fillOpacity":1},null,null,"<b>An. perplexens<\/b><br/>FL: Hog Valley, Ocklawaha River",null,"An. perplexens (FL: Hog Valley, Ocklawaha River; n = 1)",{"interactive":false,"permanent":false,"direction":"auto","opacity":1,"offset":[0,0],"textsize":"10px","textOnly":false,"className":"","sticky":true},null]},{"method":"addCircleMarkers","args":[[33.389372,33.389372],[-97.572997,-97.572997],10,null,"An. pseudopunctipennis",{"interactive":true,"className":"","stroke":true,"color":["#E73B69","#E73B69"],"weight":5,"opacity":0.5,"fill":true,"fillColor":["#E73B69","#E73B69"],"fillOpacity":1},null,null,["<b>An. pseudopunctipennis<\/b><br/>TX: CLBJ_067","<b>An. pseudopunctipennis<\/b><br/>TX: CLBJ_067"],null,["An. pseudopunctipennis (TX: CLBJ_067; n = 2)","An. pseudopunctipennis (TX: CLBJ_067; n = 2)"],{"interactive":false,"permanent":false,"direction":"auto","opacity":1,"offset":[0,0],"textsize":"10px","textOnly":false,"className":"","sticky":true},null]},{"method":"addCircleMarkers","args":[[31.443937,31.788209,31.788209,31.772897,37.101331,37.082013],[-111.238786,-110.637409,-110.637409,-110.857362,-119.721285,-119.7411],10,null,"An. franciscanus",{"interactive":true,"className":"","stroke":true,"color":["#A43357","#A43357","#A43357","#A43357","#A43357","#A43357"],"weight":5,"opacity":0.5,"fill":true,"fillColor":["#A43357","#A43357","#A43357","#A43357","#A43357","#A43357"],"fillOpacity":1},null,null,["<b>An. franciscanus<\/b><br/>AZ: California Gulch, Coronado National Forest","<b>An. franciscanus<\/b><br/>AZ: Empire Ranch, Cienegas NCA","<b>An. franciscanus<\/b><br/>AZ: Empire Ranch, Cienegas NCA","<b>An. franciscanus<\/b><br/>AZ: SRER_033","<b>An. franciscanus<\/b><br/>CA: SJER_036","<b>An. franciscanus<\/b><br/>CA: SJER_040"],null,["An. franciscanus (AZ: California Gulch, Coronado National Forest; n = 1)","An. franciscanus (AZ: Empire Ranch, Cienegas NCA; n = 2)","An. franciscanus (AZ: Empire Ranch, Cienegas NCA; n = 2)","An. franciscanus (AZ: SRER_033; n = 1)","An. franciscanus (CA: SJER_036; n = 1)","An. franciscanus (CA: SJER_040; n = 1)"],{"interactive":false,"permanent":false,"direction":"auto","opacity":1,"offset":[0,0],"textsize":"10px","textOnly":false,"className":"","sticky":true},null]},{"method":"addCircleMarkers","args":[[42.482279,42.482279],[-72.272148,-72.272148],10,null,"An. walkeri A",{"interactive":true,"className":"","stroke":true,"color":["#C89E51","#C89E51"],"weight":5,"opacity":0.5,"fill":true,"fillColor":["#C89E51","#C89E51"],"fillOpacity":1},null,null,["<b>An. walkeri A<\/b><br/>MA: HARV_082","<b>An. walkeri A<\/b><br/>MA: HARV_082"],null,["An. walkeri A (MA: HARV_082; n = 2)","An. walkeri A (MA: HARV_082; n = 2)"],{"interactive":false,"permanent":false,"direction":"auto","opacity":1,"offset":[0,0],"textsize":"10px","textOnly":false,"className":"","sticky":true},null]},{"method":"addCircleMarkers","args":[[46.243091,47.139342],[-89.50940900000001,-99.24649599999999],10,null,"An. walkeri B",{"interactive":true,"className":"","stroke":true,"color":["#945033","#945033"],"weight":5,"opacity":0.5,"fill":true,"fillColor":["#945033","#945033"],"fillOpacity":1},null,null,["<b>An. walkeri B<\/b><br/>MI: UNDE_070","<b>An. walkeri B<\/b><br/>ND: WOOD_033"],null,["An. walkeri B (MI: UNDE_070; n = 1)","An. walkeri B (ND: WOOD_033; n = 1)"],{"interactive":false,"permanent":false,"direction":"auto","opacity":1,"offset":[0,0],"textsize":"10px","textOnly":false,"className":"","sticky":true},null]},{"method":"addCircleMarkers","args":[[24.58157,27.757785,27.757785],[-81.65185099999999,-80.421834,-80.421834],10,null,"An. atropos",{"interactive":true,"className":"","stroke":true,"color":["#DBC951","#DBC951","#DBC951"],"weight":5,"opacity":0.5,"fill":true,"fillColor":["#DBC951","#DBC951","#DBC951"],"fillOpacity":1},null,null,["<b>An. atropos<\/b><br/>FL: Geiger Key","<b>An. atropos<\/b><br/>FL: Wabasso Bridge","<b>An. atropos<\/b><br/>FL: Wabasso Bridge"],null,["An. atropos (FL: Geiger Key; n = 1)","An. atropos (FL: Wabasso Bridge; n = 2)","An. atropos (FL: Wabasso Bridge; n = 2)"],{"interactive":false,"permanent":false,"direction":"auto","opacity":1,"offset":[0,0],"textsize":"10px","textOnly":false,"className":"","sticky":true},null]},{"method":"addCircleMarkers","args":[31.443937,-111.238786,10,null,"An. judithae",{"interactive":true,"className":"","stroke":true,"color":"#D02090","weight":5,"opacity":0.5,"fill":true,"fillColor":"#D02090","fillOpacity":1},null,null,"<b>An. judithae<\/b><br/>AZ: Canelo Cienega",null,"An. judithae (AZ: Canelo Cienega; n = 1)",{"interactive":false,"permanent":false,"direction":"auto","opacity":1,"offset":[0,0],"textsize":"10px","textOnly":false,"className":"","sticky":true},null]},{"method":"addCircleMarkers","args":[18.025667,-67.082493,10,null,"An. albimanus",{"interactive":true,"className":"","stroke":true,"color":"#473C8B","weight":5,"opacity":0.5,"fill":true,"fillColor":"#473C8B","fillOpacity":1},null,null,"<b>An. albimanus<\/b><br/>NA: LAJA_031",null,"An. albimanus (NA: LAJA_031; n = 1)",{"interactive":false,"permanent":false,"direction":"auto","opacity":1,"offset":[0,0],"textsize":"10px","textOnly":false,"className":"","sticky":true},null]},{"method":"addCircleMarkers","args":[[18.024505,18.024505],[-67.074566,-67.074566],10,null,"An. vestitipennis",{"interactive":true,"className":"","stroke":true,"color":["#7D26CD","#7D26CD"],"weight":5,"opacity":0.5,"fill":true,"fillColor":["#7D26CD","#7D26CD"],"fillOpacity":1},null,null,["<b>An. vestitipennis<\/b><br/>NA: LAJA_039","<b>An. vestitipennis<\/b><br/>NA: LAJA_039"],null,["An. vestitipennis (NA: LAJA_039; n = 2)","An. vestitipennis (NA: LAJA_039; n = 2)"],{"interactive":false,"permanent":false,"direction":"auto","opacity":1,"offset":[0,0],"textsize":"10px","textOnly":false,"className":"","sticky":true},null]},{"method":"addLayersControl","args":[[],["All","An. quadrimaculatus","An. smaragdinus","An. punctipennis","An. earlei","An. maverlius","An. diluvialis","An. crucians A","An. crucians B","An. crucians C","An. crucians D","An. crucians E","An. freeborni","An. perplexens","An. pseudopunctipennis","An. franciscanus","An. walkeri A","An. walkeri B","An. atropos","An. judithae","An. albimanus","An. vestitipennis"],{"collapsed":false,"autoZIndex":true,"position":"bottomright"}]},{"method":"hideGroup","args":["An. quadrimaculatus"]},{"method":"hideGroup","args":["An. smaragdinus"]},{"method":"hideGroup","args":["An. punctipennis"]},{"method":"hideGroup","args":["An. earlei"]},{"method":"hideGroup","args":["An. maverlius"]},{"method":"hideGroup","args":["An. diluvialis"]},{"method":"hideGroup","args":["An. crucians A"]},{"method":"hideGroup","args":["An. crucians B"]},{"method":"hideGroup","args":["An. crucians C"]},{"method":"hideGroup","args":["An. crucians D"]},{"method":"hideGroup","args":["An. crucians E"]},{"method":"hideGroup","args":["An. freeborni"]},{"method":"hideGroup","args":["An. perplexens"]},{"method":"hideGroup","args":["An. pseudopunctipennis"]},{"method":"hideGroup","args":["An. franciscanus"]},{"method":"hideGroup","args":["An. walkeri A"]},{"method":"hideGroup","args":["An. walkeri B"]},{"method":"hideGroup","args":["An. atropos"]},{"method":"hideGroup","args":["An. judithae"]},{"method":"hideGroup","args":["An. albimanus"]},{"method":"hideGroup","args":["An. vestitipennis"]}],"limits":{"lat":[18.024505,65.165769],"lng":[-147.494593,-67.074566]}},"evals":[],"jsHooks":[]}</script>
+<script type="application/htmlwidget-sizing" data-for="htmlwidget-51f9572436457ba86ccf">{"viewer":{"width":"100%","height":400,"padding":0,"fill":true},"browser":{"width":"100%","height":400,"padding":0,"fill":true}}</script>
 </body>
 </html>
