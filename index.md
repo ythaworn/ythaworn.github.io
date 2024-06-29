@@ -27,7 +27,7 @@
 ## Training & Research Experience
 
 - 🔩 2024-2026\.&emsp; Research Fellow, [UCL Department of Genetics, Evolution and Environment (GEE)](https://www.ucl.ac.uk/biosciences/gee), UK (with [Ziheng Yang](http://abacus.gene.ucl.ac.uk/))
-- 🦋 2020-2024\.&emsp; PhD [Organismic and Evolutionary Biology (OEB)](https://oeb.harvard.edu/), Harvard University, USA (with [James Mallet](https://mallet.oeb.harvard.edu/) and [Ziheng Yang](http://abacus.gene.ucl.ac.uk/)), with Interdisciplinary Concentration in Infectious Disease Epidemiology
+- 🦋 2020-2024\.&emsp; PhD [Organismic and Evolutionary Biology (OEB)](https://oeb.harvard.edu/), Harvard University, USA (with [James Mallet](https://mallet.oeb.harvard.edu/) and [Ziheng Yang](http://abacus.gene.ucl.ac.uk/)), with Interdisciplinary Concentration in Infectious Disease Epidemiology ([ID Epi](https://www.hsph.harvard.edu/idepi/about/))
 - 🦠 2018-2020\.&emsp;Research assistant, [Center for Microbial Genomics (CENMIG)](https://microbiology.sc.mahidol.ac.th/cenmig/), Department of Microbiology, Faculty of Science, Mahidol University, Thailand
 - 🧬 2014-2018\.&emsp;MPhil Genetics, Evolution and Environment, [UCL GEE](https://www.ucl.ac.uk/biosciences/gee), UK (with [Ziheng Yang](http://abacus.gene.ucl.ac.uk/))
 - 🛠 2012-2013\.&emsp;MSc Computational Statistics and Machine Learning, [UCL Computer Science](https://www.ucl.ac.uk/computer-science/), UK
