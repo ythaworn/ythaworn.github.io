@@ -17,7 +17,7 @@
 - 🪰 Research areas: phylogenetics, computational statistics, evolutionary genomics
 - 🐞 [Publications](#publications), [Google Scholar](https://scholar.google.com/citations?user=DjlTi4gAAAAJ), 
 [NCBI Bibliography](https://www.ncbi.nlm.nih.gov/myncbi/yuttapong.thawornwattana.3/bibliography/public/), [ORCID](https://orcid.org/0000-0003-2745-163X), [Web of Science](https://www.webofscience.com/wos/author/record/1865943)
-- 🐝 Currently learning: genome assembly, infectious disease epidemiology
+- 🐝 Currently learning: genome assembly, infectious disease epidemiology ([ID Epi](https://www.hsph.harvard.edu/idepi/about/))
 - 🐛 Looking to collaborate on mosquito phylogeny and evolution, inference of gene flow and introgression
 - 🪲 Ask me about phylogenetics and gene flow!
 - 💬 [Talks](#talks)
@@ -25,12 +25,12 @@
 ---
 
 ## Training & Research Experience
+
 - 🔩 2024-2026\.&emsp; Research Fellow, [UCL Department of Genetics, Evolution and Environment (GEE)](https://www.ucl.ac.uk/biosciences/gee), UK (with [Ziheng Yang](http://abacus.gene.ucl.ac.uk/))
 - 🦋 2020-2024\.&emsp; PhD [Organismic and Evolutionary Biology (OEB)](https://oeb.harvard.edu/), Harvard University, USA (with [James Mallet](https://mallet.oeb.harvard.edu/) and [Ziheng Yang](http://abacus.gene.ucl.ac.uk/)), with Interdisciplinary Concentration in Infectious Disease Epidemiology
 - 🦠 2018-2020\.&emsp;Research assistant, [Center for Microbial Genomics (CENMIG)](https://microbiology.sc.mahidol.ac.th/cenmig/), Department of Microbiology, Faculty of Science, Mahidol University, Thailand
 - 🧬 2014-2018\.&emsp;MPhil Genetics, Evolution and Environment, [UCL GEE](https://www.ucl.ac.uk/biosciences/gee), UK (with [Ziheng Yang](http://abacus.gene.ucl.ac.uk/))
-- 🛠 2012-2013\.&emsp;MSc Computational Statistics and Machine Learning, [UCL Computer Science
-](https://www.ucl.ac.uk/computer-science/), UK
+- 🛠 2012-2013\.&emsp;MSc Computational Statistics and Machine Learning, [UCL Computer Science](https://www.ucl.ac.uk/computer-science/), UK
 - 🐛 2009-2012\.&emsp;BSc Biological Sciences, [UCL GEE](https://www.ucl.ac.uk/biosciences/gee), UK
 
 ---
@@ -40,11 +40,11 @@
 [Google Scholar profile](https://scholar.google.com/citations?user=DjlTi4gAAAAJ), 
 [NCBI Bibliography](https://www.ncbi.nlm.nih.gov/myncbi/yuttapong.thawornwattana.3/bibliography/public/)
 
-- __Thawornwattana Y__, Flouri T, Mallet J, Yang Z. (2024) __Inference of continuous gene flow between species under misspecified models__. bioRxiv [[doi:10.1101/2024.05.13.593926](https://doi.org/10.1101/2024.05.13.593926)]
+- __Thawornwattana Y__, Flouri T, Mallet J, Yang Z. (2024) __Inference of continuous gene flow between species under misspecified models__. bioRxiv [[doi:10.1101/2024.05.13.593926](https://doi.org/10.1101/2024.05.13.593926)] [[C code](https://github.com/ythaworn/iimmsci2s)]
 - Mallet J, Seixas FA, __Thawornwattana Y__ (2024). __Species, Concepts of.__ In Scheiner, S. M., editor, _Encyclopedia of Biodiversity (Third Edition)_, 7:531-545. Elsevier. [[doi:10.1016/B978-0-12-822562-2.00022-0](https://doi.org/10.1016/B978-0-12-822562-2.00022-0)] [[RG](https://www.researchgate.net/publication/358303271_Species_Concepts_of)]
 - __Thawornwattana Y__, Seixas FA, Yang Z, Mallet J. (2023) __Major patterns in the introgression history of _Heliconius_ butterflies__. _eLife_. [[doi:10.7554/eLife.90656](https://doi.org/10.7554/eLife.90656)] [[data](https://zenodo.org/records/8415106)]
 - __Thawornwattana Y__, Huang J, Flouri T, Mallet J, Yang Z. (2023) __Inferring the direction of introgression using genomic sequence data__. _Mol Biol Evol._, 40(8):msad178. [[doi:10.1093/molbev/msad178](https://doi.org/10.1093/molbev/msad178)] [[_Heliconius_ data](https://zenodo.org/records/8243142)]
-- Huang J, __Thawornwattana Y__, Flouri T, Mallet J, Yang Z. (2022) __Inference of gene flow between species under misspecified models__. _Mol Biol Evol._, 39(12):msac237. [[doi:10.1093/molbev/msac237](https://doi.org/10.1093/molbev/msac237)]
+- Huang J, __Thawornwattana Y__, Flouri T, Mallet J, Yang Z. (2022) __Inference of gene flow between species under misspecified models__. _Mol Biol Evol._, 39(12):msac237. [[doi:10.1093/molbev/msac237](https://doi.org/10.1093/molbev/msac237)] [[C code](https://github.com/ythaworn/iimmsci2s)]
 - __Thawornwattana Y__, Seixas FA, Yang Z, Mallet J. (2022) __Full-likelihood genomic analysis clarifies a complex history of species divergence and introgression: the example of the erato-sara group of _Heliconius_ butterflies.__ _Syst Biol._, 71(5):1159–1177. [[doi:10.1093/sysbio/syac009](https://doi.org/10.1093/sysbio/syac009)] [[data](https://zenodo.org/records/5639716)]
 - Aiewsakun P, Ruangchai W, __Thawornwattana Y__, Jaemsai B, Mahasirimongkol S, Homkaew A, Suksomchit P, Dubbs P, Palittapongarnpim P. (2022) __Genomic epidemiology of _Streptococcus agalactiae_ ST283 in Southeast Asia.__ _Sci Rep._, 12(1):4185. [[doi:10.1038/s41598-022-08097-0](https://doi.org/10.1038/s41598-022-08097-0)]
 - Netikul T, __Thawornwattana Y__, Mahasirimongkol S, Yanai H, Maung HMW, Chongsuvivatwong V, Palittapongarnpim P. (2022) __Whole-genome single nucleotide variant phylogenetic analysis of _Mycobacterium tuberculosis_ lineage 1 in endemic regions of Asia and Africa.__ _Sci Rep._, 12(1):1565. [[doi:10.1038/s41598-022-05524-0](https://doi.org/10.1038/s41598-022-05524-0)] [[phylogeny: Asia/Africa/Oceania](https://microreact.org/project/ii9NYi9YWaWFjZkivV2JoC); [phylogeny: global 1](https://microreact.org/project/m8QSwp8XhXBUhLTDhRuGB9); [phylogeny: global 2](https://microreact.org/project/rtJuewY8AXZFZLKVRQXc3H)]
@@ -60,8 +60,10 @@
 
 ## Talks
 
+- 2024/07\.&emsp;"Inferring species phylogeny and gene flow from genomic data", dissertation seminar at Harvard OEB
+- 2024/04\.&emsp;"Evolution of _Anopheles_ mosquitoes in North America" in G4 Symposium at Harvard OEB
 - 2023/09\.&emsp;"Inferring the direction of gene flow from genomic data" at [Boston Evolutionary Genomics Supergroup](https://evogen.hms.harvard.edu) [Annual Retreat 2023](https://evogen.hms.harvard.edu/annual-retreat-2023), the Broad Institute (chalk talk)
-- 2023/06\.&emsp;"Inferring phylogenies using full-likelihood multispecies coalescent with introgression" at [Evolution conference](https://www.evolutionmeetings.org/) (Albuquerque, New Mexico, USA) [[slides](https://drive.google.com/file/d/1oMPWP17bdJN8xcvGi3JSY2WQkWnxycIY/view?usp=sharing), [with builds](https://drive.google.com/file/d/1myaH0pXqBabqxToTtiuwvga1ixW749v4/view?usp=sharing)]
+- 2023/06\.&emsp;"Inferring phylogenies using full-likelihood multispecies coalescent with introgression" at [Evolution conference](https://www.evolutionmeetings.org/) (Albuquerque, New Mexico, USA) [[slides](https://drive.google.com/file/d/1oMPWP17bdJN8xcvGi3JSY2WQkWnxycIY/view?usp=sharing), [with builds](https://drive.google.com/file/d/1myaH0pXqBabqxToTtiuwvga1ixW749v4/view?usp=sharing)] [[recording](https://youtu.be/sz9du0CxDkk?si=4qz_lTDIHoGOUDs7&t=2642)]
 - 2021/06\.&emsp;"Full-likelihood analysis of divergence and introgression in the erato-sara group of _Heliconius_" at [Heliconius Seminar](https://www.heliconius.org/lockdown-seminars/) (now Lepinars) [[slides](https://drive.google.com/file/d/1SPH6DcDR3AUyQyanLVUbmAEtI4_JaSKz/view?usp=drive_link)]
 - 2020/12\.&emsp;"Whole-genome sequencing for strain typing in practice" at [CENMIG](https://microbiology.sc.mahidol.ac.th/cenmig/) Workshop, Mahidol University [[slides](https://drive.google.com/file/d/1Dgsjs_Q-ZdI_BPvCtiK8zYOQ2d63RDh6/view?usp=sharing)]
 - 2020/11\.&emsp;"Population genomics of _Mycobacterium tuberculosis_" at the Department of Microbiology, Faculty of Science, Mahidol University [[slides](https://drive.google.com/file/d/1pCzQJurTjpLYdC0wLQgps2K_gRyT1ivw/view?usp=sharing)]
@@ -72,6 +74,8 @@
 ---
 
 ## On Github
+
+* [`iimmsci2s`](https://github.com/ythaworn/iimmsci2s): Calculate asymptotic maximum likelihood estimates, also known as pseudo-true parameter values, of parameters under the multispecies coalescent model with pulse introgression or continuous migration
 * [`make-3s-data`](https://github.com/ythaworn/make-3s-data): Phase multilocus data and sample 3 sequences per locus for 3s analysis
 * [`mtbtyper`](https://github.com/ythaworn/mtbtyper): Genotype strains of _Mycobacterium tuberculosis_ isolates from whole-genome sequence data
 * [`group-specific-variants`](https://github.com/ythaworn/group-specific-variants): Identify group-specific single-nucleotide variants from multiple sequence alignment
@@ -81,6 +85,7 @@
 ---
 
 ## Tutorials
+
 -  Bayesian linear regression (2018) - [slides](https://drive.google.com/file/d/1UnN1ZU3x6KsCyKU4Ck_AsWozVu_CR10S/view?usp=sharing)
 -  Dirichlet process mixture (DPM) model (2018) - [slides](https://drive.google.com/file/d/1NPN_WF7YWXZFLkUjvIhJH10roRAm81uE/view?usp=sharing)
 -  [TensorFlow tutorial (2016)](https://www.homepages.ucl.ac.uk/~zcbtfu5/)
