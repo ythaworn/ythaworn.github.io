@@ -1,10 +1,8 @@
 <a href="url"><img src="public/yuttapong.png" align="left" height="150"></a>
 
-## Yuttapong Thawornwattana
-
 #### PhD student, [Mallet Lab](https://mallet.oeb.harvard.edu/)
 
-#### [Department of Organismic and Evolutionary Biology](https://oeb.harvard.edu/), Harvard University, USA
+#### [Department of Organismic and Evolutionary Biology (OEB)](https://oeb.harvard.edu/), Harvard University, USA
 
 📬 ythawornwattana[at]g.harvard.edu
 
