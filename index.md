@@ -58,7 +58,7 @@
 
 ## Talks
 
-- 2024/07\.&emsp;"Inferring species phylogeny and gene flow from genomic data", dissertation seminar at Harvard OEB
+- 2024/07\.&emsp;"Inferring species phylogeny and gene flow from genomic data", dissertation seminar at Harvard OEB [[slides](https://drive.google.com/file/d/1Womh4FuREXZ8NE4Aco5Fjb1e1lci7niv/view?usp=sharing)]
 - 2024/04\.&emsp;"Evolution of _Anopheles_ mosquitoes in North America" in G4 Symposium at Harvard OEB
 - 2023/09\.&emsp;"Inferring the direction of gene flow from genomic data" at [Boston Evolutionary Genomics Supergroup](https://evogen.hms.harvard.edu) [Annual Retreat 2023](https://evogen.hms.harvard.edu/annual-retreat-2023), the Broad Institute (chalk talk)
 - 2023/06\.&emsp;"Inferring phylogenies using full-likelihood multispecies coalescent with introgression" at [Evolution conference](https://www.evolutionmeetings.org/) (Albuquerque, New Mexico, USA) [[slides](https://drive.google.com/file/d/1oMPWP17bdJN8xcvGi3JSY2WQkWnxycIY/view?usp=sharing), [with builds](https://drive.google.com/file/d/1myaH0pXqBabqxToTtiuwvga1ixW749v4/view?usp=sharing)] [[recording](https://youtu.be/sz9du0CxDkk?si=4qz_lTDIHoGOUDs7&t=2642)]
