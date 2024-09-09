@@ -58,7 +58,7 @@
 
 ## Talks
 
-- 2024/09\.&emsp;"Evolutionary genomics of malaria mosquitoes" at Faculty of Tropical Medicine, Mahidol University [[slides](https://drive.google.com/file/d/1oiAkJ3xi-4pvWwibUpsodamj8eqQxn1u/view?usp=sharing)]
+- 2024/09\.&emsp;"Evolutionary genomics of malaria mosquitoes" at Faculty of Tropical Medicine, Mahidol University [[slides](https://drive.google.com/file/d/1OR0HFvePZSFAO8hJLg_b1JBLvMtcWUwc/view?usp=sharing)]
 - 2024/07\.&emsp;"Inferring species phylogeny and gene flow from genomic data", a dissertation seminar at Harvard OEB [[slides](https://drive.google.com/file/d/1Womh4FuREXZ8NE4Aco5Fjb1e1lci7niv/view?usp=sharing)]
 - 2024/04\.&emsp;"Evolution of _Anopheles_ mosquitoes in North America" in G4 Symposium at Harvard OEB
 - 2023/09\.&emsp;"Inferring the direction of gene flow from genomic data" at [Boston Evolutionary Genomics Supergroup](https://evogen.hms.harvard.edu) [Annual Retreat 2023](https://evogen.hms.harvard.edu/annual-retreat-2023), the Broad Institute (chalk talk)
