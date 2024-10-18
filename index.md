@@ -1,18 +1,19 @@
 <a href="url"><img src="public/yuttapong.png" align="left" height="150"></a>
 
-#### PhD student, [Mallet Lab](https://mallet.oeb.harvard.edu/)
+#### Research Fellow, [Yang Lab](http://abacus.gene.ucl.ac.uk/)
 
-#### [Department of Organismic and Evolutionary Biology (OEB)](https://oeb.harvard.edu/), Harvard University, USA
+#### [Department of Genetics, Evolution and Environment (GEE)](https://oeb.harvard.edu/), University College London, UK
 
-📬 ythawornwattana[at]g.harvard.edu
+📬 gmail (preferred): yuttapong.thawornwattana
+📬 ucl.ac.uk: yuttapong.thawornwattana.09
 
 <br />
 
 
 ## Hi there 👋
 
-- 🦟 [Currently working on](#current-projects) the phylogeny and evolution of malaria mosquitoes (_Anopheles_) in North America
-- 🪰 Research areas: phylogenetics, computational statistics, evolutionary genomics
+- 🦟 [Currently working on](#current-projects) the phylogeny and evolution of _Anopheles_ mosquitoes
+- 🪰 Research areas: phylogenetics, evolutionary genomics, malaria, computational statistics
 - 🐞 [Publications](#publications), [Google Scholar](https://scholar.google.com/citations?user=DjlTi4gAAAAJ), 
 [NCBI Bibliography](https://www.ncbi.nlm.nih.gov/myncbi/yuttapong.thawornwattana.3/bibliography/public/), [ORCID](https://orcid.org/0000-0003-2745-163X), [Web of Science](https://www.webofscience.com/wos/author/record/1865943)
 - 🐝 Currently learning: genome assembly, infectious disease epidemiology ([ID Epi](https://www.hsph.harvard.edu/idepi/about/))
@@ -58,6 +59,8 @@
 
 ## Talks
 
+- 2024/10\.&emsp;"Evolutionary genomics of mosquitoes" at the International Course on Ecological Determinants of Vector-Borne Disease Dynamics, Guapiaçu Ecological Reserve-REGUA, Rio de Janeiro, Brazil [[slides](https://drive.google.com/file/d/1nS7_fIeUfWSZS0xZfCiiVauPGIZQSSOp/view?usp=sharing)]
+- 2024/09\.&emsp;"Evolutionary genomics of _Anopheles_ mosquitoes" at the Department of Parasitology, Faculty of Medicine, Chiang Mai University [[slides](https://drive.google.com/file/d/1nW3JVpFKoyN3qrBMmoDjKxXSmU0Yp9sl/view?usp=sharing)]
 - 2024/09\.&emsp;"Evolutionary genomics of malaria mosquitoes" at Faculty of Tropical Medicine, Mahidol University [[slides](https://drive.google.com/file/d/1OR0HFvePZSFAO8hJLg_b1JBLvMtcWUwc/view?usp=sharing)]
 - 2024/07\.&emsp;"Inferring species phylogeny and gene flow from genomic data", a dissertation seminar at Harvard OEB [[slides](https://drive.google.com/file/d/1Womh4FuREXZ8NE4Aco5Fjb1e1lci7niv/view?usp=sharing)]
 - 2024/04\.&emsp;"Evolution of _Anopheles_ mosquitoes in North America" in G4 Symposium at Harvard OEB
@@ -94,7 +97,7 @@
 ## Current projects
 
 - Phylogeny and evolution of _Anopheles_ mosquitoes (Diptera: Culicidae: Anophelinae) in North America: [specimens](https://ythaworn.github.io/public/anopheles/specimens.html)
-- Multispecies coalescent methods for inferring gene flow from genomic data
+- Methods for inferring gene flow from genomic data
 - Bioinformatics pipeline for generating multilocus data from short-read sequencing data
 - Introgression histories in _Heliconius_ butterflies (Lepidoptera: Nymphalidae: Heliconiinae: Heliconiini)
 - Taxonomic catalogue of Heliconiinae (Lepidoptera: Nymphalidae)
