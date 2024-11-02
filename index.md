@@ -1,29 +1,36 @@
 <a href="url"><img src="public/yuttapong.png" align="left" height="150"></a>
 
+<a id="top"></a>
+
 #### Research Fellow, [Yang Lab](http://abacus.gene.ucl.ac.uk/)
 
-#### [Department of Genetics, Evolution and Environment (GEE)](https://oeb.harvard.edu/), University College London, UK
+#### [Department of Genetics, Evolution and Environment (GEE)](https://www.ucl.ac.uk/biosciences/gee), University College London, UK
 
-📬 gmail (preferred): yuttapong.thawornwattana
-📬 ucl.ac.uk: yuttapong.thawornwattana.09
+[UCL profile page](https://profiles.ucl.ac.uk/45794-yuttapong-thawornwattana)
+
+📬 gmail.com or ucl.ac.uk: yuttapong.thawornwattana
 
 <br />
-
 
 ## Hi there 👋
 
 - 🦟 [Currently working on](#current-projects) the phylogeny and evolution of _Anopheles_ mosquitoes
-- 🪰 Research areas: phylogenetics, evolutionary genomics, malaria, computational statistics
-- 🐞 [Publications](#publications), [Google Scholar](https://scholar.google.com/citations?user=DjlTi4gAAAAJ), 
-[NCBI Bibliography](https://www.ncbi.nlm.nih.gov/myncbi/yuttapong.thawornwattana.3/bibliography/public/), [ORCID](https://orcid.org/0000-0003-2745-163X), [Web of Science](https://www.webofscience.com/wos/author/record/1865943)
 - 🐝 Currently learning: genome assembly, infectious disease epidemiology ([ID Epi](https://www.hsph.harvard.edu/idepi/about/))
-- 🐛 Looking to collaborate on mosquito phylogeny and evolution, inference of gene flow and introgression
-- 🪲 Ask me about phylogenetics and gene flow!
-- 💬 [Talks](#talks)
+- 🐛 Looking to collaborate on mosquito phylogeny and evolution, inference of gene flow
 
 ---
 
-## Training & Research Experience
+## Main content
+
+- 🌱 [Training & Research Experience](#training-&-research-experience), 🪸 [Bio](#research)
+- 🪲 [Research](#research),  🐌 [Current projects](#current-projects)
+- 🐳 [Publications](#publications), [Google Scholar](https://scholar.google.com/citations?user=DjlTi4gAAAAJ), 
+[NCBI Bibliography](https://www.ncbi.nlm.nih.gov/myncbi/yuttapong.thawornwattana.3/bibliography/public/), [ORCID](https://orcid.org/0000-0003-2745-163X), [Web of Science](https://www.webofscience.com/wos/author/record/1865943)
+- 💬 [Talks](#talks), 🐛 [Tutorials](#tutorials), 🐙 [On Github](#on-github)
+
+---
+
+## Training & Research Experience  [⤴️](#top)
 
 - 🔩 2024-2026\.&emsp; Research Fellow, [UCL Department of Genetics, Evolution and Environment (GEE)](https://www.ucl.ac.uk/biosciences/gee), UK (with [Ziheng Yang](http://abacus.gene.ucl.ac.uk/))
 - 🦋 2020-2024\.&emsp; PhD [Organismic and Evolutionary Biology (OEB)](https://oeb.harvard.edu/), Harvard University, USA (with [James Mallet](https://mallet.oeb.harvard.edu/) and [Ziheng Yang](http://abacus.gene.ucl.ac.uk/)), with the Interdisciplinary Concentration in Infectious Disease Epidemiology ([ID Epi](https://www.hsph.harvard.edu/idepi/about/))
@@ -32,9 +39,31 @@
 - 🛠 2012-2013\.&emsp;MSc Computational Statistics and Machine Learning, [UCL Computer Science](https://www.ucl.ac.uk/computer-science/), UK
 - 🐛 2009-2012\.&emsp;BSc Biological Sciences, [UCL GEE](https://www.ucl.ac.uk/biosciences/gee), UK
 
+
 ---
 
-## Publications
+## Bio  [⤴️](#top)
+
+I am a postdoc in Ziheng Yang's group at UCL working on statistical methods for studying introgression from genomic data.  
+
+I obtained my BSc in Biological Sciences from UCL focusing on phylogenetics and molecular evolution, and MSC in Computational Statistics and Machine Learning, also from UCL, focusing on Bayesian statistics and Monte Carlo methods.  I then went on to do my PhD with James Mallet at Harvard University, studying introgression in _Heliconius_ butterflies and _Anopheles_ mosquitoes.  I also studied infectious disease epidemiology at the Harvard T.H. Chan School of Public Health.
+
+---
+
+## Research  [⤴️](#top)
+
+How do insects become vectors of human diseases?  Why are some species better vectors than others?  How are they adapting to changing environments and what does it mean for transmission of vector-borne diseases?  
+
+To answer these questions, I use malaria mosquitoes in the genus _Anopheles_ as model systems.  They are useful for studying not only fundamental questions in evolutionary biology about species divergence and speciation but also practical questions in infectious disease biology and epidemiology ranging from vector surveillance to global health and disease eradication.
+
+More broadly, I study how populations and species evolve, and how traits of medical and epidemiological interests arise and change over time using genomic data and statistical approaches.  
+
+Research areas: phylogenetics, evolutionary genomics, mosquito evolution, malaria, computational statistics
+
+---
+
+
+## Publications  [⤴️](#top)
 
 [Google Scholar profile](https://scholar.google.com/citations?user=DjlTi4gAAAAJ), 
 [NCBI Bibliography](https://www.ncbi.nlm.nih.gov/myncbi/yuttapong.thawornwattana.3/bibliography/public/)
@@ -57,9 +86,9 @@
 
 ---
 
-## Talks
+## Talks  [⤴️](#top)
 
-- 2024/10\.&emsp;"Evolutionary genomics of mosquitoes" at the International Course on Ecological Determinants of Vector-Borne Disease Dynamics, Guapiaçu Ecological Reserve-REGUA, Rio de Janeiro, Brazil [[slides](https://drive.google.com/file/d/1nS7_fIeUfWSZS0xZfCiiVauPGIZQSSOp/view?usp=sharing)]
+- 2024/10\.&emsp;"Evolutionary genomics of mosquitoes" at the 5th International Course on Ecological Determinants of Vector-Borne Disease Dynamics, Reserva Ecológica de Guapiaçu (REGUA), Rio de Janeiro, Brazil [[slides](https://drive.google.com/file/d/1nS7_fIeUfWSZS0xZfCiiVauPGIZQSSOp/view?usp=sharing)]
 - 2024/09\.&emsp;"Evolutionary genomics of _Anopheles_ mosquitoes" at the Department of Parasitology, Faculty of Medicine, Chiang Mai University [[slides](https://drive.google.com/file/d/1nW3JVpFKoyN3qrBMmoDjKxXSmU0Yp9sl/view?usp=sharing)]
 - 2024/09\.&emsp;"Evolutionary genomics of malaria mosquitoes" at Faculty of Tropical Medicine, Mahidol University [[slides](https://drive.google.com/file/d/1OR0HFvePZSFAO8hJLg_b1JBLvMtcWUwc/view?usp=sharing)]
 - 2024/07\.&emsp;"Inferring species phylogeny and gene flow from genomic data", a dissertation seminar at Harvard OEB [[slides](https://drive.google.com/file/d/1Womh4FuREXZ8NE4Aco5Fjb1e1lci7niv/view?usp=sharing)]
@@ -75,7 +104,7 @@
 
 ---
 
-## On Github
+## On Github  [⤴️](#top)
 
 * [`iimmsci2s`](https://github.com/ythaworn/iimmsci2s): Calculate asymptotic maximum likelihood estimates, also known as pseudo-true parameter values, of parameters under the multispecies coalescent model with pulse introgression or continuous migration
 * [`make-3s-data`](https://github.com/ythaworn/make-3s-data): Phase multilocus data and sample 3 sequences per locus for 3s analysis
@@ -86,7 +115,7 @@
 
 ---
 
-## Tutorials
+## Tutorials  [⤴️](#top)
 
 -  Bayesian linear regression (2018) - [slides](https://drive.google.com/file/d/1UnN1ZU3x6KsCyKU4Ck_AsWozVu_CR10S/view?usp=sharing)
 -  Dirichlet process mixture (DPM) model (2018) - [slides](https://drive.google.com/file/d/1NPN_WF7YWXZFLkUjvIhJH10roRAm81uE/view?usp=sharing)
@@ -94,7 +123,7 @@
 
 ---
 
-## Current projects
+## Current projects  [⤴️](#top)
 
 - Phylogeny and evolution of _Anopheles_ mosquitoes (Diptera: Culicidae: Anophelinae) in North America: [specimens](https://ythaworn.github.io/public/anopheles/specimens.html)
 - Methods for inferring gene flow from genomic data
