@@ -103,6 +103,14 @@ Research areas: phylogenetics, evolutionary genomics, mosquito evolution, malari
 
 ---
 
+## Tutorials  [⤴️](#top)
+
+-  Bayesian linear regression (2018) - [slides](https://drive.google.com/file/d/1UnN1ZU3x6KsCyKU4Ck_AsWozVu_CR10S/view?usp=sharing)
+-  Dirichlet process mixture (DPM) model (2018) - [slides](https://drive.google.com/file/d/1NPN_WF7YWXZFLkUjvIhJH10roRAm81uE/view?usp=sharing)
+-  [TensorFlow tutorial (2016)](https://www.homepages.ucl.ac.uk/~zcbtfu5/)
+
+---
+
 ## On Github  [⤴️](#top)
 
 * [`iimmsci2s`](https://github.com/ythaworn/iimmsci2s): Calculate asymptotic maximum likelihood estimates, also known as pseudo-true parameter values, of parameters under the multispecies coalescent model with pulse introgression or continuous migration
@@ -114,18 +122,10 @@ Research areas: phylogenetics, evolutionary genomics, mosquito evolution, malari
 
 ---
 
-## Tutorials  [⤴️](#top)
-
--  Bayesian linear regression (2018) - [slides](https://drive.google.com/file/d/1UnN1ZU3x6KsCyKU4Ck_AsWozVu_CR10S/view?usp=sharing)
--  Dirichlet process mixture (DPM) model (2018) - [slides](https://drive.google.com/file/d/1NPN_WF7YWXZFLkUjvIhJH10roRAm81uE/view?usp=sharing)
--  [TensorFlow tutorial (2016)](https://www.homepages.ucl.ac.uk/~zcbtfu5/)
-
----
-
 ## Current projects  [⤴️](#top)
 
 - Phylogeny and evolution of _Anopheles_ mosquitoes (Diptera: Culicidae: Anophelinae) in North America from whole-genome sequence data: [specimens](https://ythaworn.github.io/public/anopheles/specimens.html)
-- Phylogeny of mosquitoes (Diptera: Culicidae)
+- Species-level phylogeny of mosquitoes (Diptera: Culicidae)
 - Methods for inferring gene flow from genomic data
 - Bioinformatics pipeline for generating multilocus data from short-read sequencing data
 - Introgression histories in _Heliconius_ butterflies (Lepidoptera: Nymphalidae: Heliconiinae: Heliconiini)
