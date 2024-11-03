@@ -8,7 +8,7 @@
 
 [UCL profile page](https://profiles.ucl.ac.uk/45794-yuttapong-thawornwattana)
 
-📬 gmail.com or ucl.ac.uk: yuttapong.thawornwattana
+📬 gmail.com, ucl.ac.uk: yuttapong.thawornwattana
 
 
 ## Hi there 👋
@@ -38,29 +38,25 @@
 - 🛠 2012-2013\.&emsp;MSc Computational Statistics and Machine Learning, [UCL Computer Science](https://www.ucl.ac.uk/computer-science/), UK
 - 🐛 2009-2012\.&emsp;BSc Biological Sciences, [UCL GEE](https://www.ucl.ac.uk/biosciences/gee), UK
 
-
 ---
 
 ## Bio  [⤴️](#top)
 
 I am a postdoc in Ziheng Yang's group at UCL working on statistical methods for studying introgression from genomic data.  
 
-I obtained my BSc in Biological Sciences from UCL focusing on phylogenetics and molecular evolution, and MSC in Computational Statistics and Machine Learning, also from UCL, focusing on Bayesian statistics and Monte Carlo methods.  I then went on to do my PhD with James Mallet at Harvard University, studying introgression in _Heliconius_ butterflies and _Anopheles_ mosquitoes.  I also studied infectious disease epidemiology at the Harvard T.H. Chan School of Public Health.
+I was born and raised in Thailand.  I participated in the national Biology Olympiad programme and was subsequently awarded a government scholarship (DPST) to study biology in the UK during 2007-2017, where I earned multiple degrees from UCL; see [training](#training--research-experience--️).  I spent the next few years working at several research institutions in Thailand, including [CENMIG](https://microbiology.sc.mahidol.ac.th/cenmig/), Mahidol University, where I focused on pathogen genomics, particularly _Mycobacterium tuberculosis_.  I then went on to do my PhD with James Mallet at Harvard University where I used genomic data to better understand species divergence and introgression in _Heliconius_ butterflies and _Anopheles_ mosquitoes.  There, I also studied infectious disease biology and epidemiology at the Harvard T.H. Chan School of Public Health focusing on malaria.
 
 ---
 
 ## Research  [⤴️](#top)
 
-How do insects become vectors of human diseases?  Why are some species better vectors than others?  How are they adapting to changing environments and what does it mean for transmission of vector-borne diseases?  
+How do insects become vectors of human diseases?  Why are some species better vectors than others?  How are they adapting to changing environments and what does it mean for transmission of vector-borne diseases?  To answer these questions, I use malaria mosquitoes in the genus _Anopheles_ as model systems.  They are powerful for studying not only fundamental questions in evolutionary biology about species divergence and speciation but also practical questions in infectious disease biology and epidemiology ranging from vector surveillance to disease eradication and global health.
 
-To answer these questions, I use malaria mosquitoes in the genus _Anopheles_ as model systems.  They are useful for studying not only fundamental questions in evolutionary biology about species divergence and speciation but also practical questions in infectious disease biology and epidemiology ranging from vector surveillance to global health and disease eradication.
-
-More broadly, I study how populations and species evolve, and how traits of medical and epidemiological interests arise and change over time using genomic data and statistical approaches.  
+More broadly, I study how populations and species evolve, and how traits of medical and epidemiological interests arise and change over time using genomic data and statistical approaches in phylogenetics and population genetics, particularly multispecies coalescent methods.
 
 Research areas: phylogenetics, evolutionary genomics, mosquito evolution, malaria, computational statistics
 
 ---
-
 
 ## Publications  [⤴️](#top)
 
