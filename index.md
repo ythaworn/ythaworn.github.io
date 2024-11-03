@@ -13,26 +13,26 @@
 
 ## Hi there 👋
 
-- 🦟 [Currently working on](#current-projects--%EF%B8%8F) the phylogeny and evolution of _Anopheles_ mosquitoes
-- 🐝 Currently learning: genome assembly, infectious disease epidemiology, malaria
+- 🦟 [Currently working on](#current-projects--️) the phylogeny and evolution of _Anopheles_ mosquitoes
+- 🐝 Currently learning: genome assembly, vector-borne disease biology and epidemiology
 - 🐛 Looking to collaborate on mosquito genomics, phylogeny and evolution, inference of gene flow from genomic data
 
 ---
 
 ## Main content
 
-- 🌱 [Training & Research Experience](#training--research-experience--%EF%B8%8F), 🪸 [Bio](#bio--%EF%B8%8F)
-- 🪲 [Research](#research--%EF%B8%8F),  🐌 [Current projects](#current-projects--%EF%B8%8F)
-- 🐳 [Publications](#publications--%EF%B8%8F), [Google Scholar](https://scholar.google.com/citations?user=DjlTi4gAAAAJ), 
+- 🌱 [Training & Research Experience](#training--research-experience--️), 🪸 [Bio](#bio--️)
+- 🪲 [Research](#research--️),  🐌 [Current projects](#current-projects--️)
+- 🐳 [Publications](#publications--️), [Google Scholar](https://scholar.google.com/citations?user=DjlTi4gAAAAJ), 
 [NCBI Bibliography](https://www.ncbi.nlm.nih.gov/myncbi/yuttapong.thawornwattana.3/bibliography/public/), [ORCID](https://orcid.org/0000-0003-2745-163X), [Web of Science](https://www.webofscience.com/wos/author/record/1865943)
-- 💬 [Talks](#talks--%EF%B8%8F), 🐛 [Tutorials](#tutorials--%EF%B8%8F), 🐙 [On Github](#on-github--%EF%B8%8F)
+- 💬 [Talks](#talks--️), 🐛 [Tutorials](#tutorials--️), 🐙 [On Github](#on-github--️)
 
 ---
 
 ## Training & Research Experience  [⤴️](#top)
 
-- 🔩 2024-2026\.&emsp; Research Fellow, [UCL Department of Genetics, Evolution and Environment (GEE)](https://www.ucl.ac.uk/biosciences/gee), UK (with [Ziheng Yang](http://abacus.gene.ucl.ac.uk/))
-- 🦋 2020-2024\.&emsp; PhD [Organismic and Evolutionary Biology (OEB)](https://oeb.harvard.edu/), Harvard University, USA (with [James Mallet](https://mallet.oeb.harvard.edu/) and [Ziheng Yang](http://abacus.gene.ucl.ac.uk/)), with the Interdisciplinary Concentration in Infectious Disease Epidemiology ([ID Epi](https://www.hsph.harvard.edu/idepi/about/))
+- 🔩 2024-2026\.&emsp;Research Fellow, [UCL Department of Genetics, Evolution and Environment (GEE)](https://www.ucl.ac.uk/biosciences/gee), UK (with [Ziheng Yang](http://abacus.gene.ucl.ac.uk/))
+- 🦋 2020-2024\.&emsp;PhD [Organismic and Evolutionary Biology (OEB)](https://oeb.harvard.edu/), Harvard University, USA (with [James Mallet](https://mallet.oeb.harvard.edu/) and [Ziheng Yang](http://abacus.gene.ucl.ac.uk/)), with the Interdisciplinary Concentration in Infectious Disease Epidemiology ([ID Epi](https://www.hsph.harvard.edu/idepi/about/))
 - 🦠 2018-2020\.&emsp;Research assistant, [Center for Microbial Genomics (CENMIG)](https://microbiology.sc.mahidol.ac.th/cenmig/), Department of Microbiology, Faculty of Science, Mahidol University, Thailand
 - 🧬 2014-2018\.&emsp;MPhil Genetics, Evolution and Environment, [UCL GEE](https://www.ucl.ac.uk/biosciences/gee), UK (with [Ziheng Yang](http://abacus.gene.ucl.ac.uk/))
 - 🛠 2012-2013\.&emsp;MSc Computational Statistics and Machine Learning, [UCL Computer Science](https://www.ucl.ac.uk/computer-science/), UK
