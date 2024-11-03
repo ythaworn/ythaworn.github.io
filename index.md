@@ -33,10 +33,10 @@
 
 - 🔩 2024-2026\.&emsp;Research Fellow, [UCL Department of Genetics, Evolution and Environment (GEE)](https://www.ucl.ac.uk/biosciences/gee), UK (with [Ziheng Yang](http://abacus.gene.ucl.ac.uk/))
 - 🦋 2020-2024\.&emsp;PhD [Organismic and Evolutionary Biology (OEB)](https://oeb.harvard.edu/), Harvard University, USA (with [James Mallet](https://mallet.oeb.harvard.edu/) and [Ziheng Yang](http://abacus.gene.ucl.ac.uk/)), with the Interdisciplinary Concentration in Infectious Disease Epidemiology ([ID Epi](https://www.hsph.harvard.edu/idepi/about/))
-- 🦠 2018-2020\.&emsp;Research assistant, [Center for Microbial Genomics (CENMIG)](https://microbiology.sc.mahidol.ac.th/cenmig/), Department of Microbiology, Faculty of Science, Mahidol University, Thailand
+- 🦠 2018-2020\.&emsp;Research assistant, [Center for Microbial Genomics (CENMIG)](https://microbiology.sc.mahidol.ac.th/cenmig/), Department of Microbiology, Faculty of Science, Mahidol University, Thailand (mainly with [Prasit Palittapongarnpim](https://microbiology.sc.mahidol.ac.th/departmental-members/prasit-palittapongarnpim/) and [Pakorn Aiewsakun](https://microbiology.sc.mahidol.ac.th/departmental-members/pakorn-aiewsakun/))
 - 🧬 2014-2018\.&emsp;MPhil Genetics, Evolution and Environment, [UCL GEE](https://www.ucl.ac.uk/biosciences/gee), UK (with [Ziheng Yang](http://abacus.gene.ucl.ac.uk/))
 - 🛠 2012-2013\.&emsp;MSc Computational Statistics and Machine Learning, [UCL Computer Science](https://www.ucl.ac.uk/computer-science/), UK
-- 🐛 2009-2012\.&emsp;BSc Biological Sciences, [UCL GEE](https://www.ucl.ac.uk/biosciences/gee), UK
+- 🐛 2009-2012\.&emsp;BSc Biological Sciences, [UCL GEE](https://www.ucl.ac.uk/biosciences/gee) (mainly with Ziheng Yang](http://abacus.gene.ucl.ac.uk/) and [Mario dos Reis](https://www.qmul.ac.uk/sbbs/staff/mariodosreisbarros.html))
 
 ---
 
@@ -44,7 +44,7 @@
 
 I am a postdoc in Ziheng Yang's group at UCL working on statistical methods for studying introgression from genomic data.  
 
-I was born and raised in Thailand.  I participated in the national Biology Olympiad programme and was subsequently awarded a government scholarship (DPST) to study biology in the UK during 2007-2017, where I earned multiple degrees from UCL; see [training](#training--research-experience--️).  I spent the next few years working at several research institutions in Thailand, including [CENMIG](https://microbiology.sc.mahidol.ac.th/cenmig/), Mahidol University, where I focused on pathogen genomics, particularly _Mycobacterium tuberculosis_.  I then went on to do my PhD with James Mallet at Harvard University where I used genomic data to better understand species divergence and introgression in _Heliconius_ butterflies and _Anopheles_ mosquitoes.  There, I also studied infectious disease biology and epidemiology at the Harvard T.H. Chan School of Public Health focusing on malaria.
+I was born and raised in Thailand.  I participated in the national Biology Olympiad programme and was subsequently awarded a government scholarship (DPST) to study biology in the UK during 2007-2017, where I earned multiple degrees from UCL; see [training](#training--research-experience--️).  I spent the next few years working at several research institutions in Thailand, including [CENMIG](https://microbiology.sc.mahidol.ac.th/cenmig/), Mahidol University, where I focused on pathogen genomics, particularly _Mycobacterium tuberculosis_.  I then went on to do my PhD at Harvard University where I used genomic data to better understand species divergence and introgression in _Heliconius_ butterflies and _Anopheles_ mosquitoes.  There, I also studied infectious disease biology and epidemiology at the Harvard T.H. Chan School of Public Health focusing on malaria.
 
 ---
 
@@ -54,7 +54,7 @@ How do insects become vectors of human diseases?  Why are some species better ve
 
 More broadly, I study how populations and species evolve, and how traits of medical and epidemiological interests arise and change over time using genomic data and statistical approaches in phylogenetics and population genetics, particularly multispecies coalescent methods.
 
-Research areas: phylogenetics, evolutionary genomics, mosquito evolution, malaria, computational statistics
+Research areas: phylogenetics, evolutionary genomics, mosquito diversity and evolution, malaria, computational statistics
 
 ---
 
