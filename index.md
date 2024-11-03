@@ -10,27 +10,26 @@
 
 📬 gmail.com or ucl.ac.uk: yuttapong.thawornwattana
 
-<br />
 
 ## Hi there 👋
 
-- 🦟 [Currently working on](#current-projects) the phylogeny and evolution of _Anopheles_ mosquitoes
-- 🐝 Currently learning: genome assembly, infectious disease epidemiology ([ID Epi](https://www.hsph.harvard.edu/idepi/about/))
-- 🐛 Looking to collaborate on mosquito phylogeny and evolution, inference of gene flow
+- 🦟 [Currently working on](#current-projects--) the phylogeny and evolution of _Anopheles_ mosquitoes
+- 🐝 Currently learning: genome assembly, infectious disease epidemiology, malaria
+- 🐛 Looking to collaborate on mosquito genomics, phylogeny and evolution, inference of gene flow from genomic data
 
 ---
 
 ## Main content
 
-- 🌱 [Training & Research Experience](#training-&-research-experience), 🪸 [Bio](#research)
-- 🪲 [Research](#research),  🐌 [Current projects](#current-projects)
-- 🐳 [Publications](#publications), [Google Scholar](https://scholar.google.com/citations?user=DjlTi4gAAAAJ), 
+- 🌱 [Training & Research Experience](#training--research-experience--), 🪸 [Bio](#bio--)
+- 🪲 [Research](#research--),  🐌 [Current projects](#current-projects--)
+- 🐳 [Publications](#publications--), [Google Scholar](https://scholar.google.com/citations?user=DjlTi4gAAAAJ), 
 [NCBI Bibliography](https://www.ncbi.nlm.nih.gov/myncbi/yuttapong.thawornwattana.3/bibliography/public/), [ORCID](https://orcid.org/0000-0003-2745-163X), [Web of Science](https://www.webofscience.com/wos/author/record/1865943)
-- 💬 [Talks](#talks), 🐛 [Tutorials](#tutorials), 🐙 [On Github](#on-github)
+- 💬 [Talks](#talks--), 🐛 [Tutorials](#tutorials--), 🐙 [On Github](#on-github--)
 
 ---
 
-## Training & Research Experience  [⤴️](#top)
+## Training & Research Experience  z
 
 - 🔩 2024-2026\.&emsp; Research Fellow, [UCL Department of Genetics, Evolution and Environment (GEE)](https://www.ucl.ac.uk/biosciences/gee), UK (with [Ziheng Yang](http://abacus.gene.ucl.ac.uk/))
 - 🦋 2020-2024\.&emsp; PhD [Organismic and Evolutionary Biology (OEB)](https://oeb.harvard.edu/), Harvard University, USA (with [James Mallet](https://mallet.oeb.harvard.edu/) and [Ziheng Yang](http://abacus.gene.ucl.ac.uk/)), with the Interdisciplinary Concentration in Infectious Disease Epidemiology ([ID Epi](https://www.hsph.harvard.edu/idepi/about/))
