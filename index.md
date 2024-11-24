@@ -1,14 +1,13 @@
-<a href="url"><img src="public/yuttapong.png" align="left" height="150"></a>
-
 <a id="top"></a>
+<a href="url"><img src="public/yuttapong.png" align="left" height="150"></a>
 
 #### Research Fellow, [Yang Lab](http://abacus.gene.ucl.ac.uk/)
 
 #### [Department of Genetics, Evolution and Environment (GEE)](https://www.ucl.ac.uk/biosciences/gee), University College London, UK
 
-[UCL profile page](https://profiles.ucl.ac.uk/45794-yuttapong-thawornwattana)
+[UCL profile](https://profiles.ucl.ac.uk/45794-yuttapong-thawornwattana)
 
-📬 gmail.com, ucl.ac.uk: yuttapong.thawornwattana
+📬 gmail.com (preferred), ucl.ac.uk: yuttapong.thawornwattana
 
 
 ## Hi there 👋
@@ -36,7 +35,7 @@
 - 🦠 2018-2020\.&emsp;Research assistant, [Center for Microbial Genomics (CENMIG)](https://microbiology.sc.mahidol.ac.th/cenmig/), Department of Microbiology, Faculty of Science, Mahidol University, Thailand (mainly with [Prasit Palittapongarnpim](https://microbiology.sc.mahidol.ac.th/departmental-members/prasit-palittapongarnpim/) and [Pakorn Aiewsakun](https://microbiology.sc.mahidol.ac.th/departmental-members/pakorn-aiewsakun/))
 - 🧬 2014-2018\.&emsp;MPhil Genetics, Evolution and Environment, [UCL GEE](https://www.ucl.ac.uk/biosciences/gee), UK (with [Ziheng Yang](http://abacus.gene.ucl.ac.uk/))
 - 🛠 2012-2013\.&emsp;MSc Computational Statistics and Machine Learning, [UCL Computer Science](https://www.ucl.ac.uk/computer-science/), UK
-- 🐛 2009-2012\.&emsp;BSc Biological Sciences, [UCL GEE](https://www.ucl.ac.uk/biosciences/gee) (with [Ziheng Yang](http://abacus.gene.ucl.ac.uk/) and [Mario dos Reis](https://www.qmul.ac.uk/sbbs/staff/mariodosreisbarros.html))
+- 🐛 2009-2012\.&emsp;BSc Biological Sciences, [UCL GEE], UK(https://www.ucl.ac.uk/biosciences/gee) (with [Ziheng Yang](http://abacus.gene.ucl.ac.uk/) and [Mario dos Reis](https://www.qmul.ac.uk/sbbs/staff/mariodosreisbarros.html))
 
 ---
 
@@ -54,7 +53,7 @@ How do insects become vectors of human diseases?  Why are some species better ve
 
 More broadly, I study how populations and species evolve, and how traits of medical and epidemiological interests arise and change over time using genomic data and statistical approaches in phylogenetics and population genetics, particularly multispecies coalescent methods.
 
-Research areas: phylogenetics, evolutionary genomics, mosquito diversity and evolution, malaria, computational statistics
+Research areas: phylogenetics, evolutionary genomics, mosquito diversity and evolution, malaria and global health, computational statistics
 
 ---
 
@@ -122,9 +121,9 @@ Research areas: phylogenetics, evolutionary genomics, mosquito diversity and evo
 
 - Phylogeny and evolution of _Anopheles_ mosquitoes (Diptera: Culicidae: Anophelinae) in North America from whole-genome sequence data: [specimens](https://ythaworn.github.io/public/anopheles/specimens.html)
 - Species-level phylogeny of mosquitoes (Diptera: Culicidae)
-- Methods for inferring gene flow from genomic data
-- Bioinformatics pipeline for generating multilocus data from short-read sequencing data
+- Methods for inferring gene flow from genomic sequence data: theory, statistical inference and applications
+- Computational pipeline for generating multilocus data from short-read sequencing data
 - Introgression histories in _Heliconius_ butterflies (Lepidoptera: Nymphalidae: Heliconiinae: Heliconiini)
-- Taxonomic catalogue of Heliconiinae (Lepidoptera: Nymphalidae)
+- [Taxonomic catalogue of Heliconiinae (Lepidoptera: Nymphalidae)](https://ythaworn.github.io/public/heliconiinae-taxo-catalogue.html)
 
 ---
