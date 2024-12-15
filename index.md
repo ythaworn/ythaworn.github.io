@@ -120,7 +120,7 @@ Research areas: phylogenetics, evolutionary genomics, mosquito diversity and evo
 
 ## Current projects  [⤴️](#top)
 
-- Phylogeny and evolution of _Anopheles_ mosquitoes (Diptera: Culicidae: Anophelinae) in North America: [specimens](https://ythaworn.github.io/anopheles/specimens.html), [Crucians complex](https://ythaworn.github.io/anopheles/crucians.html)
+- Phylogeny and evolution of _Anopheles_ mosquitoes (Diptera: Culicidae: Anophelinae) in North America: [specimens](https://ythaworn.github.io/anopheles/specimens.html), [COI](https://ythaworn.github.io/anopheles/coi.html), [Crucians COI](https://ythaworn.github.io/anopheles/crucians.html)
 - Species-level phylogeny of mosquitoes (Diptera: Culicidae)
 - Methods for inferring gene flow from genomic sequence data: theory, statistical inference and applications
 - Computational pipeline for generating multilocus data from short-read sequencing data
