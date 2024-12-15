@@ -1,7 +1,7 @@
 <a id="top"></a>
 <a href="url"><img src="public/yuttapong.png" align="left" height="150"></a>
 
-#### Research Fellow, [Yang Lab](http://abacus.gene.ucl.ac.uk/)
+#### Research Fellow, [Ziheng Yang's group](http://abacus.gene.ucl.ac.uk/)
 
 #### [Department of Genetics, Evolution and Environment (GEE)](https://www.ucl.ac.uk/biosciences/gee), University College London, UK
 
@@ -82,6 +82,7 @@ Research areas: phylogenetics, evolutionary genomics, mosquito diversity and evo
 
 ## Talks  [⤴️](#top)
 
+- 2024/12\.&emsp;"Species complexes and the making of malaria mosquitoes" at [UCL Centre for Life's Origins and Evolution (CLOE)](https://www.ucl.ac.uk/biosciences/gee/ucl-centre-lifes-origins-and-evolution)
 - 2024/10\.&emsp;"Evolutionary genomics of mosquitoes" at the 5th International Course on Ecological Determinants of Vector-Borne Disease Dynamics, Reserva Ecológica de Guapiaçu (REGUA), Rio de Janeiro, Brazil [[slides](https://drive.google.com/file/d/1nS7_fIeUfWSZS0xZfCiiVauPGIZQSSOp/view?usp=sharing)]
 - 2024/09\.&emsp;"Evolutionary genomics of _Anopheles_ mosquitoes" at the Department of Parasitology, Faculty of Medicine, Chiang Mai University [[slides](https://drive.google.com/file/d/1nW3JVpFKoyN3qrBMmoDjKxXSmU0Yp9sl/view?usp=sharing)]
 - 2024/09\.&emsp;"Evolutionary genomics of malaria mosquitoes" at Faculty of Tropical Medicine, Mahidol University [[slides](https://drive.google.com/file/d/1OR0HFvePZSFAO8hJLg_b1JBLvMtcWUwc/view?usp=sharing)]
@@ -119,13 +120,13 @@ Research areas: phylogenetics, evolutionary genomics, mosquito diversity and evo
 
 ## Current projects  [⤴️](#top)
 
-- Phylogeny and evolution of _Anopheles_ mosquitoes (Diptera: Culicidae: Anophelinae) in North America from whole-genome sequence data: [specimens](https://ythaworn.github.io/public/anopheles/specimens.html)
+- Phylogeny and evolution of _Anopheles_ mosquitoes (Diptera: Culicidae: Anophelinae) in North America: [specimens](https://ythaworn.github.io/public/anopheles/specimens.html), [Crucians complex](https://ythaworn.github.io/public/anopheles/crucians.html)
 - Species-level phylogeny of mosquitoes (Diptera: Culicidae)
 - Methods for inferring gene flow from genomic sequence data: theory, statistical inference and applications
 - Computational pipeline for generating multilocus data from short-read sequencing data
 - Introgression histories in _Heliconius_ butterflies (Lepidoptera: Nymphalidae: Heliconiinae: Heliconiini)
-- [Taxonomic catalogue of Heliconiinae (Lepidoptera: Nymphalidae)](https://ythaworn.github.io/public/heliconiinae-taxo-catalogue.html)
+- [Taxonomic catalogue of Heliconiinae (Lepidoptera: Nymphalidae)](https://ythaworn.github.io/heliconiinae.html)
 
 ---
 
-Last updated: 24 Nov 2024
+Last updated: 15 Dec 2024
