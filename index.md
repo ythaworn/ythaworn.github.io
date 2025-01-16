@@ -1,9 +1,11 @@
 <a id="top"></a>
 <a href="url"><img src="public/yuttapong.png" align="left" height="150"></a>
 
+### Mosquito diversity and evolution in a changing world
+
 #### Research Fellow, [Ziheng Yang's group](http://abacus.gene.ucl.ac.uk/)
 
-#### [Department of Genetics, Evolution and Environment (GEE)](https://www.ucl.ac.uk/biosciences/gee), University College London, UK
+#### [Department of Genetics, Evolution and Environment (GEE)](https://www.ucl.ac.uk/biosciences/gee), University College London (UCL), UK
 
 [UCL profile](https://profiles.ucl.ac.uk/45794-yuttapong-thawornwattana)
 
@@ -30,7 +32,7 @@
 
 ## Training & Research Experience  [⤴️](#top)
 
-- 🔩 2024-\.&emsp;Research Fellow, [UCL Department of Genetics, Evolution and Environment (GEE)](https://www.ucl.ac.uk/biosciences/gee), UK (with [Ziheng Yang](http://abacus.gene.ucl.ac.uk/))
+- 🔩 2024-present\.&emsp;Research Fellow, [UCL Department of Genetics, Evolution and Environment (GEE)](https://www.ucl.ac.uk/biosciences/gee), UK (with [Ziheng Yang](http://abacus.gene.ucl.ac.uk/))
 - 🦋 2020-2024\.&emsp;PhD [Organismic and Evolutionary Biology (OEB)](https://oeb.harvard.edu/), Harvard University, USA (with [James Mallet](https://mallet.oeb.harvard.edu/) and [Ziheng Yang](http://abacus.gene.ucl.ac.uk/)), with the Interdisciplinary Concentration in Infectious Disease Epidemiology ([ID Epi](https://www.hsph.harvard.edu/idepi/about/))
 - 🦠 2018-2020\.&emsp;Research assistant, [Center for Microbial Genomics (CENMIG)](https://microbiology.sc.mahidol.ac.th/cenmig/), Department of Microbiology, Faculty of Science, Mahidol University, Thailand (mainly with [Prasit Palittapongarnpim](https://microbiology.sc.mahidol.ac.th/departmental-members/prasit-palittapongarnpim/) and [Pakorn Aiewsakun](https://microbiology.sc.mahidol.ac.th/departmental-members/pakorn-aiewsakun/))
 - 🧬 2014-2018\.&emsp;MPhil Genetics, Evolution and Environment, [UCL GEE](https://www.ucl.ac.uk/biosciences/gee), UK (with [Ziheng Yang](http://abacus.gene.ucl.ac.uk/))
@@ -41,9 +43,9 @@
 
 ## Bio  [⤴️](#top)
 
-I am a postdoc in Ziheng Yang's group at UCL working on statistical methods for studying introgression from genomic data.  
+I am a postdoc in [Ziheng Yang's group](http://abacus.gene.ucl.ac.uk/) at UCL working on statistical methods for studying introgression from genomic data.  
 
-I was born and raised in Thailand.  I participated in the national Biology Olympiad programme and was subsequently awarded a government scholarship (DPST) to study biology in the UK during 2007-2017, where I earned multiple degrees from UCL; see [training](#training--research-experience--️).  I spent the next few years working at several research institutions in Thailand, including [CENMIG](https://microbiology.sc.mahidol.ac.th/cenmig/), Mahidol University, where I focused on pathogen genomics, particularly _Mycobacterium tuberculosis_.  I then went on to do my PhD with [James Mallet](https://mallet.oeb.harvard.edu/) at Harvard University where I used genomic data to better understand species divergence and introgression in _Heliconius_ butterflies and _Anopheles_ mosquitoes.  There, I also studied infectious disease biology and epidemiology at the Harvard T.H. Chan School of Public Health focusing on malaria.
+I was born and raised in Thailand.  I participated in the national Biology Olympiad programme and was subsequently awarded a government scholarship (DPST) to study biology in the UK during 2007–2017, where I earned multiple degrees from UCL; see [training](#training--research-experience--️).  I spent the next few years working at several research institutions in Thailand, including [CENMIG](https://microbiology.sc.mahidol.ac.th/cenmig/), Mahidol University, where I focused on pathogen genomics, particularly _Mycobacterium tuberculosis_.  I then went on to do my PhD with [James Mallet](https://mallet.oeb.harvard.edu/) at Harvard University where I used genomic data to better understand species divergence and introgression in _Heliconius_ butterflies and _Anopheles_ mosquitoes.  There, I also studied infectious disease biology and epidemiology at the Harvard T.H. Chan School of Public Health focusing on malaria and global health.
 
 ---
 
@@ -59,7 +61,7 @@ Research areas: phylogenetics, evolutionary genomics, mosquito diversity and evo
 
 ## Publications  [⤴️](#top)
 
-[Google Scholar profile](https://scholar.google.com/citations?user=DjlTi4gAAAAJ), 
+[Google Scholar](https://scholar.google.com/citations?user=DjlTi4gAAAAJ), 
 [NCBI Bibliography](https://www.ncbi.nlm.nih.gov/myncbi/yuttapong.thawornwattana.3/bibliography/public/)
 
 - __Thawornwattana Y__, Flouri T, Mallet J, Yang Z. (2024) __Inference of continuous gene flow between species under misspecified models__. bioRxiv [[doi:10.1101/2024.05.13.593926](https://doi.org/10.1101/2024.05.13.593926)] [[C code](https://github.com/ythaworn/iimmsci2s)]
