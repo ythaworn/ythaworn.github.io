@@ -33,7 +33,7 @@
 ## Training & Research Experience  [⤴️](#top)
 
 - 🔩 2024-present\.&emsp;Research Fellow, [UCL Department of Genetics, Evolution and Environment (GEE)](https://www.ucl.ac.uk/biosciences/gee), UK (with [Ziheng Yang](http://abacus.gene.ucl.ac.uk/))
-- 🦋 2020-2024\.&emsp;PhD [Organismic and Evolutionary Biology (OEB)](https://oeb.harvard.edu/), Harvard University, USA (with [James Mallet](https://mallet.oeb.harvard.edu/) and [Ziheng Yang](http://abacus.gene.ucl.ac.uk/)), with the Interdisciplinary Concentration in Infectious Disease Epidemiology ([ID Epi](https://www.hsph.harvard.edu/idepi/about/))
+- 🦋 2020-2024\.&emsp;PhD [Organismic and Evolutionary Biology (OEB)](https://oeb.harvard.edu/), Harvard University, USA (with [James Mallet](https://mallet.oeb.harvard.edu/) and [Ziheng Yang](http://abacus.gene.ucl.ac.uk/)), with Interdisciplinary Concentration in Infectious Disease Epidemiology ([ID Epi](https://hsph.harvard.edu/degrees-and-programs/concentrations/epidemiology-infectious-diseases/)) from Harvard T.H. Chan School of Public Health
 - 🦠 2018-2020\.&emsp;Research assistant, [Center for Microbial Genomics (CENMIG)](https://microbiology.sc.mahidol.ac.th/cenmig/), Department of Microbiology, Faculty of Science, Mahidol University, Thailand (mainly with [Prasit Palittapongarnpim](https://microbiology.sc.mahidol.ac.th/departmental-members/prasit-palittapongarnpim/) and [Pakorn Aiewsakun](https://microbiology.sc.mahidol.ac.th/departmental-members/pakorn-aiewsakun/))
 - 🧬 2014-2018\.&emsp;MPhil Genetics, Evolution and Environment, [UCL GEE](https://www.ucl.ac.uk/biosciences/gee), UK (with [Ziheng Yang](http://abacus.gene.ucl.ac.uk/))
 - 🛠 2012-2013\.&emsp;MSc Computational Statistics and Machine Learning, [UCL Computer Science](https://www.ucl.ac.uk/computer-science/), UK
@@ -84,6 +84,7 @@ Research areas: phylogenetics, evolutionary genomics, mosquito diversity and evo
 
 ## Talks  [⤴️](#top)
 
+- 2025/02\.&emsp;"Species complexes of _Anopheles_ mosquitoes in North America" at Wellcome Sanger Institute
 - 2024/12\.&emsp;"Species complexes and the making of malaria mosquitoes" at [UCL Centre for Life's Origins and Evolution (CLOE)](https://www.ucl.ac.uk/biosciences/gee/ucl-centre-lifes-origins-and-evolution)
 - 2024/10\.&emsp;"Evolutionary genomics of mosquitoes" at the 5th International Course on Ecological Determinants of Vector-Borne Disease Dynamics, Reserva Ecológica de Guapiaçu (REGUA), Rio de Janeiro, Brazil [[slides](https://drive.google.com/file/d/1nS7_fIeUfWSZS0xZfCiiVauPGIZQSSOp/view?usp=sharing)]
 - 2024/09\.&emsp;"Evolutionary genomics of _Anopheles_ mosquitoes" at the Department of Parasitology, Faculty of Medicine, Chiang Mai University [[slides](https://drive.google.com/file/d/1nW3JVpFKoyN3qrBMmoDjKxXSmU0Yp9sl/view?usp=sharing)]
