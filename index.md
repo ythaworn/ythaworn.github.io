@@ -84,6 +84,7 @@ Research areas: phylogenetics, evolutionary genomics, mosquito diversity and evo
 
 ## Talks  [⤴️](#top)
 
+- 2025/03\.&emsp;"Generating multilocus datasets from genome sequencing data" at [Workshop on Computational Genomics](https://sishuowang2022.wordpress.com/2025/02/23/ad-computational-genomics-workshop-in-science-park-hong-kong-sar/) at Sun Yat-sen University Institute of Advanced Studies Hong Kong [[slides](https://drive.google.com/file/d/1p65HHKWLQIcJF4rro_ZjGyG42lf90UEx/view?usp=sharing)]
 - 2025/02\.&emsp;"Species complexes of _Anopheles_ mosquitoes in North America" at Wellcome Sanger Institute
 - 2024/12\.&emsp;"Species complexes and the making of malaria mosquitoes" at [UCL Centre for Life's Origins and Evolution (CLOE)](https://www.ucl.ac.uk/biosciences/gee/ucl-centre-lifes-origins-and-evolution)
 - 2024/10\.&emsp;"Evolutionary genomics of mosquitoes" at the 5th International Course on Ecological Determinants of Vector-Borne Disease Dynamics, Reserva Ecológica de Guapiaçu (REGUA), Rio de Janeiro, Brazil [[slides](https://drive.google.com/file/d/1nS7_fIeUfWSZS0xZfCiiVauPGIZQSSOp/view?usp=sharing)]
@@ -132,4 +133,4 @@ Research areas: phylogenetics, evolutionary genomics, mosquito diversity and evo
 
 ---
 
-Last updated: 15 Dec 2024
+Last updated: Feb 2025
