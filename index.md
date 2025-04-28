@@ -84,27 +84,30 @@ Research areas: phylogenetics, evolutionary genomics, mosquito diversity and evo
 
 ## Talks  [⤴️](#top)
 
-- 2025/03\.&emsp;"Generating multilocus datasets from genome sequencing data" at [Workshop on Computational Genomics](https://sishuowang2022.wordpress.com/2025/02/23/ad-computational-genomics-workshop-in-science-park-hong-kong-sar/) at Sun Yat-sen University Institute of Advanced Studies Hong Kong [[slides](https://drive.google.com/file/d/1p65HHKWLQIcJF4rro_ZjGyG42lf90UEx/view?usp=sharing)]
-- 2025/02\.&emsp;"Species complexes of _Anopheles_ mosquitoes in North America" at Wellcome Sanger Institute
-- 2024/12\.&emsp;"Species complexes and the making of malaria mosquitoes" at [UCL Centre for Life's Origins and Evolution (CLOE)](https://www.ucl.ac.uk/biosciences/gee/ucl-centre-lifes-origins-and-evolution)
+- 2025/07\.&emsp;"Species complexes of malaria mosquitoes in North America" at [SMBE meeting](https://smbe2025.scimeeting.cn/), Beijing, China [slides _coming soon_]
+- 2025/04\.&emsp;[Bayesian Phylogenetics Workshop](https://systass.org/workshop-bayesian-phylogenetics/) at UCL, UK [slides _coming soon_]
+- 2025/03\.&emsp;[Workshop on Computational Genomics](https://sishuowang2022.wordpress.com/2025/02/23/ad-computational-genomics-workshop-in-science-park-hong-kong-sar/) at Sun Yat-sen University Institute of Advanced Studies Hong Kong [[slides](https://drive.google.com/file/d/1p65HHKWLQIcJF4rro_ZjGyG42lf90UEx/view?usp=sharing), [tutorials](https://github.com/bpp/bpp-tutorial-geneflow/wiki)]
+- 2025/02\.&emsp;"Species complexes of _Anopheles_ mosquitoes in North America" at Wellcome Sanger Institute, UK
+- 2024/12\.&emsp;"Species complexes and the making of malaria mosquitoes" at [UCL Centre for Life's Origins and Evolution (CLOE)](https://www.ucl.ac.uk/biosciences/gee/ucl-centre-lifes-origins-and-evolution), UK
 - 2024/10\.&emsp;"Evolutionary genomics of mosquitoes" at the 5th International Course on Ecological Determinants of Vector-Borne Disease Dynamics, Reserva Ecológica de Guapiaçu (REGUA), Rio de Janeiro, Brazil [[slides](https://drive.google.com/file/d/1nS7_fIeUfWSZS0xZfCiiVauPGIZQSSOp/view?usp=sharing)]
-- 2024/09\.&emsp;"Evolutionary genomics of _Anopheles_ mosquitoes" at the Department of Parasitology, Faculty of Medicine, Chiang Mai University [[slides](https://drive.google.com/file/d/1nW3JVpFKoyN3qrBMmoDjKxXSmU0Yp9sl/view?usp=sharing)]
-- 2024/09\.&emsp;"Evolutionary genomics of malaria mosquitoes" at Faculty of Tropical Medicine, Mahidol University [[slides](https://drive.google.com/file/d/1OR0HFvePZSFAO8hJLg_b1JBLvMtcWUwc/view?usp=sharing)]
-- 2024/07\.&emsp;"Inferring species phylogeny and gene flow from genomic data", a dissertation seminar at Harvard OEB [[slides](https://drive.google.com/file/d/1Womh4FuREXZ8NE4Aco5Fjb1e1lci7niv/view?usp=sharing)]
-- 2024/04\.&emsp;"Evolution of _Anopheles_ mosquitoes in North America" in G4 Symposium at Harvard OEB
+- 2024/09\.&emsp;"Evolutionary genomics of _Anopheles_ mosquitoes" at the Department of Parasitology, Faculty of Medicine, Chiang Mai University, Thailand [[slides](https://drive.google.com/file/d/1nW3JVpFKoyN3qrBMmoDjKxXSmU0Yp9sl/view?usp=sharing)]
+- 2024/09\.&emsp;"Evolutionary genomics of malaria mosquitoes" at Faculty of Tropical Medicine, Mahidol University, Thailand [[slides](https://drive.google.com/file/d/1OR0HFvePZSFAO8hJLg_b1JBLvMtcWUwc/view?usp=sharing)]
+- 2024/07\.&emsp;"Inferring species phylogeny and gene flow from genomic data", a dissertation seminar at Harvard OEB, USA [[slides](https://drive.google.com/file/d/1Womh4FuREXZ8NE4Aco5Fjb1e1lci7niv/view?usp=sharing)]
+- 2024/04\.&emsp;"Evolution of _Anopheles_ mosquitoes in North America" in G4 Symposium at Harvard OEB, USA
 - 2023/09\.&emsp;"Inferring the direction of gene flow from genomic data" at [Boston Evolutionary Genomics Supergroup](https://evogen.hms.harvard.edu) [Annual Retreat 2023](https://evogen.hms.harvard.edu/annual-retreat-2023), the Broad Institute (chalk talk)
-- 2023/06\.&emsp;"Inferring phylogenies using full-likelihood multispecies coalescent with introgression" at [Evolution conference](https://www.evolutionmeetings.org/) (Albuquerque, New Mexico, USA) [[slides](https://drive.google.com/file/d/1oMPWP17bdJN8xcvGi3JSY2WQkWnxycIY/view?usp=sharing), [with builds](https://drive.google.com/file/d/1myaH0pXqBabqxToTtiuwvga1ixW749v4/view?usp=sharing)] [[recording](https://youtu.be/sz9du0CxDkk?si=4qz_lTDIHoGOUDs7&t=2642)]
+- 2023/06\.&emsp;"Inferring phylogenies using full-likelihood multispecies coalescent with introgression" at [Evolution conference](https://www.evolutionmeetings.org/), Albuquerque, New Mexico, USA [[slides](https://drive.google.com/file/d/1oMPWP17bdJN8xcvGi3JSY2WQkWnxycIY/view?usp=sharing), [with builds](https://drive.google.com/file/d/1myaH0pXqBabqxToTtiuwvga1ixW749v4/view?usp=sharing)] [[recording](https://youtu.be/sz9du0CxDkk?si=4qz_lTDIHoGOUDs7&t=2642)]
 - 2021/06\.&emsp;"Full-likelihood analysis of divergence and introgression in the erato-sara group of _Heliconius_" at [Heliconius Seminar](https://www.heliconius.org/lockdown-seminars/) (now Lepinars) [[slides](https://drive.google.com/file/d/1SPH6DcDR3AUyQyanLVUbmAEtI4_JaSKz/view?usp=drive_link)]
-- 2020/12\.&emsp;"Whole-genome sequencing for strain typing in practice" at [CENMIG](https://microbiology.sc.mahidol.ac.th/cenmig/) Workshop, Mahidol University [[slides](https://drive.google.com/file/d/1Dgsjs_Q-ZdI_BPvCtiK8zYOQ2d63RDh6/view?usp=sharing)]
-- 2020/11\.&emsp;"Population genomics of _Mycobacterium tuberculosis_" at the Department of Microbiology, Faculty of Science, Mahidol University [[slides](https://drive.google.com/file/d/1pCzQJurTjpLYdC0wLQgps2K_gRyT1ivw/view?usp=sharing)]
+- 2020/12\.&emsp;"Whole-genome sequencing for strain typing in practice" at [CENMIG](https://microbiology.sc.mahidol.ac.th/cenmig/) Workshop, Mahidol University, Thailand [[slides](https://drive.google.com/file/d/1Dgsjs_Q-ZdI_BPvCtiK8zYOQ2d63RDh6/view?usp=sharing)]
+- 2020/11\.&emsp;"Population genomics of _Mycobacterium tuberculosis_" at the Department of Microbiology, Faculty of Science, Mahidol University, Thailand [[slides](https://drive.google.com/file/d/1pCzQJurTjpLYdC0wLQgps2K_gRyT1ivw/view?usp=sharing)]
 - 2020/07\.&emsp;"Population genomics of _Mycobacterium tuberculosis_" at [MAEMOD](https://www.tropmedres.ac/units/moru-bangkok/mathematical-and-economic-modelling) journal club [[slides](https://drive.google.com/file/d/14l6LsTVUvFhiMeessBPRvgmNXmN9JgeG/view?usp=sharing)]
-- 2018/11\.&emsp;"Next generation phylogenetics: Building trees from whole genome data" at the Division of Medical Bioinformatics, Faculty of Medicine Siriraj Hospital, Mahidol University [[slides](https://drive.google.com/file/d/1M4aeZWZG1VW_6utC8oRFsXJLYOPYUXOX/view?usp=sharing)]
-- 2018/08\.&emsp;"Resolving the species relationships in the _Anopheles gambiae_ species complex from whole genome data" at the Department of Microbiology, Faculty of Science, Mahidol University [[slides](https://drive.google.com/file/d/111TM768NdjTm1uYrwh6IQmlLD4MDeeW4/view?usp=sharing)]
+- 2018/11\.&emsp;"Next generation phylogenetics: Building trees from whole genome data" at the Division of Medical Bioinformatics, Faculty of Medicine Siriraj Hospital, Mahidol University, Thailand [[slides](https://drive.google.com/file/d/1M4aeZWZG1VW_6utC8oRFsXJLYOPYUXOX/view?usp=sharing)]
+- 2018/08\.&emsp;"Resolving the species relationships in the _Anopheles gambiae_ species complex from whole genome data" at the Department of Microbiology, Faculty of Science, Mahidol University, Thailand [[slides](https://drive.google.com/file/d/111TM768NdjTm1uYrwh6IQmlLD4MDeeW4/view?usp=sharing)]
 
 ---
 
 ## Tutorials  [⤴️](#top)
 
+-  Generating multilocus datasets from genome sequencing data - [slides](https://drive.google.com/file/d/1p65HHKWLQIcJF4rro_ZjGyG42lf90UEx/view?usp=sharing), [code](https://github.com/ythaworn/multilocus)
 -  Bayesian linear regression (2018) - [slides](https://drive.google.com/file/d/1UnN1ZU3x6KsCyKU4Ck_AsWozVu_CR10S/view?usp=sharing)
 -  Dirichlet process mixture (DPM) model (2018) - [slides](https://drive.google.com/file/d/1NPN_WF7YWXZFLkUjvIhJH10roRAm81uE/view?usp=sharing)
 -  [TensorFlow tutorial (2016)](https://www.homepages.ucl.ac.uk/~zcbtfu5/)
