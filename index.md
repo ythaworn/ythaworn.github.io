@@ -85,7 +85,7 @@ Research areas: phylogenetics, evolutionary genomics, mosquito diversity and evo
 ## Talks  [⤴️](#top)
 
 - 2025/07\.&emsp;"Species complexes of malaria mosquitoes in North America" at [SMBE meeting](https://smbe2025.scimeeting.cn/), Beijing, China [slides _coming soon_]
-- 2025/04\.&emsp;[Bayesian Phylogenetics Workshop](https://systass.org/workshop-bayesian-phylogenetics/) at UCL, UK [slides _coming soon_]
+- 2025/04\.&emsp;[Bayesian Phylogenetics Workshop](https://systass.org/workshop-bayesian-phylogenetics/) at UCL, UK [[slides](https://drive.google.com/file/d/1pUI0i5gSangvzbdZMdIVB_VFahJC8k1Q/view?usp=sharing)]
 - 2025/03\.&emsp;[Workshop on Computational Genomics](https://sishuowang2022.wordpress.com/2025/02/23/ad-computational-genomics-workshop-in-science-park-hong-kong-sar/) at Sun Yat-sen University Institute of Advanced Studies Hong Kong [[slides](https://drive.google.com/file/d/1p65HHKWLQIcJF4rro_ZjGyG42lf90UEx/view?usp=sharing), [tutorials](https://github.com/bpp/bpp-tutorial-geneflow/wiki)]
 - 2025/02\.&emsp;"Species complexes of _Anopheles_ mosquitoes in North America" at Wellcome Sanger Institute, UK
 - 2024/12\.&emsp;"Species complexes and the making of malaria mosquitoes" at [UCL Centre for Life's Origins and Evolution (CLOE)](https://www.ucl.ac.uk/biosciences/gee/ucl-centre-lifes-origins-and-evolution), UK
