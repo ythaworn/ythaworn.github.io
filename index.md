@@ -26,7 +26,7 @@
 - 🪲 [Research](#research--️),  🐌 [Current projects](#current-projects--️)
 - 🐳 [Publications](#publications--️), [Google Scholar](https://scholar.google.com/citations?user=DjlTi4gAAAAJ), 
 [NCBI Bibliography](https://www.ncbi.nlm.nih.gov/myncbi/yuttapong.thawornwattana.3/bibliography/public/), [ORCID](https://orcid.org/0000-0003-2745-163X), [Web of Science](https://www.webofscience.com/wos/author/record/1865943)
-- 💬 [Talks](#talks--️), 🐛 [Tutorials](#tutorials--️), 🐙 [On Github](#on-github--️)
+- 💬 [Talks](#talks--️), 🎤 [Teaching](#teaching--️), 🐛 [Tutorials](#tutorials--️), 🐙 [On Github](#on-github--️)
 
 ---
 
@@ -64,7 +64,8 @@ Research areas: phylogenetics, evolutionary genomics, mosquito diversity and evo
 [Google Scholar](https://scholar.google.com/citations?user=DjlTi4gAAAAJ), 
 [NCBI Bibliography](https://www.ncbi.nlm.nih.gov/myncbi/yuttapong.thawornwattana.3/bibliography/public/)
 
-- __Thawornwattana Y__, Flouri T, Mallet J, Yang Z. (2024) __Inference of continuous gene flow between species under misspecified models__. bioRxiv [[doi:10.1101/2024.05.13.593926](https://doi.org/10.1101/2024.05.13.593926)] [[C code](https://github.com/ythaworn/iimmsci2s)]
+- __Thawornwattana Y__, Rannala B, Yang Z. (2025) __Inference of gene flow under multispecies coalescent is robust to selection but not to excessive intragenic recombination__. _in review_
+- __Thawornwattana Y__, Flouri T, Mallet J, Yang Z. (2025) __Inference of gene flow between species from genomic data when the mode, direction and lineages are misspecified__. _Mol Biol Evol._, 42(6):msaf121. [[doi:10.1093/molbev/msaf121](https://doi.org/10.1093/molbev/msaf121)]. bioRxiv [[doi:10.1101/2024.05.13.593926](https://doi.org/10.1101/2024.05.13.593926)] [[C code](https://github.com/ythaworn/iimmsci2s)]
 - Mallet J, Seixas FA, __Thawornwattana Y__ (2024). __Species, Concepts of.__ In Scheiner, S. M., editor, _Encyclopedia of Biodiversity (Third Edition)_, 7:531-545. Elsevier. [[doi:10.1016/B978-0-12-822562-2.00022-0](https://doi.org/10.1016/B978-0-12-822562-2.00022-0)] [[RG](https://www.researchgate.net/publication/358303271_Species_Concepts_of)]
 - __Thawornwattana Y__, Seixas FA, Yang Z, Mallet J. (2023) __Major patterns in the introgression history of _Heliconius_ butterflies__. _eLife_. [[doi:10.7554/eLife.90656](https://doi.org/10.7554/eLife.90656)] [[data](https://zenodo.org/records/8415106)]
 - __Thawornwattana Y__, Huang J, Flouri T, Mallet J, Yang Z. (2023) __Inferring the direction of introgression using genomic sequence data__. _Mol Biol Evol._, 40(8):msad178. [[doi:10.1093/molbev/msad178](https://doi.org/10.1093/molbev/msad178)] [[_Heliconius_ data](https://zenodo.org/records/8243142)]
@@ -85,8 +86,6 @@ Research areas: phylogenetics, evolutionary genomics, mosquito diversity and evo
 ## Talks  [⤴️](#top)
 
 - 2025/07\.&emsp;"Species complexes of malaria mosquitoes in North America" at [SMBE meeting](https://smbe2025.scimeeting.cn/), Beijing, China [slides _coming soon_]
-- 2025/04\.&emsp;[Bayesian Phylogenetics Workshop](https://systass.org/workshop-bayesian-phylogenetics/) at UCL, UK [[slides](https://drive.google.com/file/d/1pUI0i5gSangvzbdZMdIVB_VFahJC8k1Q/view?usp=sharing)]
-- 2025/03\.&emsp;[Workshop on Computational Genomics](https://sishuowang2022.wordpress.com/2025/02/23/ad-computational-genomics-workshop-in-science-park-hong-kong-sar/) at Sun Yat-sen University Institute of Advanced Studies Hong Kong [[slides](https://drive.google.com/file/d/1p65HHKWLQIcJF4rro_ZjGyG42lf90UEx/view?usp=sharing), [tutorials](https://github.com/bpp/bpp-tutorial-geneflow/wiki)]
 - 2025/02\.&emsp;"Species complexes of _Anopheles_ mosquitoes in North America" at Wellcome Sanger Institute, UK
 - 2024/12\.&emsp;"Species complexes and the making of malaria mosquitoes" at [UCL Centre for Life's Origins and Evolution (CLOE)](https://www.ucl.ac.uk/biosciences/gee/ucl-centre-lifes-origins-and-evolution), UK
 - 2024/10\.&emsp;"Evolutionary genomics of mosquitoes" at the 5th International Course on Ecological Determinants of Vector-Borne Disease Dynamics, Reserva Ecológica de Guapiaçu (REGUA), Rio de Janeiro, Brazil [[slides](https://drive.google.com/file/d/1nS7_fIeUfWSZS0xZfCiiVauPGIZQSSOp/view?usp=sharing)]
@@ -102,6 +101,17 @@ Research areas: phylogenetics, evolutionary genomics, mosquito diversity and evo
 - 2020/07\.&emsp;"Population genomics of _Mycobacterium tuberculosis_" at [MAEMOD](https://www.tropmedres.ac/units/moru-bangkok/mathematical-and-economic-modelling) journal club [[slides](https://drive.google.com/file/d/14l6LsTVUvFhiMeessBPRvgmNXmN9JgeG/view?usp=sharing)]
 - 2018/11\.&emsp;"Next generation phylogenetics: Building trees from whole genome data" at the Division of Medical Bioinformatics, Faculty of Medicine Siriraj Hospital, Mahidol University, Thailand [[slides](https://drive.google.com/file/d/1M4aeZWZG1VW_6utC8oRFsXJLYOPYUXOX/view?usp=sharing)]
 - 2018/08\.&emsp;"Resolving the species relationships in the _Anopheles gambiae_ species complex from whole genome data" at the Department of Microbiology, Faculty of Science, Mahidol University, Thailand [[slides](https://drive.google.com/file/d/111TM768NdjTm1uYrwh6IQmlLD4MDeeW4/view?usp=sharing)]
+
+---
+
+## Teaching  [⤴️](#top)
+
+- 2025/11\.&emsp;Workshop on Computational Genomics at Beijing Normal University, Beijing, China
+- 2025/04\.&emsp;[Bayesian Phylogenetics Workshop](https://systass.org/workshop-bayesian-phylogenetics/) at UCL, UK [[slides](https://drive.google.com/file/d/1pUI0i5gSangvzbdZMdIVB_VFahJC8k1Q/view?usp=sharing)]
+- 2025/03\.&emsp;[Workshop on Computational Genomics](https://sishuowang2022.wordpress.com/2025/02/23/ad-computational-genomics-workshop-in-science-park-hong-kong-sar/) at Sun Yat-sen University Institute of Advanced Studies Hong Kong [[slides](https://drive.google.com/file/d/1p65HHKWLQIcJF4rro_ZjGyG42lf90UEx/view?usp=sharing), [tutorials](https://github.com/bpp/bpp-tutorial-geneflow/wiki)]
+- 2023/Fall\.&emsp;Teaching Fellow, OEB10 Foundations of Biological Diversity, Harvard University
+- 2022/Fall\.&emsp;Teaching Fellow, OEB50 Genetics and genomics, Harvard University
+- 2021/Fall\.&emsp;Teaching Fellow, OEB230 Comparative and evolutionary genomics, Harvard University
 
 ---
 
@@ -136,4 +146,4 @@ Research areas: phylogenetics, evolutionary genomics, mosquito diversity and evo
 
 ---
 
-Last updated: Feb 2025
+Last updated: July 2025
