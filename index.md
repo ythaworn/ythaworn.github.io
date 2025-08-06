@@ -9,7 +9,7 @@
 
 [UCL profile](https://profiles.ucl.ac.uk/45794-yuttapong-thawornwattana)
 
-📬 gmail.com (preferred), ucl.ac.uk: yuttapong.thawornwattana
+📬 gmail.com, ucl.ac.uk: yuttapong.thawornwattana
 
 
 ## Hi there 👋
@@ -85,6 +85,7 @@ Research areas: phylogenetics, evolutionary genomics, mosquito diversity and evo
 
 ## Talks  [⤴️](#top)
 
+- 2025/09\.&emsp;"Inferring gene flow between cryptic sibling species of _Anopheles_ mosquitoes" at [Mathematical and Statistical Aspects of Molecular Biology Annual Meeting (MASAMB) meeting](https://www.ebi.ac.uk/goldman-srv/masamb/), [Natural History Museum, London](https://www.nhm.ac.uk/our-science/study/events/masamb-annual-meeting.html), UK
 - 2025/07\.&emsp;"Species complexes of malaria mosquitoes in North America" at [SMBE meeting](https://smbe2025.scimeeting.cn/), Beijing, China [slides _coming soon_]
 - 2025/02\.&emsp;"Species complexes of _Anopheles_ mosquitoes in North America" at Wellcome Sanger Institute, UK
 - 2024/12\.&emsp;"Species complexes and the making of malaria mosquitoes" at [UCL Centre for Life's Origins and Evolution (CLOE)](https://www.ucl.ac.uk/biosciences/gee/ucl-centre-lifes-origins-and-evolution), UK
@@ -104,9 +105,10 @@ Research areas: phylogenetics, evolutionary genomics, mosquito diversity and evo
 
 ---
 
-## Teaching  [⤴️](#top)
+## Teaching / Workshops / Conferences  [⤴️](#top)
 
-- 2025/11\.&emsp;Workshop on Computational Genomics at Beijing Normal University, Beijing, China
+- 2025/12\.&emsp;Symposium on "Efficient computation for studying molecular evolution in the genomic era: from theory to practice", with [Sishuo Wang](https://mic.cuhk.edu.hk/wang-sishuo/) (Chinese University of Hong Kong) and [Xiyun Jiao](https://www.sustech.edu.cn/en/faculties/jiaoxiyun.html) (Southern University of Science and Technology) at [AsiaEvo Conference](https://2025asiaevoconf.casconf.cn/), Kunming, China
+- 2025/11\.&emsp;[Workshop on Computational Genomics](https://bsee.bnu.edu.cn/docs/2025-07/b1db7342d2184cc889252796045ae275.pdf) at Beijing Normal University, Beijing, China
 - 2025/04\.&emsp;[Bayesian Phylogenetics Workshop](https://systass.org/workshop-bayesian-phylogenetics/) at UCL, UK [[slides](https://drive.google.com/file/d/1pUI0i5gSangvzbdZMdIVB_VFahJC8k1Q/view?usp=sharing)]
 - 2025/03\.&emsp;[Workshop on Computational Genomics](https://sishuowang2022.wordpress.com/2025/02/23/ad-computational-genomics-workshop-in-science-park-hong-kong-sar/) at Sun Yat-sen University Institute of Advanced Studies Hong Kong [[slides](https://drive.google.com/file/d/1p65HHKWLQIcJF4rro_ZjGyG42lf90UEx/view?usp=sharing), [tutorials](https://github.com/bpp/bpp-tutorial-geneflow/wiki)]
 - 2023/Fall\.&emsp;Teaching Fellow, OEB10 Foundations of Biological Diversity, Harvard University
@@ -146,4 +148,4 @@ Research areas: phylogenetics, evolutionary genomics, mosquito diversity and evo
 
 ---
 
-Last updated: July 2025
+Last updated: August 2025
