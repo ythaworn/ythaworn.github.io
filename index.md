@@ -64,7 +64,7 @@ Research areas: phylogenetics, evolutionary genomics, mosquito diversity and evo
 [Google Scholar](https://scholar.google.com/citations?user=DjlTi4gAAAAJ), 
 [NCBI Bibliography](https://www.ncbi.nlm.nih.gov/myncbi/yuttapong.thawornwattana.3/bibliography/public/)
 
-- Nakahara S, __Thawornwattana Y__, Scott TJ, Vega Y, Keegan K, Calhoun JV, MacDonald JR, Thurman A. (2025) __A new skipper butterfly from Panama and Colombia with its genome (Lepidoptera: Hesperiidae: Eudaminae)__. _Zool. J. Linn. Soc._ _To appear._ [[sequencing data](https://www.ncbi.nlm.nih.gov/bioproject/PRJNA1213337); [datasets](https://doi.org/10.5281/zenodo.16610584)]
+- Nakahara S, __Thawornwattana Y__, Scott TJ, Vega Y, Keegan K, Calhoun JV, MacDonald JR, Thurman A. (2025) __A new skipper butterfly from Panama and Colombia with its genome (Lepidoptera: Hesperiidae: Eudaminae)__. _Zool. J. Linn. Soc._, 205(2):zlaf133. [[doi:10.1093/zoolinnean/zlaf133](https://doi.org/10.1093/zoolinnean/zlaf133)]. [[sequencing data](https://www.ncbi.nlm.nih.gov/bioproject/PRJNA1213337); [datasets](https://doi.org/10.5281/zenodo.16610584)]
 - __Thawornwattana Y__, Rannala B, Yang Z. (2025) __On the robustness of Bayesian inference of gene flow to intragenic recombination and natural selection__. _In review._
 - __Thawornwattana Y__, Flouri T, Mallet J, Yang Z. (2025) __Inference of gene flow between species from genomic data when the mode, direction and lineages are misspecified__. _Mol Biol Evol._, 42(6):msaf121. [[doi:10.1093/molbev/msaf121](https://doi.org/10.1093/molbev/msaf121)]. bioRxiv [[doi:10.1101/2024.05.13.593926](https://doi.org/10.1101/2024.05.13.593926)] [[C code](https://github.com/ythaworn/iimmsci2s)]
 - Mallet J, Seixas FA, __Thawornwattana Y__ (2024). __Species, Concepts of.__ In Scheiner, S. M., editor, _Encyclopedia of Biodiversity (Third Edition)_, 7:531-545. Elsevier. [[doi:10.1016/B978-0-12-822562-2.00022-0](https://doi.org/10.1016/B978-0-12-822562-2.00022-0)] [[RG](https://www.researchgate.net/publication/358303271_Species_Concepts_of)]
@@ -86,7 +86,7 @@ Research areas: phylogenetics, evolutionary genomics, mosquito diversity and evo
 
 ## Talks  [⤴️](#top)
 
-- 2025/09\.&emsp;"Inferring gene flow between cryptic sibling species of _Anopheles_ mosquitoes" at [Mathematical and Statistical Aspects of Molecular Biology Annual Meeting (MASAMB) meeting](https://www.ebi.ac.uk/goldman-srv/masamb/), [Natural History Museum, London](https://www.nhm.ac.uk/our-science/study/events/masamb-annual-meeting.html), UK
+- 2025/09\.&emsp;"Inferring gene flow between cryptic sibling species of _Anopheles_ mosquitoes" at [Mathematical and Statistical Aspects of Molecular Biology Annual Meeting (MASAMB) meeting](https://www.ebi.ac.uk/goldman-srv/masamb/), Natural History Museum, London, UK
 - 2025/07\.&emsp;"Species complexes of malaria mosquitoes in North America" at [SMBE meeting](https://smbe2025.scimeeting.cn/), Beijing, China [slides _coming soon_]
 - 2025/02\.&emsp;"Species complexes of _Anopheles_ mosquitoes in North America" at Wellcome Sanger Institute, UK
 - 2024/12\.&emsp;"Species complexes and the making of malaria mosquitoes" at [UCL Centre for Life's Origins and Evolution (CLOE)](https://www.ucl.ac.uk/biosciences/gee/ucl-centre-lifes-origins-and-evolution), UK
