@@ -86,6 +86,8 @@ Research areas: phylogenetics, evolutionary genomics, mosquito diversity and evo
 
 ## Talks  [⤴️](#top)
 
+- 2025/12\.&emsp;"Detecting gene flow from genomic data" at [4th AsiaEvo Conference](https://2025asiaevoconf.casconf.cn/), Kunming, China
+- 2025/11\.&emsp;"Hybridization, introgression and speciation in _Heliconius_ butterflies: Inferring introgression history from whole-genome sequence data _Anopheles_ mosquitoes" at [Taxon-Omics Seminar Series on Reticulate Evolution](https://www.taxon-omics.com/news-events-bl/09-july-2025--fxzty-cbre3) [[slides](https://drive.google.com/file/d/1PgGEUos9cyAvies79nPnM3infjk3qa-w/view?usp=sharing)]
 - 2025/09\.&emsp;"Inferring gene flow between cryptic sibling species of _Anopheles_ mosquitoes" at [Mathematical and Statistical Aspects of Molecular Biology Annual Meeting (MASAMB) meeting](https://www.ebi.ac.uk/goldman-srv/masamb/), Natural History Museum, London, UK
 - 2025/07\.&emsp;"Species complexes of malaria mosquitoes in North America" at [SMBE meeting](https://smbe2025.scimeeting.cn/), Beijing, China [slides _coming soon_]
 - 2025/02\.&emsp;"Species complexes of _Anopheles_ mosquitoes in North America" at Wellcome Sanger Institute, UK
