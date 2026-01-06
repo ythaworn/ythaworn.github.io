@@ -64,8 +64,8 @@ Research areas: phylogenetics, evolutionary genomics, mosquito diversity and evo
 [Google Scholar](https://scholar.google.com/citations?user=DjlTi4gAAAAJ), 
 [NCBI Bibliography](https://www.ncbi.nlm.nih.gov/myncbi/yuttapong.thawornwattana.3/bibliography/public/)
 
-- Nakahara S, __Thawornwattana Y__, Scott TJ, Vega Y, Keegan K, Calhoun JV, MacDonald JR, Thurman A. (2025) __A new skipper butterfly from Panama and Colombia with its genome (Lepidoptera: Hesperiidae: Eudaminae)__. _Zool. J. Linn. Soc._, 205(2):zlaf133. [[doi:10.1093/zoolinnean/zlaf133](https://doi.org/10.1093/zoolinnean/zlaf133)]. [[sequencing data](https://www.ncbi.nlm.nih.gov/bioproject/PRJNA1213337); [datasets](https://doi.org/10.5281/zenodo.16610584)]
-- __Thawornwattana Y__, Rannala B, Yang Z. (2025) __On the robustness of Bayesian inference of gene flow to intragenic recombination and natural selection__. _In review._
+- __Thawornwattana Y__, Rannala B, Yang Z. (2026) __On the robustness of Bayesian inference of gene flow to intragenic recombination and natural selection__. - Huang J, __Thawornwattana Y__, Flouri T, Mallet J, Yang Z. (2022) __Inference of gene flow between species under misspecified models__. _Mol Biol Evol._, 43(1):msaf327. [[doi:10.1093/molbev/msac237](https://doi.org/10.1093/molbev/msaf327)] [[data & scripts](https://doi.org/10.5281/zenodo.17019348)]
+- Nakahara S, __Thawornwattana Y__, Scott TJ, Vega Y, Keegan K, Calhoun JV, MacDonald JR, Thurman A. (2025) __A new skipper butterfly from Panama and Colombia with its genome (Lepidoptera: Hesperiidae: Eudaminae)__. _Zool J Linn Soc._, 205(2):zlaf133. [[doi:10.1093/zoolinnean/zlaf133](https://doi.org/10.1093/zoolinnean/zlaf133)]. [[sequencing data](https://www.ncbi.nlm.nih.gov/bioproject/PRJNA1213337); [datasets](https://doi.org/10.5281/zenodo.16610584)]
 - __Thawornwattana Y__, Flouri T, Mallet J, Yang Z. (2025) __Inference of gene flow between species from genomic data when the mode, direction and lineages are misspecified__. _Mol Biol Evol._, 42(6):msaf121. [[doi:10.1093/molbev/msaf121](https://doi.org/10.1093/molbev/msaf121)]. bioRxiv [[doi:10.1101/2024.05.13.593926](https://doi.org/10.1101/2024.05.13.593926)] [[C code](https://github.com/ythaworn/iimmsci2s)]
 - Mallet J, Seixas FA, __Thawornwattana Y__ (2024). __Species, Concepts of.__ In Scheiner, S. M., editor, _Encyclopedia of Biodiversity (Third Edition)_, 7:531-545. Elsevier. [[doi:10.1016/B978-0-12-822562-2.00022-0](https://doi.org/10.1016/B978-0-12-822562-2.00022-0)] [[RG](https://www.researchgate.net/publication/358303271_Species_Concepts_of)]
 - __Thawornwattana Y__, Seixas FA, Yang Z, Mallet J. (2023) __Major patterns in the introgression history of _Heliconius_ butterflies__. _eLife_. [[doi:10.7554/eLife.90656](https://doi.org/10.7554/eLife.90656)] [[data](https://zenodo.org/records/8415106)]
@@ -87,7 +87,7 @@ Research areas: phylogenetics, evolutionary genomics, mosquito diversity and evo
 ## Talks  [⤴️](#top)
 
 - 2025/12\.&emsp;"Detecting gene flow from genomic data" at [4th AsiaEvo Conference](https://2025asiaevoconf.casconf.cn/), Kunming, China
-- 2025/11\.&emsp;"Hybridization, introgression and speciation in _Heliconius_ butterflies: Inferring introgression history from whole-genome sequence data _Anopheles_ mosquitoes" at [Taxon-Omics Seminar Series on Reticulate Evolution](https://www.taxon-omics.com/news-events-bl/09-july-2025--fxzty-cbre3) [[slides](https://drive.google.com/file/d/1PgGEUos9cyAvies79nPnM3infjk3qa-w/view?usp=sharing)]
+- 2025/11\.&emsp;"Hybridization, introgression and speciation in _Heliconius_ butterflies: Inferring introgression history from whole-genome sequence data _Anopheles_ mosquitoes" at [Taxon-Omics Seminar Series on Reticulate Evolution](https://www.taxon-omics.com/news-events-bl/09-july-2025--fxzty-cbre3), with James Mallet [[slides](https://drive.google.com/file/d/1PgGEUos9cyAvies79nPnM3infjk3qa-w/view?usp=sharing)]
 - 2025/09\.&emsp;"Inferring gene flow between cryptic sibling species of _Anopheles_ mosquitoes" at [Mathematical and Statistical Aspects of Molecular Biology Annual Meeting (MASAMB) meeting](https://www.ebi.ac.uk/goldman-srv/masamb/), Natural History Museum, London, UK
 - 2025/07\.&emsp;"Species complexes of malaria mosquitoes in North America" at [SMBE meeting](https://smbe2025.scimeeting.cn/), Beijing, China [slides _coming soon_]
 - 2025/02\.&emsp;"Species complexes of _Anopheles_ mosquitoes in North America" at Wellcome Sanger Institute, UK
@@ -151,4 +151,4 @@ Research areas: phylogenetics, evolutionary genomics, mosquito diversity and evo
 
 ---
 
-Last updated: August 2025
+Last updated: Nov 2025
