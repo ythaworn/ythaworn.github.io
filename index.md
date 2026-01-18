@@ -3,13 +3,28 @@
 
 ### Mosquito diversity and evolution in a changing world
 
-#### Research Fellow, [Ziheng Yang's group](http://abacus.gene.ucl.ac.uk/)
+#### Research Fellow, [Ziheng Yang's group](https://www.ucl.ac.uk/life-sciences/yang-lab)
 
-#### [Department of Genetics, Evolution and Environment (GEE)](https://www.ucl.ac.uk/biosciences/gee), University College London (UCL), UK
+#### [Department of Genetics, Evolution and Environment (GEE)](https://www.ucl.ac.uk/life-sciences/gee), University College London (UCL), UK
 
-[UCL profile](https://profiles.ucl.ac.uk/45794-yuttapong-thawornwattana)
+[UCL page](https://profiles.ucl.ac.uk/45794-yuttapong-thawornwattana)
 
 📬 gmail.com, ucl.ac.uk: yuttapong.thawornwattana
+
+Jump to:
+🌱 [Training](#training--research-experience--️) |
+🐳 [Publications](#publications--️) |
+🎤 [Talks](#talks--️) | 
+💬 [Teaching](#teaching--️)
+
+More:
+🐌 [Current projects](#current-projects--️) | 
+[Google Scholar](https://scholar.google.com/citations?user=DjlTi4gAAAAJ) |
+[ResearchGate](https://www.researchgate.net/profile/Yuttapong-Thawornwattana-2) |
+🐛 [Tutorials](#tutorials--️) | 
+🐙 [On Github](#on-github--️) |
+🪸 [Bio](#bio--️) |
+🪲 [Research](#research--️)
 
 
 ## Hi there 👋
@@ -20,32 +35,14 @@
 
 ---
 
-## Main content
-
-- 🌱 [Training & Research Experience](#training--research-experience--️), 🪸 [Bio](#bio--️)
-- 🪲 [Research](#research--️),  🐌 [Current projects](#current-projects--️)
-- 🐳 [Publications](#publications--️), [Google Scholar](https://scholar.google.com/citations?user=DjlTi4gAAAAJ), 
-[NCBI Bibliography](https://www.ncbi.nlm.nih.gov/myncbi/yuttapong.thawornwattana.3/bibliography/public/), [ORCID](https://orcid.org/0000-0003-2745-163X), [Web of Science](https://www.webofscience.com/wos/author/record/1865943)
-- 💬 [Talks](#talks--️), 🎤 [Teaching](#teaching--️), 🐛 [Tutorials](#tutorials--️), 🐙 [On Github](#on-github--️)
-
----
-
 ## Training & Research Experience  [⤴️](#top)
 
-- 🔩 2024-present\.&emsp;Research Fellow, [UCL Department of Genetics, Evolution and Environment (GEE)](https://www.ucl.ac.uk/biosciences/gee), UK (with [Ziheng Yang](http://abacus.gene.ucl.ac.uk/))
+- 🔩 2024-2026\.&emsp;Research Fellow, [UCL Department of Genetics, Evolution and Environment (GEE)](https://www.ucl.ac.uk/biosciences/gee), UK (with [Ziheng Yang](http://abacus.gene.ucl.ac.uk/))
 - 🦋 2020-2024\.&emsp;PhD [Organismic and Evolutionary Biology (OEB)](https://oeb.harvard.edu/), Harvard University, USA (with [James Mallet](https://mallet.oeb.harvard.edu/) and [Ziheng Yang](http://abacus.gene.ucl.ac.uk/)), with Interdisciplinary Concentration in Infectious Disease Epidemiology ([ID Epi](https://hsph.harvard.edu/degrees-and-programs/concentrations/epidemiology-infectious-diseases/)) from Harvard T.H. Chan School of Public Health
 - 🦠 2018-2020\.&emsp;Research assistant, [Center for Microbial Genomics (CENMIG)](https://microbiology.sc.mahidol.ac.th/cenmig/), Department of Microbiology, Faculty of Science, Mahidol University, Thailand (mainly with [Prasit Palittapongarnpim](https://microbiology.sc.mahidol.ac.th/departmental-members/prasit-palittapongarnpim/) and [Pakorn Aiewsakun](https://microbiology.sc.mahidol.ac.th/departmental-members/pakorn-aiewsakun/))
 - 🧬 2014-2018\.&emsp;MPhil Genetics, Evolution and Environment, [UCL GEE](https://www.ucl.ac.uk/biosciences/gee), UK (with [Ziheng Yang](http://abacus.gene.ucl.ac.uk/))
 - 🛠 2012-2013\.&emsp;MSc Computational Statistics and Machine Learning, [UCL Computer Science](https://www.ucl.ac.uk/computer-science/), UK
 - 🐛 2009-2012\.&emsp;BSc Biological Sciences, [UCL GEE](https://www.ucl.ac.uk/biosciences/gee), UK (with [Ziheng Yang](http://abacus.gene.ucl.ac.uk/) and [Mario dos Reis](https://www.qmul.ac.uk/sbbs/staff/mariodosreisbarros.html))
-
----
-
-## Bio  [⤴️](#top)
-
-I am a postdoc in [Ziheng Yang's group](http://abacus.gene.ucl.ac.uk/) at UCL working on statistical methods for studying introgression from genomic data.  
-
-I was born and raised in Thailand.  I participated in the national Biology Olympiad programme and was subsequently awarded a government scholarship (DPST) to study biology in the UK during 2007–2017, where I earned multiple degrees from UCL; see [training](#training--research-experience--️).  I spent the next few years working at several research institutions in Thailand, including [CENMIG](https://microbiology.sc.mahidol.ac.th/cenmig/), Mahidol University, where I focused on pathogen genomics, particularly _Mycobacterium tuberculosis_.  I then went on to do my PhD with [James Mallet](https://mallet.oeb.harvard.edu/) at Harvard University where I used genomic data to better understand species divergence and introgression in _Heliconius_ butterflies and _Anopheles_ mosquitoes.  There, I also studied infectious disease biology and epidemiology at the Harvard T.H. Chan School of Public Health focusing on malaria and global health.
 
 ---
 
@@ -61,32 +58,69 @@ Research areas: phylogenetics, evolutionary genomics, mosquito diversity and evo
 
 ## Publications  [⤴️](#top)
 
-[Google Scholar](https://scholar.google.com/citations?user=DjlTi4gAAAAJ), 
-[NCBI Bibliography](https://www.ncbi.nlm.nih.gov/myncbi/yuttapong.thawornwattana.3/bibliography/public/)
+[Google Scholar](https://scholar.google.com/citations?user=DjlTi4gAAAAJ) | 
+[ResearchGate](https://www.researchgate.net/profile/Yuttapong-Thawornwattana-2) |
+[NCBI Bibliography](https://www.ncbi.nlm.nih.gov/myncbi/yuttapong.thawornwattana.3/bibliography/public/) |
+[ORCID](https://orcid.org/0000-0003-2745-163X) |
+[Web of Science](https://www.webofscience.com/wos/author/record/1865943)
 
-- __Thawornwattana Y__, Rannala B, Yang Z. (2026) __On the robustness of Bayesian inference of gene flow to intragenic recombination and natural selection__. _Mol. Biol. Evol._, 43(1):msaf327. [[doi:10.1093/molbev/msac237](https://doi.org/10.1093/molbev/msaf327)] [[data & scripts](https://doi.org/10.5281/zenodo.17019348)]
-- Nakahara S, __Thawornwattana Y__, Scott TJ, Vega Y, Keegan K, Calhoun JV, MacDonald JR, Thurman A. (2025) __A new skipper butterfly from Panama and Colombia with its genome (Lepidoptera: Hesperiidae: Eudaminae)__. _Zool. J. Linn. Soc._, 205(2):zlaf133. [[doi:10.1093/zoolinnean/zlaf133](https://doi.org/10.1093/zoolinnean/zlaf133)]. [[sequencing data](https://www.ncbi.nlm.nih.gov/bioproject/PRJNA1213337); [datasets](https://doi.org/10.5281/zenodo.16610584)]
-- __Thawornwattana Y__, Flouri T, Mallet J, Yang Z. (2025) __Inference of gene flow between species from genomic data when the mode, direction and lineages are misspecified__. _Mol. Biol. Evol._, 42(6):msaf121. [[doi:10.1093/molbev/msaf121](https://doi.org/10.1093/molbev/msaf121)]. [[C code](https://github.com/ythaworn/iimmsci2s)]
-- Mallet J, Seixas FA, __Thawornwattana Y__ (2024). __Species, Concepts of.__ In Scheiner, S. M., editor, _Encyclopedia of Biodiversity (Third Edition)_, 7:531-545. Elsevier. [[doi:10.1016/B978-0-12-822562-2.00022-0](https://doi.org/10.1016/B978-0-12-822562-2.00022-0)] [[RG](https://www.researchgate.net/publication/358303271_Species_Concepts_of)]
-- __Thawornwattana Y__, Seixas FA, Yang Z, Mallet J. (2023) __Major patterns in the introgression history of _Heliconius_ butterflies__. _eLife_. [[doi:10.7554/eLife.90656](https://doi.org/10.7554/eLife.90656)] [[data](https://zenodo.org/records/8415106)]
-- __Thawornwattana Y__, Huang J, Flouri T, Mallet J, Yang Z. (2023) __Inferring the direction of introgression using genomic sequence data__. _Mol. Biol. Evol._, 40(8):msad178. [[doi:10.1093/molbev/msad178](https://doi.org/10.1093/molbev/msad178)] [[_Heliconius_ data](https://zenodo.org/records/8243142)]
-- Huang J, __Thawornwattana Y__, Flouri T, Mallet J, Yang Z. (2022) __Inference of gene flow between species under misspecified models__. _Mol. Biol. Evol._, 39(12):msac237. [[doi:10.1093/molbev/msac237](https://doi.org/10.1093/molbev/msac237)] [[C code](https://github.com/ythaworn/iimmsci2s)]
-- __Thawornwattana Y__, Seixas FA, Yang Z, Mallet J. (2022) __Full-likelihood genomic analysis clarifies a complex history of species divergence and introgression: the example of the erato-sara group of _Heliconius_ butterflies.__ _Syst. Biol._, 71(5):1159–1177. [[doi:10.1093/sysbio/syac009](https://doi.org/10.1093/sysbio/syac009)] [[data](https://zenodo.org/records/5639716)]
-- Aiewsakun P, Ruangchai W, __Thawornwattana Y__, Jaemsai B, Mahasirimongkol S, Homkaew A, Suksomchit P, Dubbs P, Palittapongarnpim P. (2022) __Genomic epidemiology of _Streptococcus agalactiae_ ST283 in Southeast Asia.__ _Sci. Rep._, 12(1):4185. [[doi:10.1038/s41598-022-08097-0](https://doi.org/10.1038/s41598-022-08097-0)]
-- Netikul T, __Thawornwattana Y__, Mahasirimongkol S, Yanai H, Maung HMW, Chongsuvivatwong V, Palittapongarnpim P. (2022) __Whole-genome single nucleotide variant phylogenetic analysis of _Mycobacterium tuberculosis_ lineage 1 in endemic regions of Asia and Africa.__ _Sci. Rep._, 12(1):1565. [[doi:10.1038/s41598-022-05524-0](https://doi.org/10.1038/s41598-022-05524-0)] [[phylogeny: Asia/Africa/Oceania](https://microreact.org/project/ii9NYi9YWaWFjZkivV2JoC); [phylogeny: global 1](https://microreact.org/project/m8QSwp8XhXBUhLTDhRuGB9); [phylogeny: global 2](https://microreact.org/project/rtJuewY8AXZFZLKVRQXc3H)]
-- Netikul T, Palittapongarnpim P, __Thawornwattana Y__, Plitphonganphim S. (2021) __Estimation of the global burden of _Mycobacterium tuberculosis_ lineage 1.__ _Infect. Genet. Evol._, 91:104802. [[doi:10.1016/j.meegid.2021.104802](https://doi.org/10.1016/j.meegid.2021.104802)]
-- __Thawornwattana Y__, Dong HT, Phiwsaiya K, Sangsuriya P, Senapin S, Aiewsakun P. (2021) __Tilapia lake virus (TiLV): Genomic epidemiology and its early origin.__ _Transbound. Emerg. Dis._, 68(2):435–444. [[doi:10.1111/tbed.13693](https://doi.org/10.1111/tbed.13693)]
-- __Thawornwattana Y__, Mahasirimongkol S, Yanai H, Maung HMW, Cui Z, Chongsuvivatwong V, Palittapongarnpim P. (2021) __Revised nomenclature and SNP barcode for _Mycobacterium tuberculosis_ lineage 2.__ _Microb. Genom._, 7(11):000697. [[doi:10.1099/mgen.0.000697](https://doi.org/10.1099/mgen.0.000697)] [[phylogeny: discovery](https://microreact.org/project/4P2iPeBx1Y66TyJfojNM1o); [phylogeny: discovery+test](https://microreact.org/project/4kJjFVPWe3TbfwFtqY3ED8)]
-- Ajawatanawong P, Yanai H, Smittipat N, Disratthakit A, Yamada N, Miyahara R, Nedsuwan S, Imasanguan W, Kantipong P, Chaiyasirinroje B, Wongyai J, Plitphonganphim S, Tantivitayakul P, Phelan J, Parkhill J, Clark TG, Hibberd ML, Ruangchai W, Palittapongarnpim P, Juthayothin T, __Thawornwattana Y__, Viratyosin W, Tongsima S, Mahasirimongkol S, Tokunaga K, Palittapongarnpim P. (2019) __A novel Ancestral Beijing sublineage of _Mycobacterium tuberculosis_ suggests the transition site to Modern Beijing genotypes.__ _Sci. Rep._, 9:13718. [[doi:10.1038/s41598-019-50078-3](https://doi.org/10.1038/s41598-019-50078-3)]
-- __Thawornwattana Y__, Dalquen D, Yang Z. (2018) __Coalescent analysis of phylogenomic data confidently resolves the species relationships in the _Anopheles_ gambiae species complex.__ _Mol. Biol. Evol._, 35(10):2512–2527. [[doi:10.1093/molbev/msy158](https://doi.org/10.1093/molbev/msy158)]
-- __Thawornwattana Y__, Dalquen D, Yang Z. (2018) __Designing simple and efficient Markov chain Monte Carlo proposal kernels.__ _Bayesian Anal._, 13(4):1037–1063. [[doi:10.1214/17-BA1084](https://doi.org/10.1214/17-BA1084)]
-- dos Reis M, __Thawornwattana Y__, Angelis K, Telford MJ, Donoghue PC, Yang Z. (2015). __Uncertainty in the timing of origin of animals and the limits of precision in molecular timescales.__ _Curr. Biol._, 25(22):2939–2950. [[doi:10.1016/j.cub.2015.09.066](https://doi.org/10.1016/j.cub.2015.09.066)] [[data](https://doi.org/10.6084/m9.figshare.1525089.v1)]
+- [__On the robustness of Bayesian inference of gene flow to intragenic recombination and natural selection__](https://doi.org/10.1093/molbev/msaf327) 🧬<br>
+  __Thawornwattana Y__, Rannala B, Yang Z<br>
+  _Mol. Biol. Evol._ 2026, 43(1):msaf327 [[data & scripts](https://doi.org/10.5281/zenodo.17019348)]
+- [__A new skipper butterfly from Panama and Colombia with its genome (Lepidoptera: Hesperiidae: Eudaminae)__](https://doi.org/10.1093/zoolinnean/zlaf133) 🦋<br>
+  Nakahara S, __Thawornwattana Y__, Scott TJ, Vega Y, Keegan K, Calhoun JV, MacDonald JR, Thurman A<br>
+  _Zool. J. Linn. Soc._ 2025, 205(2):zlaf133 [[sequencing data](https://www.ncbi.nlm.nih.gov/bioproject/PRJNA1213337); [datasets](https://doi.org/10.5281/zenodo.16610584)] [[RG](https://www.researchgate.net/publication/396776131_A_new_skipper_butterfly_from_Panama_and_Colombia_with_its_genome_Lepidoptera_Hesperiidae_Eudaminae)]
+- [__Inference of gene flow between species from genomic data when the mode, direction and lineages are misspecified__](https://doi.org/10.1093/molbev/msaf121) 🧬<br>
+  __Thawornwattana Y__, Flouri T, Mallet J, Yang Z<br>
+  _Mol. Biol. Evol._ 2025, 42(6):msaf121 [[C code](https://github.com/ythaworn/iimmsci2s)]
+- [__Species, Concepts of__](https://doi.org/10.1016/B978-0-12-822562-2.00022-0)<br>
+  Mallet J, Seixas FA, __Thawornwattana Y__<br>
+  In Scheiner, S. M., editor, _Encyclopedia of Biodiversity (Third Edition)_ 2024, 7:531-545, Elsevier [[RG](https://www.researchgate.net/publication/358303271_Species_Concepts_of)]
+- [__Major patterns in the introgression history of _Heliconius_ butterflies__](https://doi.org/10.7554/eLife.90656) 🦋<br>
+  __Thawornwattana Y__, Seixas FA, Yang Z, Mallet J<br>
+  _eLife_ 2023, 12:RP90656 [[data](https://zenodo.org/records/8415106)]
+- [__Inferring the direction of introgression using genomic sequence data__](https://doi.org/10.1093/molbev/msad178) 🧬<br>
+  __Thawornwattana Y__, Huang J, Flouri T, Mallet J, Yang Z<br>
+  _Mol. Biol. Evol._ 2023, 40(8):msad178 [[_Heliconius_ data](https://zenodo.org/records/8243142)]
+- [__Inference of gene flow between species under misspecified models__](https://doi.org/10.1093/molbev/msac237) 🧬<br>
+  Huang J, __Thawornwattana Y__, Flouri T, Mallet J, Yang Z<br>
+  _Mol. Biol. Evol._ 2022, 39(12):msac237 [[C code](https://github.com/ythaworn/iimmsci2s)]
+- [__Full-likelihood genomic analysis clarifies a complex history of species divergence and introgression: the example of the erato-sara group of _Heliconius_ butterflies__](https://doi.org/10.1093/sysbio/syac009) 🦋<br>
+  __Thawornwattana Y__, Seixas FA, Yang Z, Mallet J<br>
+   _Syst. Biol._ 2022, 71(5):1159–1177 [[data](https://zenodo.org/records/5639716)]
+- [__Genomic epidemiology of _Streptococcus agalactiae_ ST283 in Southeast Asia__](https://doi.org/10.1038/s41598-022-08097-0) 🦠<br>
+  Aiewsakun P, Ruangchai W, __Thawornwattana Y__, Jaemsai B, Mahasirimongkol S, Homkaew A, Suksomchit P, Dubbs P, Palittapongarnpim P<br>
+  _Sci. Rep._ 2022, 12(1):4185
+- [__Whole-genome single nucleotide variant phylogenetic analysis of _Mycobacterium tuberculosis_ lineage 1 in endemic regions of Asia and Africa__](https://doi.org/10.1038/s41598-022-05524-0) 🦠<br>
+  Netikul T, __Thawornwattana Y__, Mahasirimongkol S, Yanai H, Maung HMW, Chongsuvivatwong V, Palittapongarnpim P<br>
+  _Sci. Rep._ 2022, 12(1):1565 [[phylogeny: Asia/Africa/Oceania](https://microreact.org/project/ii9NYi9YWaWFjZkivV2JoC); [phylogeny: global 1](https://microreact.org/project/m8QSwp8XhXBUhLTDhRuGB9); [phylogeny: global 2](https://microreact.org/project/rtJuewY8AXZFZLKVRQXc3H)]
+- [__Estimation of the global burden of _Mycobacterium tuberculosis_ lineage 1__](https://doi.org/10.1016/j.meegid.2021.104802) 🦠<br>
+  Netikul T, Palittapongarnpim P, __Thawornwattana Y__, Plitphonganphim S<br>
+  _Infect. Genet. Evol._ 2021, 91:104802
+- [__Tilapia lake virus (TiLV): Genomic epidemiology and its early origin__](https://doi.org/10.1111/tbed.13693) 🦠<br>
+  __Thawornwattana Y__, Dong HT, Phiwsaiya K, Sangsuriya P, Senapin S, Aiewsakun P<br>
+  _Transbound. Emerg. Dis._ 2021, 68(2):435–444
+- [__Revised nomenclature and SNP barcode for _Mycobacterium tuberculosis_ lineage 2__](https://doi.org/10.1099/mgen.0.000697) 🦠<br>
+  __Thawornwattana Y__, Mahasirimongkol S, Yanai H, Maung HMW, Cui Z, Chongsuvivatwong V, Palittapongarnpim P<br>
+  _Microb. Genom._ 2021, 7(11):000697 [[phylogeny: discovery](https://microreact.org/project/4P2iPeBx1Y66TyJfojNM1o); [phylogeny: discovery+test](https://microreact.org/project/4kJjFVPWe3TbfwFtqY3ED8)]
+- [__A novel Ancestral Beijing sublineage of _Mycobacterium tuberculosis_ suggests the transition site to Modern Beijing genotypes__](https://doi.org/10.1038/s41598-019-50078-3) 🦠<br>
+  Ajawatanawong P, Yanai H, Smittipat N, Disratthakit A, Yamada N, Miyahara R, Nedsuwan S, Imasanguan W, Kantipong P, Chaiyasirinroje B, Wongyai J, Plitphonganphim S, Tantivitayakul P, Phelan J, Parkhill J, Clark TG, Hibberd ML, Ruangchai W, Palittapongarnpim P, Juthayothin T, __Thawornwattana Y__, Viratyosin W, Tongsima S, Mahasirimongkol S, Tokunaga K, Palittapongarnpim P<br>
+  _Sci. Rep._ 2019, 9:13718
+- [__Coalescent analysis of phylogenomic data confidently resolves the species relationships in the _Anopheles_ gambiae species complex__](https://doi.org/10.1093/molbev/msy158) 🦟<br>
+  __Thawornwattana Y__, Dalquen D, Yang Z<br>
+  _Mol. Biol. Evol._ 2018, 35(10):2512–2527
+- [__Designing simple and efficient Markov chain Monte Carlo proposal kernels__](https://doi.org/10.1214/17-BA1084)<br>
+  __Thawornwattana Y__, Dalquen D, Yang Z<br>
+  _Bayesian Anal._ 2018, 13(4):1037–1063
+- [__Uncertainty in the timing of origin of animals and the limits of precision in molecular timescales__](https://doi.org/10.1016/j.cub.2015.09.066)<br>
+  dos Reis M, __Thawornwattana Y__, Angelis K, Telford MJ, Donoghue PC, Yang Z<br>
+  _Curr. Biol._ 2015, 25(22):2939–2950 [[data](https://doi.org/10.6084/m9.figshare.1525089.v1)]
 
 ---
 
 ## Talks  [⤴️](#top)
 
-- 2025/12\.&emsp;"Detecting gene flow from genomic data" at [4th AsiaEvo Conference](https://2025asiaevoconf.casconf.cn/), Kunming, China
+- 2025/12\.&emsp;"Detecting gene flow from genomic data: Insights from simulation studies" at [4th AsiaEvo Conference](https://2025asiaevoconf.casconf.cn/), Kunming, China [[slides](https://drive.google.com/file/d/1p0UpwH8ZeoXke5xHrLNpl_vGec3_1mAO/view?usp=sharing)]
 - 2025/11\.&emsp;"Hybridization, introgression and speciation in _Heliconius_ butterflies: Inferring introgression history from whole-genome sequence data _Anopheles_ mosquitoes" at [Taxon-Omics Seminar Series on Reticulate Evolution](https://www.taxon-omics.com/news-events-bl/09-july-2025--fxzty-cbre3), with James Mallet [[slides](https://drive.google.com/file/d/1PgGEUos9cyAvies79nPnM3infjk3qa-w/view?usp=sharing)]
 - 2025/09\.&emsp;"Inferring gene flow between cryptic sibling species of _Anopheles_ mosquitoes" at [Mathematical and Statistical Aspects of Molecular Biology Annual Meeting (MASAMB) meeting](https://www.ebi.ac.uk/goldman-srv/masamb/), Natural History Museum, London, UK
 - 2025/07\.&emsp;"Species complexes of malaria mosquitoes in North America" at [SMBE meeting](https://smbe2025.scimeeting.cn/), Beijing, China [slides _coming soon_]
@@ -110,7 +144,7 @@ Research areas: phylogenetics, evolutionary genomics, mosquito diversity and evo
 
 ## Teaching / Workshops / Conferences  [⤴️](#top)
 
-- 2025/12\.&emsp;Symposium on "Efficient computation for studying molecular evolution in the genomic era: from theory to practice", with [Sishuo Wang](https://mic.cuhk.edu.hk/wang-sishuo/) (Chinese University of Hong Kong) and [Xiyun Jiao](https://www.sustech.edu.cn/en/faculties/jiaoxiyun.html) (Southern University of Science and Technology) at [4th AsiaEvo Conference](https://2025asiaevoconf.casconf.cn/), Kunming, China
+- 2025/12\.&emsp;Symposium on "Efficient computation for studying molecular evolution in the genomic era: from theory to practice", with [Sishuo](https://mic.cuhk.edu.hk/wang-sishuo/) [Wang](https://sishuowang2022.wordpress.com/) (Chinese University of Hong Kong) and [Xiyun Jiao](https://www.sustech.edu.cn/en/faculties/jiaoxiyun.html) (Southern University of Science and Technology) at [4th AsiaEvo Conference](https://2025asiaevoconf.casconf.cn/), Kunming, China
 - 2025/11\.&emsp;4-day [Workshop on Computational Genomics](https://bsee.bnu.edu.cn/docs/2025-07/b1db7342d2184cc889252796045ae275.pdf) at Beijing Normal University, Beijing, China
 - 2025/04\.&emsp;2-day [Bayesian Phylogenetics Workshop](https://systass.org/workshop-bayesian-phylogenetics/) at UCL, UK [[slides](https://drive.google.com/file/d/1pUI0i5gSangvzbdZMdIVB_VFahJC8k1Q/view?usp=sharing)]
 - 2025/03\.&emsp;4-day [Workshop on Computational Genomics](https://sishuowang2022.wordpress.com/2025/02/23/ad-computational-genomics-workshop-in-science-park-hong-kong-sar/) at Sun Yat-sen University Institute of Advanced Studies Hong Kong [[slides](https://drive.google.com/file/d/1p65HHKWLQIcJF4rro_ZjGyG42lf90UEx/view?usp=sharing), [tutorials](https://github.com/bpp/bpp-tutorial-geneflow/wiki)]
@@ -131,6 +165,7 @@ Research areas: phylogenetics, evolutionary genomics, mosquito diversity and evo
 
 ## On Github  [⤴️](#top)
 
+* [`multilocus`](https://github.com/ythaworn/multilocus): A bioinformatic pipeline for generating multilocus sequence alignments from short-read sequencing data
 * [`iimmsci2s`](https://github.com/ythaworn/iimmsci2s): Calculate asymptotic maximum likelihood estimates, also known as pseudo-true parameter values, of parameters under the multispecies coalescent model with pulse introgression or continuous migration
 * [`make-3s-data`](https://github.com/ythaworn/make-3s-data): Phase multilocus data and sample 3 sequences per locus for 3s analysis
 * [`mtbtyper`](https://github.com/ythaworn/mtbtyper): Genotype strains of _Mycobacterium tuberculosis_ isolates from whole-genome sequence data
@@ -151,4 +186,13 @@ Research areas: phylogenetics, evolutionary genomics, mosquito diversity and evo
 
 ---
 
-Last updated: Nov 2025
+## Bio  [⤴️](#top)
+
+After receiving degrees in biology and statistics/computer science from University College London (UCL), I spent the next few years in Thailand, working mainly at the [Center for Microbial Genomics (CENMIG)](https://microbiology.sc.mahidol.ac.th/cenmig/), Mahidol University, where I focused on pathogen genomics, particularly _Mycobacterium tuberculosis_.  I went on to do my PhD with [James Mallet](https://mallet.oeb.harvard.edu/) at Harvard University, [Department of Organismic and Evolutionary Biology (OEB)](https://oeb.harvard.edu/), where I used genomic data to study gene flow in _Heliconius_ butterflies and _Anopheles_ mosquitoes. My genomic and phylogenetic analyses of diverse _Anopheles_ species laid the groundwork for using _Anopheles_ mosquitoes to study speciation and vector evolution.  I also studied infectious disease biology and epidemiology at the Harvard T.H. Chan School of Public Health focusing on malaria and global health.
+
+After my docterate, I was a Research Fellow in Ziheng Yang's group at UCL. I continue to work on evolutionary genomics of _Anopheles_ mosquitoes and gene flow.
+
+---
+
+
+Last updated: Jan 2026
