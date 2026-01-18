@@ -15,16 +15,16 @@ Jump to:
 🌱 [Training](#training--research-experience--️) |
 🐳 [Publications](#publications--️) |
 🎤 [Talks](#talks--️) | 
-💬 [Teaching](#teaching--️)
+💬 [Teaching](#teaching--workshops--conferences--)
 
-More:
 🐌 [Current projects](#current-projects--️) | 
-[Google Scholar](https://scholar.google.com/citations?user=DjlTi4gAAAAJ) |
-[ResearchGate](https://www.researchgate.net/profile/Yuttapong-Thawornwattana-2) |
 🐛 [Tutorials](#tutorials--️) | 
 🐙 [On Github](#on-github--️) |
 🪸 [Bio](#bio--️) |
 🪲 [Research](#research--️)
+
+[Google Scholar](https://scholar.google.com/citations?user=DjlTi4gAAAAJ) |
+[ResearchGate](https://www.researchgate.net/profile/Yuttapong-Thawornwattana-2)
 
 
 ## Hi there 👋
@@ -170,7 +170,7 @@ Research areas: phylogenetics, evolutionary genomics, mosquito diversity and evo
 * [`make-3s-data`](https://github.com/ythaworn/make-3s-data): Phase multilocus data and sample 3 sequences per locus for 3s analysis
 * [`mtbtyper`](https://github.com/ythaworn/mtbtyper): Genotype strains of _Mycobacterium tuberculosis_ isolates from whole-genome sequence data
 * [`group-specific-variants`](https://github.com/ythaworn/group-specific-variants): Identify group-specific single-nucleotide variants from multiple sequence alignment
-* [`dvrcaller`](https://github.com/ythaworn/dvrcaller): Delect DVR (direct variable repeat) deletion pattern in the CRISPR region of _Mycobacterium tuberculosis_ using whole-genome sequence data
+* [`dvrcaller`](https://github.com/ythaworn/dvrcaller): Detect DVR (direct variable repeat) deletion pattern in the CRISPR region of _Mycobacterium tuberculosis_ from whole-genome sequence data
 * [`snpplet`](https://github.com/ythaworn/snpplet): [Nextflow](https://www.nextflow.io/) pipeline for short variant calling (SNPs) from paired-end short-read genome sequencing data
 
 ---
@@ -190,7 +190,7 @@ Research areas: phylogenetics, evolutionary genomics, mosquito diversity and evo
 
 After receiving degrees in biology and statistics/computer science from University College London (UCL), I spent the next few years in Thailand, working mainly at the [Center for Microbial Genomics (CENMIG)](https://microbiology.sc.mahidol.ac.th/cenmig/), Mahidol University, where I focused on pathogen genomics, particularly _Mycobacterium tuberculosis_.  I went on to do my PhD with [James Mallet](https://mallet.oeb.harvard.edu/) at Harvard University, [Department of Organismic and Evolutionary Biology (OEB)](https://oeb.harvard.edu/), where I used genomic data to study gene flow in _Heliconius_ butterflies and _Anopheles_ mosquitoes. My genomic and phylogenetic analyses of diverse _Anopheles_ species laid the groundwork for using _Anopheles_ mosquitoes to study speciation and vector evolution.  I also studied infectious disease biology and epidemiology at the Harvard T.H. Chan School of Public Health focusing on malaria and global health.
 
-After my docterate, I was a Research Fellow in Ziheng Yang's group at UCL. I continue to work on evolutionary genomics of _Anopheles_ mosquitoes and gene flow.
+After my docterate, I was a Research Fellow in [Ziheng Yang's group](https://www.ucl.ac.uk/life-sciences/yang-lab) at UCL. I continue to work on evolutionary genomics of _Anopheles_ mosquitoes and gene flow.
 
 ---
 
