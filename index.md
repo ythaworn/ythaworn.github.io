@@ -48,11 +48,12 @@ Jump to:
 
 ## Research  [⤴️](#top)
 
-How do insects become vectors of human diseases?  Why are some species better vectors than others?  How are they adapting to changing environments and what does it mean for transmission of vector-borne diseases?  To answer these questions, I use malaria mosquitoes in the genus _Anopheles_ as model systems.  They are powerful for studying not only fundamental questions in evolutionary biology about species divergence and speciation but also practical questions in infectious disease biology and epidemiology ranging from vector surveillance to disease eradication and global health.
+How do insects become vectors of human diseases?  Why are some species better vectors than others?  How are they adapting to changing environments and what does it mean for transmission of vector-borne diseases?  I use malaria mosquitoes in the genus _Anopheles_ as study systems to answer these questions. They are also useful for studying fundamental questions in evolutionary biology such as species, speciation, introgression, adaptation and trait evolution.
 
-More broadly, I study how populations and species evolve, and how traits of medical and epidemiological interests arise and change over time using genomic data and statistical approaches in phylogenetics and population genetics, particularly multispecies coalescent methods.
+* __Theme 1. Mosquito biodiversity, genomics and evolution.__ Mosquito systematics, species phylogenies, introgression, species complexes, trait evolution.
 
-Research areas: phylogenetics, evolutionary genomics, mosquito diversity and evolution, malaria and global health, computational statistics
+* __Theme 2. Vector ecology and disease transmission.__ Vector community, population structure, vector-parasite interactions.
+
 
 ---
 
@@ -64,6 +65,9 @@ Research areas: phylogenetics, evolutionary genomics, mosquito diversity and evo
 [ORCID](https://orcid.org/0000-0003-2745-163X) |
 [Web of Science](https://www.webofscience.com/wos/author/record/1865943)
 
+- [__Utility of subspecies in mosquito taxonomy (Diptera: Culicidae)__](https://doi.org/10.1093/zoolinnean/zlag033) 🦟<br>
+  __Thawornwattana Y__, Mallet J<br>
+  _Zool. J. Linn. Soc._ 2026, zlag033
 - [__On the robustness of Bayesian inference of gene flow to intragenic recombination and natural selection__](https://doi.org/10.1093/molbev/msaf327) 🧬<br>
   __Thawornwattana Y__, Rannala B, Yang Z<br>
   _Mol. Biol. Evol._ 2026, 43(1):msaf327 [[data & scripts](https://doi.org/10.5281/zenodo.17019348)]
