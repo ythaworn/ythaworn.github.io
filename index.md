@@ -1,15 +1,13 @@
 <a id="top"></a>
 <a href="url"><img src="public/yuttapong.png" align="left" height="150"></a>
 
-### Mosquito diversity and evolution in a changing world
+### Mosquito diversity and evolution
 
-#### Research Fellow, [Ziheng Yang's group](https://www.ucl.ac.uk/life-sciences/yang-lab)
+#### [Department of Medical Entomology](https://www.tm.mahidol.ac.th/entomology/), Faculty of Tropical Medicine, Mahidol University, Thailand
 
-#### [Department of Genetics, Evolution and Environment (GEE)](https://www.ucl.ac.uk/life-sciences/gee), University College London (UCL), UK
+[profile page](https://murex.mahidol.ac.th/en/persons/yuttapong-thawornwattana/)
 
-[UCL page](https://profiles.ucl.ac.uk/45794-yuttapong-thawornwattana)
-
-📬 gmail.com, ucl.ac.uk: yuttapong.thawornwattana
+📬 mahidol.ac.th: yuttapong.tha
 
 Jump to:
 🌱 [Training](#training--research-experience--️) |
@@ -30,13 +28,14 @@ Jump to:
 ## Hi there 👋
 
 - 🦟 [Currently working on](#current-projects--️) the phylogeny and evolution of _Anopheles_ mosquitoes
-- 🐝 Currently learning: genome assembly, vector-borne disease biology and epidemiology
-- 🐛 Looking to collaborate on mosquito genomics, phylogeny and evolution, inference of gene flow from genomic data
+- 🐝 Currently learning: biology and ecology of insect vectors, vector-borne zoonotic diseases
+- 🐛 Looking to collaborate on mosquito genomics, phylogeny and evolution, inferring gene flow from genomic data
 
 ---
 
 ## Training & Research Experience  [⤴️](#top)
 
+- 🦟 2026-present\.&emsp;Lecturer, [Department of Medical Entomology](https://www.tm.mahidol.ac.th/entomology/), Faculty of Tropical Medicine, Mahidol University, Thailand
 - 🔩 2024-2026\.&emsp;Research Fellow, [UCL Department of Genetics, Evolution and Environment (GEE)](https://www.ucl.ac.uk/biosciences/gee), UK (with [Ziheng Yang](http://abacus.gene.ucl.ac.uk/))
 - 🦋 2020-2024\.&emsp;PhD [Organismic and Evolutionary Biology (OEB)](https://oeb.harvard.edu/), Harvard University, USA (with [James Mallet](https://mallet.oeb.harvard.edu/) and [Ziheng Yang](http://abacus.gene.ucl.ac.uk/)), with Interdisciplinary Concentration in Infectious Disease Epidemiology ([ID Epi](https://hsph.harvard.edu/degrees-and-programs/concentrations/epidemiology-infectious-diseases/)) from Harvard T.H. Chan School of Public Health
 - 🦠 2018-2020\.&emsp;Research assistant, [Center for Microbial Genomics (CENMIG)](https://microbiology.sc.mahidol.ac.th/cenmig/), Department of Microbiology, Faculty of Science, Mahidol University, Thailand (with [Prasit Palittapongarnpim](https://microbiology.sc.mahidol.ac.th/departmental-members/prasit-palittapongarnpim/) and [Pakorn Aiewsakun](https://microbiology.sc.mahidol.ac.th/departmental-members/pakorn-aiewsakun/))
@@ -48,11 +47,15 @@ Jump to:
 
 ## Research  [⤴️](#top)
 
-How do insects become vectors of human diseases?  Why are some species better vectors than others?  How are they adapting to changing environments and what does it mean for transmission of vector-borne diseases?  I use malaria mosquitoes in the genus _Anopheles_ as study systems to answer these questions. They are also useful for studying fundamental questions in evolutionary biology such as species, speciation, introgression, adaptation and trait evolution.
+How do insects become vectors of human diseases?  Why are some species better vectors than others?  How are they adapting to changing environments and what does it mean for transmission of vector-borne diseases?  I address these questions using mosquitoes in the genus _Anopheles_, some of which transmit human malaria. _Anopheles_ mosquitoes are also useful for studying fundamental questions in evolutionary biology such as species, speciation, introgression, adaptation and trait evolution.
 
-* __Theme 1. Mosquito biodiversity, genomics and evolution.__ Mosquito systematics, species phylogenies, introgression, species complexes, trait evolution.
+Themes:
 
-* __Theme 2. Vector ecology and disease transmission.__ Vector community, population structure, vector-parasite interactions.
+* Mosquito diversity, systematics, genomics and evolution
+
+* Mosquito ecology and disease transmission
+
+* Mosquito-pathogen interactions
 
 
 ---
@@ -67,13 +70,13 @@ How do insects become vectors of human diseases?  Why are some species better ve
 
 - [__Utility of subspecies in mosquito taxonomy (Diptera: Culicidae)__](https://doi.org/10.1093/zoolinnean/zlag033) 🦟<br>
   __Thawornwattana Y__, Mallet J<br>
-  _Zool. J. Linn. Soc._ 2026, zlag033
+  _Zool. J. Linn. Soc._ 2026, 206(4):zlag033
 - [__On the robustness of Bayesian inference of gene flow to intragenic recombination and natural selection__](https://doi.org/10.1093/molbev/msaf327) 🧬<br>
   __Thawornwattana Y__, Rannala B, Yang Z<br>
   _Mol. Biol. Evol._ 2026, 43(1):msaf327 [[data & scripts](https://doi.org/10.5281/zenodo.17019348)]
-- [__A new skipper butterfly from Panama and Colombia with its genome (Lepidoptera: Hesperiidae: Eudaminae)__](https://doi.org/10.1093/zoolinnean/zlaf133) 🦋<br>
+- [__A new skipper butterfly from Panama and Colombia with its genome (Lepidoptera: Hesperiidae: Eudaminae)__](https://academic.oup.com/zoolinnean/article/doi/10.1093/zoolinnean/zlaf133/8296906?utm_source=authortollfreelink&utm_campaign=zoolinnean&utm_medium=email&guestAccessKey=c12237aa-861d-4617-a987-cd2f7d74db9c) 🦋<br>
   Nakahara S, __Thawornwattana Y__, Scott TJ, Vega Y, Keegan K, Calhoun JV, MacDonald JR, Thurman A<br>
-  _Zool. J. Linn. Soc._ 2025, 205(2):zlaf133 [[sequencing data](https://www.ncbi.nlm.nih.gov/bioproject/PRJNA1213337); [datasets](https://doi.org/10.5281/zenodo.16610584)] [[RG](https://www.researchgate.net/publication/396776131_A_new_skipper_butterfly_from_Panama_and_Colombia_with_its_genome_Lepidoptera_Hesperiidae_Eudaminae)]
+  _Zool. J. Linn. Soc._ 2025, 205(2):zlaf133 [[sequencing data](https://www.ncbi.nlm.nih.gov/bioproject/PRJNA1213337)] [[datasets](https://doi.org/10.5281/zenodo.16610584)]
 - [__Inference of gene flow between species from genomic data when the mode, direction and lineages are misspecified__](https://doi.org/10.1093/molbev/msaf121) 🧬<br>
   __Thawornwattana Y__, Flouri T, Mallet J, Yang Z<br>
   _Mol. Biol. Evol._ 2025, 42(6):msaf121 [[C code](https://github.com/ythaworn/iimmsci2s)]
@@ -124,6 +127,7 @@ How do insects become vectors of human diseases?  Why are some species better ve
 
 ## Talks  [⤴️](#top)
 
+- 2026/12\.&emsp;"Improving entomological surveillance using population genomics" at [JITMM](https://www.jitmm.com/), Bangkok, Thailand
 - 2025/12\.&emsp;"Detecting gene flow from genomic data: Insights from simulation studies" at [4th AsiaEvo Conference](https://2025asiaevoconf.casconf.cn/), Kunming, China [[slides](https://drive.google.com/file/d/1p0UpwH8ZeoXke5xHrLNpl_vGec3_1mAO/view?usp=sharing)]
 - 2025/11\.&emsp;"Hybridization, introgression and speciation in _Heliconius_ butterflies: Inferring introgression history from whole-genome sequence data _Anopheles_ mosquitoes" at [Taxon-Omics Seminar Series on Reticulate Evolution](https://www.taxon-omics.com/news-events-bl/09-july-2025--fxzty-cbre3), with James Mallet [[slides](https://drive.google.com/file/d/1PgGEUos9cyAvies79nPnM3infjk3qa-w/view?usp=sharing)]
 - 2025/09\.&emsp;"Inferring gene flow between cryptic sibling species of _Anopheles_ mosquitoes" at [Mathematical and Statistical Aspects of Molecular Biology Annual Meeting (MASAMB) meeting](https://www.ebi.ac.uk/goldman-srv/masamb/), Natural History Museum, London, UK
@@ -160,9 +164,9 @@ How do insects become vectors of human diseases?  Why are some species better ve
 
 ## Tutorials  [⤴️](#top)
 
--  Generating multilocus datasets from genome sequencing data - [slides](https://drive.google.com/file/d/1p65HHKWLQIcJF4rro_ZjGyG42lf90UEx/view?usp=sharing), [code](https://github.com/ythaworn/multilocus)
--  Bayesian linear regression (2018) - [slides](https://drive.google.com/file/d/1UnN1ZU3x6KsCyKU4Ck_AsWozVu_CR10S/view?usp=sharing)
--  Dirichlet process mixture (DPM) model (2018) - [slides](https://drive.google.com/file/d/1NPN_WF7YWXZFLkUjvIhJH10roRAm81uE/view?usp=sharing)
+-  Generating multilocus datasets from genome sequencing data [[slides](https://drive.google.com/file/d/1p65HHKWLQIcJF4rro_ZjGyG42lf90UEx/view?usp=sharing)] [[code](https://github.com/ythaworn/multilocus)]
+-  Bayesian linear regression (2018) [[slides](https://drive.google.com/file/d/1UnN1ZU3x6KsCyKU4Ck_AsWozVu_CR10S/view?usp=sharing)]
+-  Dirichlet process mixture (DPM) model (2018) [[slides](https://drive.google.com/file/d/1NPN_WF7YWXZFLkUjvIhJH10roRAm81uE/view?usp=sharing)]
 -  [TensorFlow tutorial (2016)](https://www.homepages.ucl.ac.uk/~zcbtfu5/)
 
 ---
@@ -181,6 +185,7 @@ How do insects become vectors of human diseases?  Why are some species better ve
 
 ## Current projects  [⤴️](#top)
 
+- Sylvatic transmission of zoonotic vector-borne diseases
 - Phylogeny and evolution of _Anopheles_ mosquitoes (Diptera: Culicidae: Anophelinae) in North America: [specimens](https://ythaworn.github.io/anopheles/specimens.html), [COI](https://ythaworn.github.io/anopheles/coi.html), [Crucians COI](https://ythaworn.github.io/anopheles/crucians.html)
 - Species-level phylogeny of mosquitoes (Diptera: Culicidae)
 - Methods for inferring gene flow from genomic sequence data: theory, statistical inference and applications
@@ -192,11 +197,9 @@ How do insects become vectors of human diseases?  Why are some species better ve
 
 ## Bio  [⤴️](#top)
 
-After receiving degrees in biology and statistics/computer science from University College London (UCL), I spent the next few years in Thailand, working mainly at the [Center for Microbial Genomics (CENMIG)](https://microbiology.sc.mahidol.ac.th/cenmig/), Mahidol University, where I focused on pathogen genomics, particularly _Mycobacterium tuberculosis_.  I went on to do my PhD with [James Mallet](https://mallet.oeb.harvard.edu/) at Harvard University, [Department of Organismic and Evolutionary Biology (OEB)](https://oeb.harvard.edu/), where I used genomic data to study gene flow in _Heliconius_ butterflies and _Anopheles_ mosquitoes. My genomic and phylogenetic analyses of diverse _Anopheles_ species laid the groundwork for using _Anopheles_ mosquitoes to study speciation and vector evolution.  I also studied infectious disease biology and epidemiology at the Harvard T.H. Chan School of Public Health focusing on malaria and global health.
-
-After my docterate, I was a Research Fellow in [Ziheng Yang's group](https://www.ucl.ac.uk/life-sciences/yang-lab) at UCL. I continue to work on evolutionary genomics of _Anopheles_ mosquitoes and gene flow.
+After receiving degrees in biology and statistics/computer science from University College London (UCL), I spent the next few years in Thailand, working mainly at the [Center for Microbial Genomics (CENMIG)](https://microbiology.sc.mahidol.ac.th/cenmig/), Mahidol University, where I focused on pathogen genomics, particularly _Mycobacterium tuberculosis_.  I went on to do my PhD with [James Mallet](https://mallet.oeb.harvard.edu/) at Harvard University, [Department of Organismic and Evolutionary Biology (OEB)](https://oeb.harvard.edu/), where I used genomic data to study gene flow in _Heliconius_ butterflies and _Anopheles_ mosquitoes. My genomic and phylogenetic analyses of diverse _Anopheles_ species laid the groundwork for using _Anopheles_ mosquitoes to study speciation and vector evolution.  I also studied infectious disease biology and epidemiology at the Harvard T.H. Chan School of Public Health focusing on malaria and global health. After my docterate, I was a Research Fellow in [Ziheng Yang's group](https://www.ucl.ac.uk/life-sciences/yang-lab) at UCL, where I continued to work on evolutionary genomics of _Anopheles_ mosquitoes and gene flow.
 
 ---
 
 
-Last updated: Jan 2026
+Last updated: Aug 2026
